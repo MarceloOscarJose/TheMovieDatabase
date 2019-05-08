@@ -28,30 +28,30 @@
             </objects>
             <point key="canvasLocation" x="-339" y="-277"/>
         </scene>
-        <!--movies-->
+        <!--Movie-->
         <scene sceneID="RJJ-fH-clo">
             <objects>
-                <viewControllerPlaceholder storyboardName="movies" id="iDa-P0-UlI" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Movie" id="iDa-P0-UlI" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Movies" image="movies" id="JTM-DL-AE8"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wN7-2v-hEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="178" y="-348"/>
         </scene>
-        <!--shows-->
+        <!--Show-->
         <scene sceneID="jYy-Ox-kBa">
             <objects>
-                <viewControllerPlaceholder storyboardName="shows" id="N6a-h5-dX0" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Show" id="N6a-h5-dX0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Shows" image="shows" id="vK2-AR-fAU"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y9q-6M-kqO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="175" y="-277"/>
         </scene>
-        <!--search-->
+        <!--Search-->
         <scene sceneID="vKz-bd-6Lt">
             <objects>
-                <viewControllerPlaceholder storyboardName="search" id="qy4-s8-EK7" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Search" id="qy4-s8-EK7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" image="search" id="ogI-d8-3Oa"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dWa-TC-Vgi" userLabel="First Responder" sceneMemberID="firstResponder"/>
