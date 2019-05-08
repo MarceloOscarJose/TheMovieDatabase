@@ -10,12 +10,11 @@ import Foundation
 
 class MovieService: GeneralService {
 
-    let upcommingURL = "movie/upcoming/"
+    func fetchUpcommingService(categorogy: MovieServiceCategory, page: Int, responseHandler: @escaping (_ response: MovieResult) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
 
-    func fetchUpcommingService(page: Int, responseHandler: @escaping (_ response: MovieResult) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+        let parameters: [String: String] = ["page": "\(page)"]
 
-        let parameters: [String: String] = ["region": "US", "page": "\(page)"]
-        self.executeRequest(url: self.upcommingURL, paramaters: parameters as [String : AnyObject], responseHandler: { (data) in
+        self.executeRequest(url: categorogy.rawValue, paramaters: parameters as [String : AnyObject], responseHandler: { (data) in
             do {
                 let movieResult = try JSONDecoder().decode(MovieResult.self, from: data)
                 responseHandler(movieResult)
@@ -26,4 +25,10 @@ class MovieService: GeneralService {
             errorHandler(error)
         }
     }
+}
+
+enum MovieServiceCategory: String {
+    case popular = "movie/popular"
+    case topRated = "movie/top_rated"
+    case upcomming = "movie/upcoming/"
 }
