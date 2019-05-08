@@ -224,6 +224,9 @@
 		9C3103022282F4B90095FE29 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
+				9C31031B22833DA30095FE29 /* Controller */,
+				9C31031A22833D9D0095FE29 /* View */,
+				9C31031922833D950095FE29 /* Model */,
 				9C310313228332CF0095FE29 /* Service */,
 				9C3103062282F4FF0095FE29 /* Movie.storyboard */,
 			);
@@ -276,6 +279,27 @@
 				9C310317228333490095FE29 /* MovieResult.swift */,
 			);
 			path = Codeable;
+			sourceTree = "<group>";
+		};
+		9C31031922833D950095FE29 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9C31031A22833D9D0095FE29 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9C31031B22833DA30095FE29 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		CECF56638878E1B2C7216899 /* Frameworks */ = {

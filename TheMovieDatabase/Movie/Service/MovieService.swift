@@ -10,7 +10,7 @@ import Foundation
 
 class MovieService: GeneralService {
 
-    func fetchUpcommingService(categorogy: MovieServiceCategory, page: Int, responseHandler: @escaping (_ response: MovieResult) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    func fetchMovies(categorogy: MovieServiceCategory, page: Int, responseHandler: @escaping (_ response: MovieResult) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
 
         let parameters: [String: String] = ["page": "\(page)"]
 

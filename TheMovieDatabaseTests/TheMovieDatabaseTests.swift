@@ -25,7 +25,7 @@ class TheMovieDatabaseTests: XCTestCase {
 
         let expectation = self.expectation(description: "Scaling")
 
-        service.fetchUpcommingService(categorogy: .popular, page: 1, responseHandler: { (data) in
+        service.fetchMovies(categorogy: .popular, page: 1, responseHandler: { (data) in
             movideData = data
             expectation.fulfill()
         }) { (_) in
