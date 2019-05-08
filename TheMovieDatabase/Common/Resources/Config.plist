@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   Config.plist
+   TheMovieDatabase
+
+   Created by Marcelo José on 08/05/2019.
+   Copyright (c) 2019 Marcelo José. All rights reserved.
+-->
+<plist version="1.0">
+    <dict>
+        <key>ImagesURL</key>
+        <string>https://image.tmdb.org/t/p/w185_and_h278_bestv2</string>
+        <key>BaseURL</key>
+        <string>https://api.themoviedb.org/3/</string>
+        <key>ApiKey</key>
+        <string>bb9ac5448ad8593af996f124a80e868e</string>
+    </dict>
+</plist>
