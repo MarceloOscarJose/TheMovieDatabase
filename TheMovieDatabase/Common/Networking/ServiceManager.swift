@@ -11,11 +11,7 @@ import Alamofire
 class GeneralService: NSObject {
 
     public func executeRequest(url: String, paramaters: [String: AnyObject], responseHandler: @escaping (_ response: Data) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        let headers = [
-            "Content-Type": "application/json;charset=utf-8",
-            "Accept": "application/json",
-        ]
-
+        let headers = ["Content-Type": "application/json;charset=utf-8", "Accept": "application/json",]
         var params = paramaters
         params["api_key"] = ConfigManager.sharedInstance.apiKey as AnyObject
         params["language"] = "es-ES" as AnyObject
