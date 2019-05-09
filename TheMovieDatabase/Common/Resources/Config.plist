@@ -10,7 +10,7 @@
 <plist version="1.0">
     <dict>
         <key>ImagesURL</key>
-        <string>https://image.tmdb.org/t/p/w185_and_h278_bestv2</string>
+        <string>https://image.tmdb.org/t/p/w185_and_h278_bestv2/</string>
         <key>BaseURL</key>
         <string>https://api.themoviedb.org/3/</string>
         <key>ApiKey</key>

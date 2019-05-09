@@ -22,38 +22,38 @@ struct MovieResult: Codable {
         case totalPages = "total_pages"
         case results
     }
+}
 
-    public struct Movie: Codable {
+public struct Movie: Codable {
 
-        var id: Int
-        var voteCount: Int
-        var video: Bool
-        var voteAverage: Double
-        var title: String
-        var popularity: Double
-        var genreIds: [Int]
-        var posterPath: String?
-        var originalLanguage: String
-        var originalTitle: String
-        var backdropPath: String?
-        var overview: String
-        var releaseDate: String
+    var id: Int
+    var voteCount: Int
+    var video: Bool
+    var voteAverage: Double
+    var title: String
+    var popularity: Double
+    var genreIds: [Int]
+    var posterPath: String?
+    var originalLanguage: String
+    var originalTitle: String
+    var backdropPath: String?
+    var overview: String
+    var releaseDate: String
 
-        enum CodingKeys: String, CodingKey
-        {
-            case id
-            case voteCount = "vote_count"
-            case video
-            case voteAverage = "vote_average"
-            case title
-            case popularity
-            case genreIds = "genre_ids"
-            case posterPath = "poster_path"
-            case originalLanguage = "original_language"
-            case originalTitle = "original_title"
-            case backdropPath = "backdrop_path"
-            case overview
-            case releaseDate = "release_date"
-        }
+    enum CodingKeys: String, CodingKey
+    {
+        case id
+        case voteCount = "vote_count"
+        case video
+        case voteAverage = "vote_average"
+        case title
+        case popularity
+        case genreIds = "genre_ids"
+        case posterPath = "poster_path"
+        case originalLanguage = "original_language"
+        case originalTitle = "original_title"
+        case backdropPath = "backdrop_path"
+        case overview
+        case releaseDate = "release_date"
     }
 }

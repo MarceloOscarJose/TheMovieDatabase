@@ -6,6 +6,7 @@ target 'TheMovieDatabase' do
 
   # Pods for TheMovieDatabase
   pod 'Alamofire'
+  pod 'AlamofireImage'
 
   target 'TheMovieDatabaseTests' do
     inherit! :search_paths
