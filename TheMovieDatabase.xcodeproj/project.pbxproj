@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9C3102CD2282A12E0095FE29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3102CC2282A12E0095FE29 /* AppDelegate.swift */; };
-		9C3102CF2282A12E0095FE29 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3102CE2282A12E0095FE29 /* MainViewController.swift */; };
+		9C3102CF2282A12E0095FE29 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3102CE2282A12E0095FE29 /* MainTabViewController.swift */; };
 		9C3102D22282A12E0095FE29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C3102D02282A12E0095FE29 /* Main.storyboard */; };
 		9C3102D52282A12E0095FE29 /* TheMovieDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C3102D32282A12E0095FE29 /* TheMovieDatabase.xcdatamodeld */; };
 		9C3102D72282A12F0095FE29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C3102D62282A12F0095FE29 /* Assets.xcassets */; };
@@ -62,7 +62,7 @@
 		91C1C47F11DC5F3F17BC4428 /* Pods-TheMovieDatabase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDatabase.release.xcconfig"; path = "Target Support Files/Pods-TheMovieDatabase/Pods-TheMovieDatabase.release.xcconfig"; sourceTree = "<group>"; };
 		9C3102C92282A12E0095FE29 /* TheMovieDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C3102CC2282A12E0095FE29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9C3102CE2282A12E0095FE29 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9C3102CE2282A12E0095FE29 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		9C3102D12282A12E0095FE29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9C3102D42282A12E0095FE29 /* TheMovieDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheMovieDatabase.xcdatamodel; sourceTree = "<group>"; };
 		9C3102D62282A12F0095FE29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 		9C3103002282EE080095FE29 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9C3102CE2282A12E0095FE29 /* MainViewController.swift */,
+				9C3102CE2282A12E0095FE29 /* MainTabViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -564,7 +564,7 @@
 				9C310315228332E40095FE29 /* MovieService.swift in Sources */,
 				9C31033822847BFA0095FE29 /* ListData.swift in Sources */,
 				9C3102D52282A12E0095FE29 /* TheMovieDatabase.xcdatamodeld in Sources */,
-				9C3102CF2282A12E0095FE29 /* MainViewController.swift in Sources */,
+				9C3102CF2282A12E0095FE29 /* MainTabViewController.swift in Sources */,
 				9C31031D22833EB70095FE29 /* ListModel.swift in Sources */,
 				9C310324228390B70095FE29 /* DateFormatter.swift in Sources */,
 				9C31033622847A1A0095FE29 /* ShowService.swift in Sources */,

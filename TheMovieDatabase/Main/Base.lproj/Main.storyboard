@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Main Tab View Controller-->
         <scene sceneID="tAr-d8-xFr">
             <objects>
-                <tabBarController id="HiA-Kg-JMl" customClass="MainViewController" customModule="TheMovieDatabase" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="HiA-Kg-JMl" customClass="MainTabViewController" customModule="TheMovieDatabase" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="h2d-mC-tAm"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xMU-d6-VIS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  MainTabViewController.swift
 //  TheMovieDatabase
 //
 //  Created by Marcelo José on 08/05/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UITabBarController {
+class MainTabViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
