@@ -50,8 +50,8 @@ class ListViewController: UIViewController {
     var listData: [ListData] = []
     var listDataFilter: [ListData] = []
     var nextPage: Bool = false
-    var movieCategory: MovieServiceCategory = .popular
-    var showCategory: ShowServiceCategory = .popular
+    var movieCategory: MovieCategory = .popular
+    var showCategory: ShowCategory = .popular
 
     convenience init(title: String, type: ListType) {
         self.init(nibName: nil, bundle: nil)
@@ -162,38 +162,5 @@ extension ListViewController: UISearchBarDelegate {
         } else {
             reloadResults(data: self.listData, animated: true)
         }
-    }
-}
-
-// MARK: CollectionView behaviour
-extension ListViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.listDataFilter.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ListCollectionViewCell
-        let movie = self.listDataFilter[indexPath.item]
-        cell.updateCell(image: movie.poster, title: movie.title, overview: movie.overview, date: movie.releaseDate, average: movie.average)
-
-        return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let widthPerItem = self.view.frame.width
-        return CGSize(width: widthPerItem, height: 160)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
     }
 }

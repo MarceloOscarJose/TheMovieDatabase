@@ -10,16 +10,15 @@ import UIKit
 
 class ListModel: NSObject {
 
-    let movieService = MovieService()
-    let showService = ShowService()
+    let listService = ListService()
 
     // Page control
     var moviePage: Int = 1
     var showPage: Int = 1
 
-    func getMovies(nextPage: Bool, category: MovieServiceCategory, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    func getMovies(nextPage: Bool, category: MovieCategory, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         moviePage += nextPage ? 1 : 0
-        movieService.fetchMovies(category: category, page: moviePage, responseHandler: { (result) in
+        listService.fetchMovies(category: category, page: moviePage, responseHandler: { (result) in
             var list: [ListData] = []
             for element in result.results {
                 list.append(ListData(movie: element))
@@ -30,9 +29,9 @@ class ListModel: NSObject {
         }
     }
 
-    func getShows(nextPage: Bool, category: ShowServiceCategory, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    func getShows(nextPage: Bool, category: ShowCategory, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         showPage += nextPage ? 1 : 0
-        showService.fetchShows(category: category, page: showPage, responseHandler: { (result) in
+        listService.fetchShows(category: category, page: showPage, responseHandler: { (result) in
             var list: [ListData] = []
             for element in result.results {
                 list.append(ListData(show: element))

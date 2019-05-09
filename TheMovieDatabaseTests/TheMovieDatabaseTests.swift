@@ -20,7 +20,7 @@ class TheMovieDatabaseTests: XCTestCase {
     }
 
     func testMovieService() {
-        let service = MovieService()
+        let service = ListService()
         var movideData: ListResult!
 
         let expectation = self.expectation(description: "Scaling")
