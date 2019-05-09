@@ -15,8 +15,8 @@ enum ListType {
 
 class ListViewController: UIViewController {
 
-    var controllerTitle: String = ""
-    var controllerType: ListType = .movies
+    var controllerTitle: String!
+    var controllerType: ListType!
     let cellIdentifier = "ListCollectionViewCell"
 
     lazy var refreshControl: UIRefreshControl = {
@@ -24,7 +24,6 @@ class ListViewController: UIViewController {
         refreshControl.tintColor = UIColor.ligthBlue
         return refreshControl
     }()
-
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.backgroundColor = UIColor.white
@@ -34,7 +33,6 @@ class ListViewController: UIViewController {
         collectionView.register(UINib(nibName: cellIdentifier, bundle: .main), forCellWithReuseIdentifier: cellIdentifier)
         return collectionView
     }()
-
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.delegate = self
@@ -134,6 +132,10 @@ class ListViewController: UIViewController {
 // MARK: Search behaviour
 extension ListViewController: UISearchBarDelegate {
 
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
         self.movieCategory = selectedScope == 0 ? .popular : selectedScope == 1 ? .topRated : .upcoming
@@ -150,17 +152,12 @@ extension ListViewController: UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
-        if searchText != "" {
-            self.listDataFilter = self.listData.filter({ (movie: ListData) -> Bool in
-                if movie.title.contains(searchText) {
-                    return true
-                }
-                return false
-            })
+        guard !searchText.isEmpty else { reloadResults(data: self.listData, animated: true); return }
 
-            reloadResults(data: self.listDataFilter, animated: true)
-        } else {
-            reloadResults(data: self.listData, animated: true)
-        }
+        self.listDataFilter = self.listData.filter({ (list: ListData) -> Bool in
+            return list.title.lowercased().contains(searchText.lowercased())
+        })
+
+        reloadResults(data: self.listDataFilter, animated: true)
     }
 }
