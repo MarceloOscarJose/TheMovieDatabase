@@ -16,8 +16,8 @@ class MovieService: GeneralService {
 
         self.executeRequest(url: category.rawValue, paramaters: parameters as [String : AnyObject], responseHandler: { (data) in
             do {
-                let movieResult = try JSONDecoder().decode(MovieResult.self, from: data)
-                responseHandler(movieResult)
+                let listResult = try JSONDecoder().decode(MovieResult.self, from: data)
+                responseHandler(listResult)
             } catch let error {
                 errorHandler(error)
             }

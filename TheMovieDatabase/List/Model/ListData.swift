@@ -8,12 +8,11 @@
 
 import Foundation
 
-struct MovieData {
+struct ListData {
 
     var id: Int
     var title: String
     var average: String
-    var popularity: Double
     var overview: String
     var poster: String?
     var releaseDate: String = ""
@@ -21,9 +20,9 @@ struct MovieData {
     init(movie: Movie) {
         self.id = movie.id
         self.title = movie.title
+
         self.average = movie.voteAverage != 0 ? "⭐️ \(movie.voteAverage)" : "N/R"
         self.overview = movie.overview != "" ? movie.overview : "No description"
-        self.popularity = movie.popularity
 
         if let posterImage = movie.posterPath {
             self.poster = "\(ConfigManager.sharedInstance.imagesURL)\(posterImage)"
@@ -34,6 +33,25 @@ struct MovieData {
 
         let formatter = DateFormatter.longDate
         guard let releaseDate = dateFormatter.date(from: movie.releaseDate) else { return }
+        self.releaseDate = formatter.string(from: releaseDate).capitalizedFirstLetter()
+    }
+
+    init(show: Show) {
+        self.id = show.id
+        self.title = show.name
+
+        self.average = show.voteAverage != 0 ? "⭐️ \(show.voteAverage)" : "N/R"
+        self.overview = show.overview != "" ? show.overview : "No description"
+
+        if let posterImage = show.posterPath {
+            self.poster = "\(ConfigManager.sharedInstance.imagesURL)\(posterImage)"
+        }
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+
+        let formatter = DateFormatter.longDate
+        guard let releaseDate = dateFormatter.date(from: show.firstAirDate) else { return }
         self.releaseDate = formatter.string(from: releaseDate).capitalizedFirstLetter()
     }
 }

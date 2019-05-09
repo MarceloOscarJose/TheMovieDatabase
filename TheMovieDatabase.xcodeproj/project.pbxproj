@@ -8,29 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		9C3102CD2282A12E0095FE29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3102CC2282A12E0095FE29 /* AppDelegate.swift */; };
-		9C3102CF2282A12E0095FE29 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3102CE2282A12E0095FE29 /* ViewController.swift */; };
+		9C3102CF2282A12E0095FE29 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3102CE2282A12E0095FE29 /* MainViewController.swift */; };
 		9C3102D22282A12E0095FE29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C3102D02282A12E0095FE29 /* Main.storyboard */; };
 		9C3102D52282A12E0095FE29 /* TheMovieDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9C3102D32282A12E0095FE29 /* TheMovieDatabase.xcdatamodeld */; };
 		9C3102D72282A12F0095FE29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C3102D62282A12F0095FE29 /* Assets.xcassets */; };
 		9C3102DA2282A12F0095FE29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C3102D82282A12F0095FE29 /* LaunchScreen.storyboard */; };
 		9C3102E52282A12F0095FE29 /* TheMovieDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3102E42282A12F0095FE29 /* TheMovieDatabaseTests.swift */; };
 		9C3102F02282A12F0095FE29 /* TheMovieDatabaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3102EF2282A12F0095FE29 /* TheMovieDatabaseUITests.swift */; };
-		9C3103052282F4F40095FE29 /* Show.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C3103042282F4F40095FE29 /* Show.storyboard */; };
-		9C3103072282F4FF0095FE29 /* Movie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C3103062282F4FF0095FE29 /* Movie.storyboard */; };
 		9C31030A2282F6A00095FE29 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3103092282F6A00095FE29 /* ServiceManager.swift */; };
 		9C31030C2282F6D70095FE29 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31030B2282F6D70095FE29 /* ConfigManager.swift */; };
 		9C31030E2282F7880095FE29 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C31030D2282F7880095FE29 /* Config.plist */; };
 		9C3103112282F8D20095FE29 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C3103102282F8D20095FE29 /* Search.storyboard */; };
 		9C310315228332E40095FE29 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310314228332E40095FE29 /* MovieService.swift */; };
 		9C310318228333490095FE29 /* MovieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310317228333490095FE29 /* MovieResult.swift */; };
-		9C31031D22833EB70095FE29 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31031C22833EB70095FE29 /* MovieModel.swift */; };
-		9C31031F2283573E0095FE29 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31031E2283573E0095FE29 /* MovieViewController.swift */; };
-		9C31032122838EFB0095FE29 /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31032022838EFB0095FE29 /* MovieData.swift */; };
+		9C31031D22833EB70095FE29 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31031C22833EB70095FE29 /* ListModel.swift */; };
+		9C31031F2283573E0095FE29 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31031E2283573E0095FE29 /* ListViewController.swift */; };
 		9C310324228390B70095FE29 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310323228390B70095FE29 /* DateFormatter.swift */; };
 		9C310326228394F30095FE29 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310325228394F30095FE29 /* String.swift */; };
-		9C3103312283B8210095FE29 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31032F2283B8210095FE29 /* MovieCollectionViewCell.swift */; };
-		9C3103322283B8210095FE29 /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3103302283B8210095FE29 /* MovieCollectionViewCell.xib */; };
+		9C3103312283B8210095FE29 /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31032F2283B8210095FE29 /* ListCollectionViewCell.swift */; };
+		9C3103322283B8210095FE29 /* ListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3103302283B8210095FE29 /* ListCollectionViewCell.xib */; };
 		9C3103342284012B0095FE29 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3103332284012B0095FE29 /* UIColor.swift */; };
+		9C31033622847A1A0095FE29 /* ShowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31033522847A1A0095FE29 /* ShowService.swift */; };
+		9C31033822847BFA0095FE29 /* ListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31033722847BFA0095FE29 /* ListData.swift */; };
+		9C31033A2284A34F0095FE29 /* ShowResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3103392284A34F0095FE29 /* ShowResult.swift */; };
 		B2FFD5B1C9D0B85B19BC8F9C /* Pods_TheMovieDatabaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694B12D49F0ABB105EF19554 /* Pods_TheMovieDatabaseTests.framework */; };
 		D3F7349644A6F245565B2650 /* Pods_TheMovieDatabaseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8966AEF746755D515D77076 /* Pods_TheMovieDatabaseUITests.framework */; };
 		DA194A0669015D919AF51652 /* Pods_TheMovieDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CC619762517DFCA660A620 /* Pods_TheMovieDatabase.framework */; };
@@ -62,7 +62,7 @@
 		91C1C47F11DC5F3F17BC4428 /* Pods-TheMovieDatabase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDatabase.release.xcconfig"; path = "Target Support Files/Pods-TheMovieDatabase/Pods-TheMovieDatabase.release.xcconfig"; sourceTree = "<group>"; };
 		9C3102C92282A12E0095FE29 /* TheMovieDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C3102CC2282A12E0095FE29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9C3102CE2282A12E0095FE29 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9C3102CE2282A12E0095FE29 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9C3102D12282A12E0095FE29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9C3102D42282A12E0095FE29 /* TheMovieDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheMovieDatabase.xcdatamodel; sourceTree = "<group>"; };
 		9C3102D62282A12F0095FE29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,22 +74,22 @@
 		9C3102EB2282A12F0095FE29 /* TheMovieDatabaseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheMovieDatabaseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C3102EF2282A12F0095FE29 /* TheMovieDatabaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDatabaseUITests.swift; sourceTree = "<group>"; };
 		9C3102F12282A12F0095FE29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9C3103042282F4F40095FE29 /* Show.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Show.storyboard; sourceTree = "<group>"; };
-		9C3103062282F4FF0095FE29 /* Movie.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Movie.storyboard; sourceTree = "<group>"; };
 		9C3103092282F6A00095FE29 /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		9C31030B2282F6D70095FE29 /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		9C31030D2282F7880095FE29 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		9C3103102282F8D20095FE29 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		9C310314228332E40095FE29 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		9C310317228333490095FE29 /* MovieResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieResult.swift; sourceTree = "<group>"; };
-		9C31031C22833EB70095FE29 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
-		9C31031E2283573E0095FE29 /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
-		9C31032022838EFB0095FE29 /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
+		9C31031C22833EB70095FE29 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		9C31031E2283573E0095FE29 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		9C310323228390B70095FE29 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9C310325228394F30095FE29 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		9C31032F2283B8210095FE29 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
-		9C3103302283B8210095FE29 /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
+		9C31032F2283B8210095FE29 /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCell.swift; sourceTree = "<group>"; };
+		9C3103302283B8210095FE29 /* ListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCollectionViewCell.xib; sourceTree = "<group>"; };
 		9C3103332284012B0095FE29 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		9C31033522847A1A0095FE29 /* ShowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowService.swift; sourceTree = "<group>"; };
+		9C31033722847BFA0095FE29 /* ListData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListData.swift; sourceTree = "<group>"; };
+		9C3103392284A34F0095FE29 /* ShowResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowResult.swift; sourceTree = "<group>"; };
 		BD06FEC69B35307FAA68764C /* Pods-TheMovieDatabaseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDatabaseUITests.debug.xcconfig"; path = "Target Support Files/Pods-TheMovieDatabaseUITests/Pods-TheMovieDatabaseUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8966AEF746755D515D77076 /* Pods_TheMovieDatabaseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieDatabaseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD356CF201A10A141B828F85 /* Pods-TheMovieDatabaseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDatabaseTests.debug.xcconfig"; path = "Target Support Files/Pods-TheMovieDatabaseTests/Pods-TheMovieDatabaseTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,8 +164,7 @@
 				9C31030F2282F8C40095FE29 /* Search */,
 				9C3102FE2282EDEE0095FE29 /* Common */,
 				9C3102FD2282EDE40095FE29 /* Main */,
-				9C3103022282F4B90095FE29 /* Movie */,
-				9C3103032282F4C00095FE29 /* Show */,
+				9C3103022282F4B90095FE29 /* List */,
 				9C3102DB2282A12F0095FE29 /* Info.plist */,
 			);
 			path = TheMovieDatabase;
@@ -202,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				9C310322228390A70095FE29 /* Extension */,
-				9C310312228330F70095FE29 /* View */,
 				9C3103012282EE9D0095FE29 /* Resources */,
 				9C3103082282F67B0095FE29 /* Networking */,
 				9C3102FF2282EDFD0095FE29 /* Model */,
@@ -223,7 +221,7 @@
 		9C3103002282EE080095FE29 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9C3102CE2282A12E0095FE29 /* ViewController.swift */,
+				9C3102CE2282A12E0095FE29 /* MainViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -238,24 +236,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		9C3103022282F4B90095FE29 /* Movie */ = {
+		9C3103022282F4B90095FE29 /* List */ = {
 			isa = PBXGroup;
 			children = (
 				9C31031B22833DA30095FE29 /* Controller */,
 				9C31031A22833D9D0095FE29 /* View */,
 				9C31031922833D950095FE29 /* Model */,
 				9C310313228332CF0095FE29 /* Service */,
-				9C3103062282F4FF0095FE29 /* Movie.storyboard */,
 			);
-			path = Movie;
-			sourceTree = "<group>";
-		};
-		9C3103032282F4C00095FE29 /* Show */ = {
-			isa = PBXGroup;
-			children = (
-				9C3103042282F4F40095FE29 /* Show.storyboard */,
-			);
-			path = Show;
+			path = List;
 			sourceTree = "<group>";
 		};
 		9C3103082282F67B0095FE29 /* Networking */ = {
@@ -274,18 +263,12 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
-		9C310312228330F70095FE29 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		9C310313228332CF0095FE29 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				9C3103162283333D0095FE29 /* Codeable */,
 				9C310314228332E40095FE29 /* MovieService.swift */,
+				9C31033522847A1A0095FE29 /* ShowService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -293,6 +276,7 @@
 		9C3103162283333D0095FE29 /* Codeable */ = {
 			isa = PBXGroup;
 			children = (
+				9C3103392284A34F0095FE29 /* ShowResult.swift */,
 				9C310317228333490095FE29 /* MovieResult.swift */,
 			);
 			path = Codeable;
@@ -301,8 +285,8 @@
 		9C31031922833D950095FE29 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9C31031C22833EB70095FE29 /* MovieModel.swift */,
-				9C31032022838EFB0095FE29 /* MovieData.swift */,
+				9C31033722847BFA0095FE29 /* ListData.swift */,
+				9C31031C22833EB70095FE29 /* ListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,8 +294,8 @@
 		9C31031A22833D9D0095FE29 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9C31032F2283B8210095FE29 /* MovieCollectionViewCell.swift */,
-				9C3103302283B8210095FE29 /* MovieCollectionViewCell.xib */,
+				9C31032F2283B8210095FE29 /* ListCollectionViewCell.swift */,
+				9C3103302283B8210095FE29 /* ListCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -319,7 +303,7 @@
 		9C31031B22833DA30095FE29 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9C31031E2283573E0095FE29 /* MovieViewController.swift */,
+				9C31031E2283573E0095FE29 /* ListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -455,10 +439,8 @@
 				9C3102DA2282A12F0095FE29 /* LaunchScreen.storyboard in Resources */,
 				9C3102D72282A12F0095FE29 /* Assets.xcassets in Resources */,
 				9C3102D22282A12E0095FE29 /* Main.storyboard in Resources */,
-				9C3103052282F4F40095FE29 /* Show.storyboard in Resources */,
-				9C3103322283B8210095FE29 /* MovieCollectionViewCell.xib in Resources */,
+				9C3103322283B8210095FE29 /* ListCollectionViewCell.xib in Resources */,
 				9C31030E2282F7880095FE29 /* Config.plist in Resources */,
-				9C3103072282F4FF0095FE29 /* Movie.storyboard in Resources */,
 				9C3103112282F8D20095FE29 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,16 +562,18 @@
 				9C310318228333490095FE29 /* MovieResult.swift in Sources */,
 				9C3103342284012B0095FE29 /* UIColor.swift in Sources */,
 				9C310315228332E40095FE29 /* MovieService.swift in Sources */,
+				9C31033822847BFA0095FE29 /* ListData.swift in Sources */,
 				9C3102D52282A12E0095FE29 /* TheMovieDatabase.xcdatamodeld in Sources */,
-				9C3102CF2282A12E0095FE29 /* ViewController.swift in Sources */,
-				9C31031D22833EB70095FE29 /* MovieModel.swift in Sources */,
+				9C3102CF2282A12E0095FE29 /* MainViewController.swift in Sources */,
+				9C31031D22833EB70095FE29 /* ListModel.swift in Sources */,
 				9C310324228390B70095FE29 /* DateFormatter.swift in Sources */,
+				9C31033622847A1A0095FE29 /* ShowService.swift in Sources */,
 				9C310326228394F30095FE29 /* String.swift in Sources */,
-				9C31031F2283573E0095FE29 /* MovieViewController.swift in Sources */,
+				9C31031F2283573E0095FE29 /* ListViewController.swift in Sources */,
+				9C31033A2284A34F0095FE29 /* ShowResult.swift in Sources */,
 				9C3102CD2282A12E0095FE29 /* AppDelegate.swift in Sources */,
 				9C31030C2282F6D70095FE29 /* ConfigManager.swift in Sources */,
-				9C31032122838EFB0095FE29 /* MovieData.swift in Sources */,
-				9C3103312283B8210095FE29 /* MovieCollectionViewCell.swift in Sources */,
+				9C3103312283B8210095FE29 /* ListCollectionViewCell.swift in Sources */,
 				9C31030A2282F6A00095FE29 /* ServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
