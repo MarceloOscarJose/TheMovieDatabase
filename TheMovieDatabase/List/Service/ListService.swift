@@ -10,29 +10,20 @@ import Foundation
 
 class ListService: GeneralService {
 
-    func fetchMovies(category: MovieCategory, page: Int, responseHandler: @escaping (_ response: MovieResult) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-
+    func fetchList(section: ListCategory.section, type: ListCategory.type, page: Int, responseHandler: @escaping (_ response: Codable) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         let parameters: [String: String] = ["page": "\(page)"]
 
-        self.executeRequest(url: category.rawValue, paramaters: parameters as [String : AnyObject], responseHandler: { (data) in
+        self.executeRequest(url: section.rawValue + type.rawValue, paramaters: parameters as [String : AnyObject], responseHandler: { (data) in
+
             do {
-                let listResult = try JSONDecoder().decode(MovieResult.self, from: data)
-                responseHandler(listResult)
-            } catch let error {
-                errorHandler(error)
-            }
-        }) { (error) in
-            errorHandler(error)
-        }
-    }
+                var listResult: Codable
 
-    func fetchShows(category: ShowCategory, page: Int, responseHandler: @escaping (_ response: ShowResult) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+                if section == .Movie {
+                    listResult = try JSONDecoder().decode(MovieResult.self, from: data)
+                } else {
+                    listResult = try JSONDecoder().decode(ShowResult.self, from: data)
+                }
 
-        let parameters: [String: String] = ["page": "\(page)"]
-
-        self.executeRequest(url: category.rawValue, paramaters: parameters as [String : AnyObject], responseHandler: { (data) in
-            do {
-                let listResult = try JSONDecoder().decode(ShowResult.self, from: data)
                 responseHandler(listResult)
             } catch let error {
                 errorHandler(error)
@@ -43,14 +34,17 @@ class ListService: GeneralService {
     }
 }
 
-enum MovieCategory: String {
-    case popular = "movie/popular"
-    case topRated = "movie/top_rated"
-    case upcoming = "movie/upcoming"
-}
+enum ListCategory {
 
-enum ShowCategory: String {
-    case popular = "tv/popular"
-    case topRated = "tv/top_rated"
-    case onair = "tv/on_the_air"
+    enum section: String {
+        case Movie = "movie/"
+        case Show = "tv/"
+    }
+
+    enum type: String {
+        case Popular = "popular"
+        case TopRated = "top_rated"
+        case Upcoming = "upcoming"
+        case Onair = "on_the_air"
+    }
 }

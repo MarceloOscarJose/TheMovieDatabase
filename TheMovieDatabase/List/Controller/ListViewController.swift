@@ -1,75 +1,40 @@
 //
-//  MovieViewController.swift
+//  ListViewController.swift
 //  TheMovieDatabase
 //
-//  Created by Marcelo José on 08/05/2019.
+//  Created by Marcelo José on 09/05/2019.
 //  Copyright © 2019 Marcelo José. All rights reserved.
 //
 
 import UIKit
-
-enum ListType {
-    case movies
-    case shows
-}
+import LPSnackbar
 
 class ListViewController: UIViewController {
 
-    var controllerTitle: String!
-    var controllerType: ListType!
-    let cellIdentifier = "ListCollectionViewCell"
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-    lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.tintColor = UIColor.ligthBlue
-        return refreshControl
-    }()
-    lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        collectionView.backgroundColor = UIColor.white
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.addSubview(refreshControl)
-        collectionView.register(UINib(nibName: cellIdentifier, bundle: .main), forCellWithReuseIdentifier: cellIdentifier)
-        return collectionView
-    }()
-    lazy var searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.delegate = self
-        searchBar.showsScopeBar = true
-        searchBar.searchBarStyle = .minimal
-        searchBar.tintColor = UIColor.ligthBlue
-        searchBar.barTintColor = UIColor.white
-        searchBar.placeholder = "Search by title"
-        return searchBar
-    }()
+    var controllerTitle: String!
+    let cellIdentifier = "ListCollectionViewCell"
+    var showActivityIndicator: Bool = false
 
     let model = ListModel()
     var listData: [ListData] = []
     var listDataFilter: [ListData] = []
     var nextPage: Bool = false
-    var movieCategory: MovieCategory = .popular
-    var showCategory: ShowCategory = .popular
+    var listSection: ListCategory.section!
+    var listType: ListCategory.type = .Popular
 
-    convenience init(title: String, type: ListType) {
+    convenience init(title: String, type: ListCategory.section) {
         self.init(nibName: nil, bundle: nil)
-        self.view.backgroundColor = UIColor.white
         self.controllerTitle = title
-        self.controllerType = type
-
-        if controllerType == .movies {
-            searchBar.scopeButtonTitles = ["Popular", "Top rated", "Upcoming"]
-            refreshControl.addTarget(self, action: #selector(getMovies), for: .valueChanged)
-            getMovies(animated: true)
-        } else {
-            searchBar.scopeButtonTitles = ["Popular", "Top rated", "On air"]
-            refreshControl.addTarget(self, action: #selector(getShows), for: .valueChanged)
-            getShows(animated: true)
-        }
+        self.listSection = type
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getList(animated: true)
         setupControls()
     }
 
@@ -78,86 +43,73 @@ class ListViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = self.controllerTitle
     }
 
+    func toggleActivityIndicator(show: Bool) {
+        showActivityIndicator = show
+        if show {
+            let tinyDelay = DispatchTime.now() + Double(Int64(0.2 * Float(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+            DispatchQueue.main.asyncAfter(deadline: tinyDelay) {
+                if self.showActivityIndicator {
+                    self.activityIndicator.isHidden = !show
+                    self.activityIndicator.startAnimating()
+                }
+            }
+        } else {
+            self.activityIndicator.isHidden = !show
+            self.activityIndicator.stopAnimating()
+        }
+    }
+
     func setupControls() {
-        self.view.addSubview(searchBar)
-        self.view.addSubview(collectionView)
+        // Search bar setup
+        searchBar.scopeButtonTitles?.append(listSection == .Movie ? "Upcoming" : "On air")
+        searchBar.delegate = self
 
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor).isActive = true
-        searchBar.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
-        searchBar.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
-
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
-        collectionView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
-        collectionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+        // Collection view setup
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(UINib(nibName: cellIdentifier, bundle: .main), forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
     }
 
-    @objc func getMovies(animated: Bool = false) {
-        model.getMovies(nextPage: nextPage, category: movieCategory, responseHandler: { (resultData) in
+    @objc func getList(animated: Bool = false) {
+        clearSearchBar()
+        toggleActivityIndicator(show: true)
+
+        model.getList(nextPage: nextPage, section: listSection, type: listType, responseHandler: { (resultData) in
             self.listData = resultData
             self.reloadResults(data: resultData, animated: animated)
-        }) { (_) in
-            print("Can't connect")
+            self.toggleActivityIndicator(show: false)
+        }) { (error) in
+            self.toggleActivityIndicator(show: false)
+
+            let snackbar = LPSnackbar(title: "Error connecting to service", buttonTitle: "Retry")
+            snackbar.show(animated: true) {(undone) in
+                if undone {
+                    self.getList(animated: animated)
+                }
+            }
         }
     }
 
-    @objc func getShows(animated: Bool = false) {
-        model.getShows(nextPage: nextPage, category: showCategory, responseHandler: { (resultData) in
-            self.listData = resultData
-            self.reloadResults(data: resultData, animated: animated)
-        }) { (_) in
-            print("Can't connect")
-        }
+    @objc func hideKeyboard() {
+        searchBar.endEditing(true)
+    }
+
+    func clearSearchBar() {
+        self.searchBar.text = ""
+        hideKeyboard()
     }
 
     func reloadResults(data: [ListData], animated: Bool) {
-
         self.listDataFilter = data
-        collectionView.sendSubviewToBack(refreshControl)
+        self.toggleActivityIndicator(show: false)
 
         if animated {
             UIView.transition(with: collectionView, duration: 0.3, options: .transitionCrossDissolve, animations: {
                 self.collectionView.reloadData()
-                self.refreshControl.endRefreshing()
             }, completion: nil)
         } else {
             self.collectionView.reloadData()
-            self.refreshControl.endRefreshing()
         }
-    }
-}
-
-// MARK: Search behaviour
-extension ListViewController: UISearchBarDelegate {
-
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
-    }
-
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
-        self.movieCategory = selectedScope == 0 ? .popular : selectedScope == 1 ? .topRated : .upcoming
-        self.showCategory = selectedScope == 0 ? .popular : selectedScope == 1 ? .topRated : .onair
-
-        reloadResults(data: [], animated: true)
-
-        if self.controllerType == .movies {
-            self.getMovies()
-        } else {
-            self.getShows()
-        }
-    }
-
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
-        guard !searchText.isEmpty else { reloadResults(data: self.listData, animated: true); return }
-
-        self.listDataFilter = self.listData.filter({ (list: ListData) -> Bool in
-            return list.title.lowercased().contains(searchText.lowercased())
-        })
-
-        reloadResults(data: self.listDataFilter, animated: true)
     }
 }

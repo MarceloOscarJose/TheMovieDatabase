@@ -28,12 +28,7 @@ struct ListData {
             self.poster = "\(ConfigManager.sharedInstance.imagesURL)\(posterImage)"
         }
 
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-
-        let formatter = DateFormatter.longDate
-        guard let releaseDate = dateFormatter.date(from: movie.releaseDate) else { return }
-        self.releaseDate = formatter.string(from: releaseDate).capitalizedFirstLetter()
+        self.releaseDate = formatDate(date: movie.releaseDate)
     }
 
     init(show: Show) {
@@ -47,11 +42,15 @@ struct ListData {
             self.poster = "\(ConfigManager.sharedInstance.imagesURL)\(posterImage)"
         }
 
+        self.releaseDate = formatDate(date: show.firstAirDate)
+    }
+
+    fileprivate func formatDate(date: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
 
         let formatter = DateFormatter.longDate
-        guard let releaseDate = dateFormatter.date(from: show.firstAirDate) else { return }
-        self.releaseDate = formatter.string(from: releaseDate).capitalizedFirstLetter()
+        guard let formattedDate = dateFormatter.date(from: date) else { return "" }
+        return formatter.string(from: formattedDate).capitalizedFirstLetter()
     }
 }

@@ -16,29 +16,27 @@ class ListModel: NSObject {
     var moviePage: Int = 1
     var showPage: Int = 1
 
-    func getMovies(nextPage: Bool, category: MovieCategory, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        moviePage += nextPage ? 1 : 0
-        listService.fetchMovies(category: category, page: moviePage, responseHandler: { (result) in
-            var list: [ListData] = []
-            for element in result.results {
-                list.append(ListData(movie: element))
-            }
-            responseHandler(list)
-        }) { (error) in
-            errorHandler(error)
-        }
-    }
+    func getList(nextPage: Bool, section: ListCategory.section, type: ListCategory.type, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
 
-    func getShows(nextPage: Bool, category: ShowCategory, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        showPage += nextPage ? 1 : 0
-        listService.fetchShows(category: category, page: showPage, responseHandler: { (result) in
+        moviePage += nextPage ? 1 : 0
+        listService.fetchList(section: section, type: type, page: moviePage, responseHandler: { (result) in
             var list: [ListData] = []
-            for element in result.results {
-                list.append(ListData(show: element))
+            if section == .Movie {
+                for element in (result as! MovieResult).results {
+                    list.append(ListData(movie: element))
+                }
+            } else {
+                for element in (result as! ShowResult).results {
+                    list.append(ListData(show: element))
+                }
             }
             responseHandler(list)
         }) { (error) in
             errorHandler(error)
         }
     }
+}
+
+struct ListModelData {
+    
 }

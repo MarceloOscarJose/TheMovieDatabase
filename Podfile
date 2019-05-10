@@ -7,6 +7,7 @@ target 'TheMovieDatabase' do
   # Pods for TheMovieDatabase
   pod 'Alamofire'
   pod 'AlamofireImage'
+  pod 'LPSnackbar'
 
   target 'TheMovieDatabaseTests' do
     inherit! :search_paths

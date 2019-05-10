@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C0583102285A80200FAA860 /* ListViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C05830F2285A80200FAA860 /* ListViewController+SearchBar.swift */; };
 		9C3102CD2282A12E0095FE29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3102CC2282A12E0095FE29 /* AppDelegate.swift */; };
 		9C3102CF2282A12E0095FE29 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3102CE2282A12E0095FE29 /* MainTabViewController.swift */; };
 		9C3102D22282A12E0095FE29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C3102D02282A12E0095FE29 /* Main.storyboard */; };
@@ -22,7 +23,6 @@
 		9C310315228332E40095FE29 /* ListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310314228332E40095FE29 /* ListService.swift */; };
 		9C310318228333490095FE29 /* MovieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310317228333490095FE29 /* MovieResult.swift */; };
 		9C31031D22833EB70095FE29 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31031C22833EB70095FE29 /* ListModel.swift */; };
-		9C31031F2283573E0095FE29 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31031E2283573E0095FE29 /* ListViewController.swift */; };
 		9C310324228390B70095FE29 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310323228390B70095FE29 /* DateFormatter.swift */; };
 		9C310326228394F30095FE29 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310325228394F30095FE29 /* String.swift */; };
 		9C3103312283B8210095FE29 /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31032F2283B8210095FE29 /* ListCollectionViewCell.swift */; };
@@ -31,6 +31,8 @@
 		9C31033822847BFA0095FE29 /* ListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31033722847BFA0095FE29 /* ListData.swift */; };
 		9C31033A2284A34F0095FE29 /* ShowResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3103392284A34F0095FE29 /* ShowResult.swift */; };
 		9C42EA492284A75300878240 /* ListViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C42EA482284A75300878240 /* ListViewController+CollectionView.swift */; };
+		9C42EA522284CD3F00878240 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C42EA502284CD3F00878240 /* ListViewController.swift */; };
+		9C42EA532284CD3F00878240 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C42EA512284CD3F00878240 /* ListViewController.xib */; };
 		B2FFD5B1C9D0B85B19BC8F9C /* Pods_TheMovieDatabaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694B12D49F0ABB105EF19554 /* Pods_TheMovieDatabaseTests.framework */; };
 		D3F7349644A6F245565B2650 /* Pods_TheMovieDatabaseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8966AEF746755D515D77076 /* Pods_TheMovieDatabaseUITests.framework */; };
 		DA194A0669015D919AF51652 /* Pods_TheMovieDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CC619762517DFCA660A620 /* Pods_TheMovieDatabase.framework */; };
@@ -60,6 +62,7 @@
 		694B12D49F0ABB105EF19554 /* Pods_TheMovieDatabaseTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieDatabaseTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86CC619762517DFCA660A620 /* Pods_TheMovieDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91C1C47F11DC5F3F17BC4428 /* Pods-TheMovieDatabase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDatabase.release.xcconfig"; path = "Target Support Files/Pods-TheMovieDatabase/Pods-TheMovieDatabase.release.xcconfig"; sourceTree = "<group>"; };
+		9C05830F2285A80200FAA860 /* ListViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+SearchBar.swift"; sourceTree = "<group>"; };
 		9C3102C92282A12E0095FE29 /* TheMovieDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C3102CC2282A12E0095FE29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C3102CE2282A12E0095FE29 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +84,6 @@
 		9C310314228332E40095FE29 /* ListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListService.swift; sourceTree = "<group>"; };
 		9C310317228333490095FE29 /* MovieResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieResult.swift; sourceTree = "<group>"; };
 		9C31031C22833EB70095FE29 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
-		9C31031E2283573E0095FE29 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		9C310323228390B70095FE29 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9C310325228394F30095FE29 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9C31032F2283B8210095FE29 /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -90,6 +92,8 @@
 		9C31033722847BFA0095FE29 /* ListData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListData.swift; sourceTree = "<group>"; };
 		9C3103392284A34F0095FE29 /* ShowResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowResult.swift; sourceTree = "<group>"; };
 		9C42EA482284A75300878240 /* ListViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+CollectionView.swift"; sourceTree = "<group>"; };
+		9C42EA502284CD3F00878240 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		9C42EA512284CD3F00878240 /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
 		BD06FEC69B35307FAA68764C /* Pods-TheMovieDatabaseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDatabaseUITests.debug.xcconfig"; path = "Target Support Files/Pods-TheMovieDatabaseUITests/Pods-TheMovieDatabaseUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8966AEF746755D515D77076 /* Pods_TheMovieDatabaseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieDatabaseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD356CF201A10A141B828F85 /* Pods-TheMovieDatabaseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDatabaseTests.debug.xcconfig"; path = "Target Support Files/Pods-TheMovieDatabaseTests/Pods-TheMovieDatabaseTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -302,8 +306,10 @@
 		9C31031B22833DA30095FE29 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9C31031E2283573E0095FE29 /* ListViewController.swift */,
+				9C42EA512284CD3F00878240 /* ListViewController.xib */,
+				9C42EA502284CD3F00878240 /* ListViewController.swift */,
 				9C42EA482284A75300878240 /* ListViewController+CollectionView.swift */,
+				9C05830F2285A80200FAA860 /* ListViewController+SearchBar.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -400,13 +406,16 @@
 				TargetAttributes = {
 					9C3102C82282A12E0095FE29 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 					9C3102DF2282A12F0095FE29 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 9C3102C82282A12E0095FE29;
 					};
 					9C3102EA2282A12F0095FE29 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 9C3102C82282A12E0095FE29;
 					};
 				};
@@ -440,6 +449,7 @@
 				9C3102D72282A12F0095FE29 /* Assets.xcassets in Resources */,
 				9C3102D22282A12E0095FE29 /* Main.storyboard in Resources */,
 				9C3103322283B8210095FE29 /* ListCollectionViewCell.xib in Resources */,
+				9C42EA532284CD3F00878240 /* ListViewController.xib in Resources */,
 				9C31030E2282F7880095FE29 /* Config.plist in Resources */,
 				9C3103112282F8D20095FE29 /* Search.storyboard in Resources */,
 			);
@@ -539,6 +549,7 @@
 				"${PODS_ROOT}/Target Support Files/Pods-TheMovieDatabase/Pods-TheMovieDatabase-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/LPSnackbar/LPSnackbar.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -546,6 +557,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LPSnackbar.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -561,15 +573,16 @@
 			files = (
 				9C310318228333490095FE29 /* MovieResult.swift in Sources */,
 				9C3103342284012B0095FE29 /* UIColor.swift in Sources */,
+				9C0583102285A80200FAA860 /* ListViewController+SearchBar.swift in Sources */,
 				9C310315228332E40095FE29 /* ListService.swift in Sources */,
 				9C31033822847BFA0095FE29 /* ListData.swift in Sources */,
 				9C3102D52282A12E0095FE29 /* TheMovieDatabase.xcdatamodeld in Sources */,
 				9C42EA492284A75300878240 /* ListViewController+CollectionView.swift in Sources */,
 				9C3102CF2282A12E0095FE29 /* MainTabViewController.swift in Sources */,
 				9C31031D22833EB70095FE29 /* ListModel.swift in Sources */,
+				9C42EA522284CD3F00878240 /* ListViewController.swift in Sources */,
 				9C310324228390B70095FE29 /* DateFormatter.swift in Sources */,
 				9C310326228394F30095FE29 /* String.swift in Sources */,
-				9C31031F2283573E0095FE29 /* ListViewController.swift in Sources */,
 				9C31033A2284A34F0095FE29 /* ShowResult.swift in Sources */,
 				9C3102CD2282A12E0095FE29 /* AppDelegate.swift in Sources */,
 				9C31030C2282F6D70095FE29 /* ConfigManager.swift in Sources */,
@@ -687,6 +700,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -741,6 +755,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
