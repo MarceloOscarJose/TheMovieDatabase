@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9C0583102285A80200FAA860 /* ListViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C05830F2285A80200FAA860 /* ListViewController+SearchBar.swift */; };
+		9C0583122285A88F00FAA860 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0583112285A88F00FAA860 /* BaseViewController.swift */; };
 		9C3102CD2282A12E0095FE29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3102CC2282A12E0095FE29 /* AppDelegate.swift */; };
 		9C3102CF2282A12E0095FE29 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3102CE2282A12E0095FE29 /* MainTabViewController.swift */; };
 		9C3102D22282A12E0095FE29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C3102D02282A12E0095FE29 /* Main.storyboard */; };
@@ -19,7 +20,6 @@
 		9C31030A2282F6A00095FE29 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3103092282F6A00095FE29 /* ServiceManager.swift */; };
 		9C31030C2282F6D70095FE29 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31030B2282F6D70095FE29 /* ConfigManager.swift */; };
 		9C31030E2282F7880095FE29 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C31030D2282F7880095FE29 /* Config.plist */; };
-		9C3103112282F8D20095FE29 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C3103102282F8D20095FE29 /* Search.storyboard */; };
 		9C310315228332E40095FE29 /* ListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310314228332E40095FE29 /* ListService.swift */; };
 		9C310318228333490095FE29 /* MovieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310317228333490095FE29 /* MovieResult.swift */; };
 		9C31031D22833EB70095FE29 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31031C22833EB70095FE29 /* ListModel.swift */; };
@@ -63,6 +63,7 @@
 		86CC619762517DFCA660A620 /* Pods_TheMovieDatabase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieDatabase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91C1C47F11DC5F3F17BC4428 /* Pods-TheMovieDatabase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDatabase.release.xcconfig"; path = "Target Support Files/Pods-TheMovieDatabase/Pods-TheMovieDatabase.release.xcconfig"; sourceTree = "<group>"; };
 		9C05830F2285A80200FAA860 /* ListViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+SearchBar.swift"; sourceTree = "<group>"; };
+		9C0583112285A88F00FAA860 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9C3102C92282A12E0095FE29 /* TheMovieDatabase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieDatabase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C3102CC2282A12E0095FE29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C3102CE2282A12E0095FE29 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
@@ -80,7 +81,6 @@
 		9C3103092282F6A00095FE29 /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		9C31030B2282F6D70095FE29 /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		9C31030D2282F7880095FE29 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
-		9C3103102282F8D20095FE29 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		9C310314228332E40095FE29 /* ListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListService.swift; sourceTree = "<group>"; };
 		9C310317228333490095FE29 /* MovieResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieResult.swift; sourceTree = "<group>"; };
 		9C31031C22833EB70095FE29 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
@@ -138,6 +138,14 @@
 				5AC46B4554F43ECFCE4EA993 /* Pods-TheMovieDatabaseUITests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9C0583132285AA2C00FAA860 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9C0583112285A88F00FAA860 /* BaseViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		9C3102C02282A12D0095FE29 = {
@@ -204,9 +212,10 @@
 		9C3102FE2282EDEE0095FE29 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9C0583132285AA2C00FAA860 /* Controller */,
 				9C310322228390A70095FE29 /* Extension */,
 				9C3103012282EE9D0095FE29 /* Resources */,
-				9C3103082282F67B0095FE29 /* Networking */,
+				9C3103082282F67B0095FE29 /* Service */,
 				9C3102FF2282EDFD0095FE29 /* Model */,
 				9C3102CC2282A12E0095FE29 /* AppDelegate.swift */,
 				9C31030B2282F6D70095FE29 /* ConfigManager.swift */,
@@ -251,18 +260,17 @@
 			path = List;
 			sourceTree = "<group>";
 		};
-		9C3103082282F67B0095FE29 /* Networking */ = {
+		9C3103082282F67B0095FE29 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				9C3103092282F6A00095FE29 /* ServiceManager.swift */,
 			);
-			path = Networking;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		9C31030F2282F8C40095FE29 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				9C3103102282F8D20095FE29 /* Search.storyboard */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -451,7 +459,6 @@
 				9C3103322283B8210095FE29 /* ListCollectionViewCell.xib in Resources */,
 				9C42EA532284CD3F00878240 /* ListViewController.xib in Resources */,
 				9C31030E2282F7880095FE29 /* Config.plist in Resources */,
-				9C3103112282F8D20095FE29 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +580,7 @@
 			files = (
 				9C310318228333490095FE29 /* MovieResult.swift in Sources */,
 				9C3103342284012B0095FE29 /* UIColor.swift in Sources */,
+				9C0583122285A88F00FAA860 /* BaseViewController.swift in Sources */,
 				9C0583102285A80200FAA860 /* ListViewController+SearchBar.swift in Sources */,
 				9C310315228332E40095FE29 /* ListService.swift in Sources */,
 				9C31033822847BFA0095FE29 /* ListData.swift in Sources */,

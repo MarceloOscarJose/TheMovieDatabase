@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import LPSnackbar
 
-class ListViewController: UIViewController {
+class ListViewController: BaseViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -30,12 +29,6 @@ class ListViewController: UIViewController {
         self.init(nibName: nil, bundle: nil)
         self.controllerTitle = title
         self.listSection = type
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        getList(animated: true)
-        setupControls()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -59,7 +52,7 @@ class ListViewController: UIViewController {
         }
     }
 
-    func setupControls() {
+    override func setupControls() {
         // Search bar setup
         searchBar.scopeButtonTitles?.append(listSection == .Movie ? "Upcoming" : "On air")
         searchBar.delegate = self
@@ -69,6 +62,8 @@ class ListViewController: UIViewController {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: cellIdentifier, bundle: .main), forCellWithReuseIdentifier: cellIdentifier)
         collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideKeyboard)))
+
+        getList(animated: true)
     }
 
     @objc func getList(animated: Bool = false) {
@@ -81,13 +76,9 @@ class ListViewController: UIViewController {
             self.toggleActivityIndicator(show: false)
         }) { (error) in
             self.toggleActivityIndicator(show: false)
-
-            let snackbar = LPSnackbar(title: "Error connecting to service", buttonTitle: "Retry")
-            snackbar.show(animated: true) {(undone) in
-                if undone {
-                    self.getList(animated: animated)
-                }
-            }
+            self.showSnakError(title: "Error connecting to service", buttonText: "Retry", completion: {
+                self.getList(animated: animated)
+            })
         }
     }
 
