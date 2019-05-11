@@ -11,6 +11,8 @@ import LPSnackbar
 
 class BaseViewController: UIViewController {
 
+    var snackbar: LPSnackbar!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupControls()
@@ -25,10 +27,18 @@ class BaseViewController: UIViewController {
     }
 
     func showSnakError(title: String, buttonText: String, completion: @escaping () -> Void) {
-        let snackbar = LPSnackbar(title: title, buttonTitle: buttonText)
+        if snackbar != nil {
+            snackbar.dismiss()
+        }
+
+        snackbar = LPSnackbar(title: title, buttonTitle: buttonText)
+        snackbar.view.titleLabel.font = UIFont.systemFont(ofSize: 15)
+        snackbar.view.button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+
         snackbar.show(animated: true) {(undone) in
             if undone {
                 completion()
+                self.snackbar = nil
             }
         }
     }

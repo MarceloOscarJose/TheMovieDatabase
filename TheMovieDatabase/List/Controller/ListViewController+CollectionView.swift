@@ -11,10 +11,6 @@ import UIKit
 // MARK: CollectionView behaviour
 extension ListViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.listDataFilter.count
     }
