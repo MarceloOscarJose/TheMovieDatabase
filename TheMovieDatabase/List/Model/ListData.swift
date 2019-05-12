@@ -25,7 +25,7 @@ struct ListData {
         self.overview = movie.overview != "" ? movie.overview : "No description"
 
         if let posterImage = movie.posterPath {
-            self.poster = "\(ConfigManager.sharedInstance.imagesURL)\(posterImage)"
+            self.poster = "\(ConfigManager.sharedInstance.thumbnailURL)\(posterImage)"
         }
 
         self.releaseDate = formatDate(date: movie.releaseDate)
@@ -39,7 +39,7 @@ struct ListData {
         self.overview = show.overview != "" ? show.overview : "No description"
 
         if let posterImage = show.posterPath {
-            self.poster = "\(ConfigManager.sharedInstance.imagesURL)\(posterImage)"
+            self.poster = "\(ConfigManager.sharedInstance.thumbnailURL)\(posterImage)"
         }
 
         self.releaseDate = formatDate(date: show.firstAirDate)

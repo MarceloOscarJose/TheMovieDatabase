@@ -15,14 +15,14 @@ class ConfigManager: NSObject {
     // Config vars
     var baseURL = ""
     var apiKey = ""
-    var imagesURL = ""
+    var thumbnailURL = ""
 
     override init() {
         if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
             if let nsDictionary: NSDictionary = NSDictionary(contentsOfFile: path) {
-                self.baseURL = nsDictionary["BaseURL"] as! String
-                self.apiKey = nsDictionary["ApiKey"] as! String
-                self.imagesURL = nsDictionary["ImagesURL"] as! String
+                self.baseURL = nsDictionary["baseURL"] as! String
+                self.apiKey = nsDictionary["apiKey"] as! String
+                self.thumbnailURL = nsDictionary["thumbnailURL"] as! String
             }
         }
     }
