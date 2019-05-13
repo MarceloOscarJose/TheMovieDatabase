@@ -33,7 +33,10 @@ extension ListViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(MovieViewController(), animated: true)
+        let data = self.listDataFilter[indexPath.item]
+        let detail = MovieViewController(detailData: data)
+
+        self.navigationController?.pushViewController(detail, animated: true)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

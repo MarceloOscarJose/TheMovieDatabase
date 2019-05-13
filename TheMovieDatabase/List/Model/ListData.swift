@@ -17,7 +17,7 @@ struct ListData {
     var poster: String?
     var releaseDate: String = ""
 
-    init(movie: Movie) {
+    init(movie: MovieResponse.Movie) {
         self.id = movie.id
         self.title = movie.title
 
@@ -31,7 +31,7 @@ struct ListData {
         self.releaseDate = formatDate(date: movie.releaseDate)
     }
 
-    init(show: Show) {
+    init(show: ShowResponse.Show) {
         self.id = show.id
         self.title = show.name
 
