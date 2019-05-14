@@ -19,9 +19,9 @@ class ListService: GeneralService {
                 var listResult: Codable
 
                 if section == .Movie {
-                    listResult = try JSONDecoder().decode(MovieResponse.self, from: data)
+                    listResult = try JSONDecoder().decode(MovieListResponse.self, from: data)
                 } else {
-                    listResult = try JSONDecoder().decode(ShowResponse.self, from: data)
+                    listResult = try JSONDecoder().decode(ShowListResponse.self, from: data)
                 }
 
                 responseHandler(listResult)

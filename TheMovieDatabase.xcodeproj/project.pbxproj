@@ -21,7 +21,7 @@
 		9C31030C2282F6D70095FE29 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31030B2282F6D70095FE29 /* ConfigManager.swift */; };
 		9C31030E2282F7880095FE29 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9C31030D2282F7880095FE29 /* Config.plist */; };
 		9C310315228332E40095FE29 /* ListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310314228332E40095FE29 /* ListService.swift */; };
-		9C310318228333490095FE29 /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310317228333490095FE29 /* MovieResponse.swift */; };
+		9C310318228333490095FE29 /* MovieListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310317228333490095FE29 /* MovieListResponse.swift */; };
 		9C31031D22833EB70095FE29 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31031C22833EB70095FE29 /* ListModel.swift */; };
 		9C310324228390B70095FE29 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310323228390B70095FE29 /* DateFormatter.swift */; };
 		9C310326228394F30095FE29 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310325228394F30095FE29 /* String.swift */; };
@@ -29,14 +29,15 @@
 		9C3103322283B8210095FE29 /* ListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3103302283B8210095FE29 /* ListCollectionViewCell.xib */; };
 		9C3103342284012B0095FE29 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3103332284012B0095FE29 /* UIColor.swift */; };
 		9C31033822847BFA0095FE29 /* ListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31033722847BFA0095FE29 /* ListData.swift */; };
-		9C31033A2284A34F0095FE29 /* ShowResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3103392284A34F0095FE29 /* ShowResponse.swift */; };
+		9C31033A2284A34F0095FE29 /* ShowListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3103392284A34F0095FE29 /* ShowListResponse.swift */; };
+		9C3433DE228B2CA9009ED080 /* MovieDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3433DD228B2CA9009ED080 /* MovieDetailResponse.swift */; };
+		9C3433E0228B2CC1009ED080 /* ShowDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3433DF228B2CC1009ED080 /* ShowDetailResponse.swift */; };
 		9C42EA492284A75300878240 /* ListViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C42EA482284A75300878240 /* ListViewController+CollectionView.swift */; };
 		9C42EA522284CD3F00878240 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C42EA502284CD3F00878240 /* ListViewController.swift */; };
 		9C42EA532284CD3F00878240 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C42EA512284CD3F00878240 /* ListViewController.xib */; };
 		9C7D2C652288D33C0094E9B6 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7D2C632288D33C0094E9B6 /* MovieViewController.swift */; };
 		9C7D2C662288D33C0094E9B6 /* MovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C7D2C642288D33C0094E9B6 /* MovieViewController.xib */; };
 		9C7D2C6822898C800094E9B6 /* DetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7D2C6722898C800094E9B6 /* DetailService.swift */; };
-		9C7D2C6B22898D0C0094E9B6 /* DetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7D2C6A22898D0C0094E9B6 /* DetailResponse.swift */; };
 		9C7D2C6D22898DBE0094E9B6 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7D2C6C22898DBE0094E9B6 /* DetailModel.swift */; };
 		B2FFD5B1C9D0B85B19BC8F9C /* Pods_TheMovieDatabaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694B12D49F0ABB105EF19554 /* Pods_TheMovieDatabaseTests.framework */; };
 		D3F7349644A6F245565B2650 /* Pods_TheMovieDatabaseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8966AEF746755D515D77076 /* Pods_TheMovieDatabaseUITests.framework */; };
@@ -87,7 +88,7 @@
 		9C31030B2282F6D70095FE29 /* ConfigManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
 		9C31030D2282F7880095FE29 /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		9C310314228332E40095FE29 /* ListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListService.swift; sourceTree = "<group>"; };
-		9C310317228333490095FE29 /* MovieResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
+		9C310317228333490095FE29 /* MovieListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListResponse.swift; sourceTree = "<group>"; };
 		9C31031C22833EB70095FE29 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		9C310323228390B70095FE29 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9C310325228394F30095FE29 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -95,14 +96,15 @@
 		9C3103302283B8210095FE29 /* ListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCollectionViewCell.xib; sourceTree = "<group>"; };
 		9C3103332284012B0095FE29 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		9C31033722847BFA0095FE29 /* ListData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListData.swift; sourceTree = "<group>"; };
-		9C3103392284A34F0095FE29 /* ShowResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowResponse.swift; sourceTree = "<group>"; };
+		9C3103392284A34F0095FE29 /* ShowListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowListResponse.swift; sourceTree = "<group>"; };
+		9C3433DD228B2CA9009ED080 /* MovieDetailResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailResponse.swift; sourceTree = "<group>"; };
+		9C3433DF228B2CC1009ED080 /* ShowDetailResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDetailResponse.swift; sourceTree = "<group>"; };
 		9C42EA482284A75300878240 /* ListViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		9C42EA502284CD3F00878240 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		9C42EA512284CD3F00878240 /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
 		9C7D2C632288D33C0094E9B6 /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 		9C7D2C642288D33C0094E9B6 /* MovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieViewController.xib; sourceTree = "<group>"; };
 		9C7D2C6722898C800094E9B6 /* DetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailService.swift; sourceTree = "<group>"; };
-		9C7D2C6A22898D0C0094E9B6 /* DetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailResponse.swift; sourceTree = "<group>"; };
 		9C7D2C6C22898DBE0094E9B6 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		BD06FEC69B35307FAA68764C /* Pods-TheMovieDatabaseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDatabaseUITests.debug.xcconfig"; path = "Target Support Files/Pods-TheMovieDatabaseUITests/Pods-TheMovieDatabaseUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8966AEF746755D515D77076 /* Pods_TheMovieDatabaseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieDatabaseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,8 +300,8 @@
 		9C3103162283333D0095FE29 /* Codeable */ = {
 			isa = PBXGroup;
 			children = (
-				9C3103392284A34F0095FE29 /* ShowResponse.swift */,
-				9C310317228333490095FE29 /* MovieResponse.swift */,
+				9C3103392284A34F0095FE29 /* ShowListResponse.swift */,
+				9C310317228333490095FE29 /* MovieListResponse.swift */,
 			);
 			path = Codeable;
 			sourceTree = "<group>";
@@ -346,7 +348,8 @@
 		9C7D2C6922898CF90094E9B6 /* Codeable */ = {
 			isa = PBXGroup;
 			children = (
-				9C7D2C6A22898D0C0094E9B6 /* DetailResponse.swift */,
+				9C3433DD228B2CA9009ED080 /* MovieDetailResponse.swift */,
+				9C3433DF228B2CC1009ED080 /* ShowDetailResponse.swift */,
 			);
 			path = Codeable;
 			sourceTree = "<group>";
@@ -634,23 +637,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C310318228333490095FE29 /* MovieResponse.swift in Sources */,
+				9C310318228333490095FE29 /* MovieListResponse.swift in Sources */,
 				9C3103342284012B0095FE29 /* UIColor.swift in Sources */,
 				9C0583122285A88F00FAA860 /* BaseViewController.swift in Sources */,
+				9C3433DE228B2CA9009ED080 /* MovieDetailResponse.swift in Sources */,
 				9C0583102285A80200FAA860 /* ListViewController+SearchBar.swift in Sources */,
+				9C3433E0228B2CC1009ED080 /* ShowDetailResponse.swift in Sources */,
 				9C310315228332E40095FE29 /* ListService.swift in Sources */,
 				9C31033822847BFA0095FE29 /* ListData.swift in Sources */,
 				9C3102D52282A12E0095FE29 /* TheMovieDatabase.xcdatamodeld in Sources */,
 				9C42EA492284A75300878240 /* ListViewController+CollectionView.swift in Sources */,
 				9C3102CF2282A12E0095FE29 /* MainTabViewController.swift in Sources */,
 				9C31031D22833EB70095FE29 /* ListModel.swift in Sources */,
-				9C7D2C6B22898D0C0094E9B6 /* DetailResponse.swift in Sources */,
 				9C7D2C6822898C800094E9B6 /* DetailService.swift in Sources */,
 				9C42EA522284CD3F00878240 /* ListViewController.swift in Sources */,
 				9C310324228390B70095FE29 /* DateFormatter.swift in Sources */,
 				9C310326228394F30095FE29 /* String.swift in Sources */,
 				9C7D2C652288D33C0094E9B6 /* MovieViewController.swift in Sources */,
-				9C31033A2284A34F0095FE29 /* ShowResponse.swift in Sources */,
+				9C31033A2284A34F0095FE29 /* ShowListResponse.swift in Sources */,
 				9C3102CD2282A12E0095FE29 /* AppDelegate.swift in Sources */,
 				9C31030C2282F6D70095FE29 /* ConfigManager.swift in Sources */,
 				9C3103312283B8210095FE29 /* ListCollectionViewCell.swift in Sources */,

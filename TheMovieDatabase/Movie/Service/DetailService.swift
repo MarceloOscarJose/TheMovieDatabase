@@ -10,12 +10,19 @@ import UIKit
 
 class DetailService: GeneralService {
 
-    func fetchDetail(id: Int, responseHandler: @escaping (_ response: MovieResponse) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    func fetchDetail(id: Int, section: ListCategory.section, responseHandler: @escaping (_ response: Codable) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
 
         self.executeRequest(url: "movie/\(id)", paramaters: [:], responseHandler: { (data) in
 
             do {
-                let listResult = try JSONDecoder().decode(MovieResponse.self, from: data)
+                var listResult: Codable
+
+                if section == .Movie {
+                    listResult = try JSONDecoder().decode(MovieDetailResponse.self, from: data)
+                } else {
+                    listResult = try JSONDecoder().decode(ShowDetailResponse.self, from: data)
+                }
+
                 responseHandler(listResult)
             } catch let error {
                 errorHandler(error)

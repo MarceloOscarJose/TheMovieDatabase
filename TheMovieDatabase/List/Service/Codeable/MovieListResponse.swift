@@ -1,5 +1,5 @@
 //
-//  MovieResponse.swift
+//  MovieListResponse.swift
 //  TheMovieDatabase
 //
 //  Created by Marcelo Oscar José on 08/05/2019.
@@ -8,14 +8,13 @@
 
 import UIKit
 
-struct MovieResponse: Codable {
+struct MovieListResponse: Codable {
     var page: Int
     var totalResults: Int
     var totalPages: Int
     var results: [Movie]
 
-    enum CodingKeys: String, CodingKey
-    {
+    enum CodingKeys: String, CodingKey {
         case page
         case totalResults = "total_results"
         case totalPages = "total_pages"
@@ -31,8 +30,7 @@ struct MovieResponse: Codable {
         var overview: String
         var releaseDate: String
 
-        enum CodingKeys: String, CodingKey
-        {
+        enum CodingKeys: String, CodingKey {
             case id
             case voteAverage = "vote_average"
             case title

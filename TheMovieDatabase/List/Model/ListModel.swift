@@ -22,11 +22,11 @@ class ListModel: NSObject {
         listService.fetchList(section: section, type: type, page: moviePage, responseHandler: { (result) in
             var list: [ListData] = []
             if section == .Movie {
-                for element in (result as! MovieResponse).results {
+                for element in (result as! MovieListResponse).results {
                     list.append(ListData(movie: element))
                 }
             } else {
-                for element in (result as! ShowResponse).results {
+                for element in (result as! ShowListResponse).results {
                     list.append(ListData(show: element))
                 }
             }

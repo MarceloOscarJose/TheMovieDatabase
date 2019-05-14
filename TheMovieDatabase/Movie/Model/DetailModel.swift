@@ -10,4 +10,7 @@ import UIKit
 
 class DetailModel: NSObject {
 
+    func getDetail(id: Int, section: ListCategory.section) {
+        
+    }
 }
