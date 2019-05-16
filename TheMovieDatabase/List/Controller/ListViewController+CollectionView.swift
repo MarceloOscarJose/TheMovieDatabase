@@ -33,9 +33,7 @@ extension ListViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let data = self.listDataFilter[indexPath.item]
-        let detail = MovieViewController(detailData: data)
-
+        let detail = MovieViewController(id: self.listDataFilter[indexPath.item].id, section: listSection)
         self.navigationController?.pushViewController(detail, animated: true)
     }
 

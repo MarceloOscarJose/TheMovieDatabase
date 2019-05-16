@@ -25,7 +25,6 @@ struct ShowListResponse: Codable {
         var id: Int
         var voteAverage: Double
         var name: String
-        var genreIds: [Int]
         var posterPath: String?
         var overview: String
         var firstAirDate: String
@@ -34,7 +33,6 @@ struct ShowListResponse: Codable {
             case id
             case voteAverage = "vote_average"
             case name
-            case genreIds = "genre_ids"
             case posterPath = "poster_path"
             case overview
             case firstAirDate = "first_air_date"

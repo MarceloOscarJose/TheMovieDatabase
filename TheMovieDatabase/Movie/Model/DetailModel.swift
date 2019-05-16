@@ -12,13 +12,13 @@ class DetailModel: NSObject {
 
     let service = DetailService()
 
-    func getDetail(id: Int, section: ListCategory.section, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    func getDetail(id: Int, section: ListCategory.section, responseHandler: @escaping (_ response: DetailData) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
 
         service.fetchDetail(id: id, section: section, responseHandler: { (result) in
             if section == .Movie {
-                //list.append(ListData(movie: element))
+                responseHandler(DetailData(movieDetail: result as! MovieDetailResponse))
             } else {
-                //list.append(ListData(show: element))
+                responseHandler(DetailData(showDetail: result as! ShowDetailResponse))
             }
         }) { (error) in
             errorHandler(error)

@@ -8,21 +8,37 @@
 
 import AlamofireImage
 
-class MovieViewController: UIViewController {
+class MovieViewController: BaseViewController {
 
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
 
-    var detailData: ListData!
+    let model = DetailModel()
+    var id: Int!
+    var section: ListCategory.section!
 
-    convenience init(detailData: ListData) {
+    convenience init(id: Int, section: ListCategory.section) {
         self.init()
-        self.detailData = detailData
+        self.id = id
+        self.section = section
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.getDetail(id: id, section: section)
+    }
 
+    func getDetail(id: Int, section: ListCategory.section) {
+        model.getDetail(id: id, section: section, responseHandler: { (detailData) in
+            self.updateDetail(detailData: detailData)
+        }) { (error) in
+            self.showSnakError(title: "Error connecting to service", buttonText: "Retry", completion: {
+                self.getDetail(id: id, section: section)
+            })
+        }
+    }
+
+    func updateDetail(detailData: DetailData) {
         titleLabel.text = detailData.title
 
         if let image = URL(string: detailData.poster ?? "") {

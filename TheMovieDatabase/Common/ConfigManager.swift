@@ -16,6 +16,7 @@ class ConfigManager: NSObject {
     var baseURL = ""
     var apiKey = ""
     var thumbnailURL = ""
+    var imageURL = ""
 
     override init() {
         if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
@@ -23,6 +24,7 @@ class ConfigManager: NSObject {
                 self.baseURL = nsDictionary["baseURL"] as! String
                 self.apiKey = nsDictionary["apiKey"] as! String
                 self.thumbnailURL = nsDictionary["thumbnailURL"] as! String
+                self.imageURL = nsDictionary["imageURL"] as! String
             }
         }
     }

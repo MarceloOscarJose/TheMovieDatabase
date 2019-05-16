@@ -12,9 +12,10 @@ class DetailService: GeneralService {
 
     func fetchDetail(id: Int, section: ListCategory.section, responseHandler: @escaping (_ response: Codable) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
 
+        let url = (section == .Movie ? "movie/\(id)" : "tv/\(id)")
         let paramaters = ["append_to_response": "videos,credits"]
 
-        self.executeRequest(url: "movie/\(id)", paramaters: paramaters as [String : AnyObject], responseHandler: { (data) in
+        self.executeRequest(url: url, paramaters: paramaters as [String : AnyObject], responseHandler: { (data) in
 
             do {
                 var listResult: Codable

@@ -12,13 +12,13 @@ struct MovieDetailResponse: Codable {
     var id: Int
     var title: String
     var overview: String
-    var posterPath: String
-    var backdropPath: String
+    var posterPath: String?
+    var backdropPath: String?
     var releaseDate: String
     var voteAverage: Double
     var genres: [Genres]
     var videos: VideoResults
-    var credits: [Credits]
+    var credits: Credits
 
     enum CodingKeys: String, CodingKey {
         case id, title, overview, genres, videos, credits
@@ -38,8 +38,8 @@ struct MovieDetailResponse: Codable {
         public struct Cast: Codable {
             var name: String
             var character: String
-            var profilePath: String
-            
+            var profilePath: String?
+
             enum CodingKeys: String, CodingKey {
                 case name, character
                 case profilePath = "profile_path"
