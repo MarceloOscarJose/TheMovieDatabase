@@ -1,5 +1,5 @@
 //
-//  MovieViewController.swift
+//  DetailViewController.swift
 //  TheMovieDatabase
 //
 //  Created by Marcelo José on 12/05/2019.
@@ -8,16 +8,16 @@
 
 import AlamofireImage
 
-/*class MovieViewController: BaseViewController {
+class DetailViewController: BaseViewController {
 
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
 
     let model = DetailModel()
     var id: Int!
-    //var section: ListCategory.section!
+    var section: ListCategory.section!
 
-    /*convenience init(id: Int, section: ListCategory.section) {
+    convenience init(id: Int, section: ListCategory.section) {
         self.init()
         self.id = id
         self.section = section
@@ -46,6 +46,5 @@ import AlamofireImage
         } else {
             posterImage.image = UIImage(named: "no-image")
         }
-    }*/
+    }
 }
-*/

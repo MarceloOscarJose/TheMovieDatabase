@@ -14,14 +14,13 @@ class ShowDelegate: ListViewControllerDelegate {
     var nextPage: Bool = false
 
     let scopeTypes: [String] = ["popular", "top_rated", "on_the_air"]
-    let scopeNames: [String] = ["Popular", "Top rated", "On air"]
 
     func listTitle() -> String {
         return "TV Shows"
     }
 
     func scopesList() -> [String] {
-        return scopeNames
+        return ["Popular", "Top rated", "On air"]
     }
 
     func getList(animated: Bool, type: Int, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {

@@ -14,18 +14,16 @@ class MovieDelegate: ListViewControllerDelegate {
     var nextPage: Bool = false
 
     let scopeTypes: [String] = ["popular", "top_rated", "upcoming"]
-    let scopeNames: [String] = ["Popular", "Top rated", "Upcoming"]
 
     func listTitle() -> String {
         return "Movies"
     }
 
     func scopesList() -> [String] {
-        return scopeNames
+        return ["Popular", "Top rated", "Upcoming"]
     }
 
     func getList(animated: Bool, type: Int, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-
         model.getMovieList(nextPage: nextPage, url: "movie/\(scopeTypes[type])", responseHandler: { (resultData) in
             responseHandler(resultData)
         }) { (error) in

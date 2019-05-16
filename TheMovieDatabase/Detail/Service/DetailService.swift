@@ -10,7 +10,7 @@ import UIKit
 
 class DetailService: GeneralService {
 
-    /*func fetchDetail(id: Int, section: ListCategory.section, responseHandler: @escaping (_ response: Codable) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    func fetchDetail(id: Int, section: ListCategory.section, responseHandler: @escaping (_ response: Codable) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
 
         let url = "\(section.rawValue)\(id)"
         let paramaters = ["append_to_response": "videos,credits"]
@@ -33,5 +33,5 @@ class DetailService: GeneralService {
         }) { (error) in
             errorHandler(error)
         }
-    }*/
+    }
 }
