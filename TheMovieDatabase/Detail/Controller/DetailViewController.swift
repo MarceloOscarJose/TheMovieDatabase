@@ -8,33 +8,30 @@
 
 import AlamofireImage
 
-class DetailViewController: BaseViewController {
+class DetailViewController: UIViewController {
 
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
 
-    let model = DetailModel()
     var id: Int!
-    var section: ListCategory.section!
+    var delegate: DetailViewControllerDelegate!
 
-    convenience init(id: Int, section: ListCategory.section) {
+    convenience init(id: Int, delegate: DetailViewControllerDelegate) {
         self.init()
         self.id = id
-        self.section = section
+        self.delegate = delegate
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.getDetail(id: id, section: section)
+        getdetail()
     }
 
-    func getDetail(id: Int, section: ListCategory.section) {
-        model.getDetail(id: id, section: section, responseHandler: { (detailData) in
+    func getdetail() {
+        self.delegate.getDetail(id: id, responseHandler: { (detailData) in
             self.updateDetail(detailData: detailData)
         }) { (error) in
-            self.showSnakError(title: "Error connecting to service", buttonText: "Retry", completion: {
-                self.getDetail(id: id, section: section)
-            })
+            print(error as Any)
         }
     }
 
@@ -47,4 +44,8 @@ class DetailViewController: BaseViewController {
             posterImage.image = UIImage(named: "no-image")
         }
     }
+}
+
+protocol DetailViewControllerDelegate: class {
+    func getDetail(id: Int, responseHandler: @escaping (_ response: DetailData) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
 }

@@ -6,27 +6,18 @@
 //  Copyright © 2019 Marcelo José. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class DetailService: GeneralService {
 
-    func fetchDetail(id: Int, section: ListCategory.section, responseHandler: @escaping (_ response: Codable) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    let paramaters = ["append_to_response": "videos,credits"]
 
-        let url = "\(section.rawValue)\(id)"
-        let paramaters = ["append_to_response": "videos,credits"]
+    func fetchDetail<T: Codable>(url: String, entity: T.Type, responseHandler: @escaping (_ response: Codable) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
 
         self.executeRequest(url: url, paramaters: paramaters as [String : AnyObject], responseHandler: { (data) in
-
             do {
-                var listResult: Codable
-
-                if section == .Movie {
-                    listResult = try JSONDecoder().decode(MovieDetailResponse.self, from: data)
-                } else {
-                    listResult = try JSONDecoder().decode(ShowDetailResponse.self, from: data)
-                }
-
-                responseHandler(listResult)
+                let detailResult = try JSONDecoder().decode(entity, from: data)
+                responseHandler(detailResult)
             } catch let error {
                 errorHandler(error)
             }
