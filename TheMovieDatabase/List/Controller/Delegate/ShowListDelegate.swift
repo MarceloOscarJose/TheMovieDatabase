@@ -30,4 +30,8 @@ class ShowListDelegate: ListViewControllerDelegate {
             errorHandler(error)
         }
     }
+
+    func selectRow(id: Int) {
+        
+    }
 }
