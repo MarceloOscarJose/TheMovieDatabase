@@ -31,8 +31,8 @@
 		9C31033A2284A34F0095FE29 /* ShowListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3103392284A34F0095FE29 /* ShowListResponse.swift */; };
 		9C3433DE228B2CA9009ED080 /* MovieDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3433DD228B2CA9009ED080 /* MovieDetailResponse.swift */; };
 		9C3433E0228B2CC1009ED080 /* ShowDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3433DF228B2CC1009ED080 /* ShowDetailResponse.swift */; };
-		9C419D83228DAEB700922495 /* MovieDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C419D82228DAEB700922495 /* MovieDelegate.swift */; };
-		9C419D86228DAFB800922495 /* ShowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C419D85228DAFB800922495 /* ShowDelegate.swift */; };
+		9C419D8A228DD5B600922495 /* ShowListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C419D88228DD5B600922495 /* ShowListDelegate.swift */; };
+		9C419D8B228DD5B600922495 /* MovieListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C419D89228DD5B600922495 /* MovieListDelegate.swift */; };
 		9C42EA492284A75300878240 /* ListViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C42EA482284A75300878240 /* ListViewController+CollectionView.swift */; };
 		9C42EA522284CD3F00878240 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C42EA502284CD3F00878240 /* ListViewController.swift */; };
 		9C42EA532284CD3F00878240 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C42EA512284CD3F00878240 /* ListViewController.xib */; };
@@ -100,8 +100,8 @@
 		9C3103392284A34F0095FE29 /* ShowListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowListResponse.swift; sourceTree = "<group>"; };
 		9C3433DD228B2CA9009ED080 /* MovieDetailResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailResponse.swift; sourceTree = "<group>"; };
 		9C3433DF228B2CC1009ED080 /* ShowDetailResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDetailResponse.swift; sourceTree = "<group>"; };
-		9C419D82228DAEB700922495 /* MovieDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDelegate.swift; sourceTree = "<group>"; };
-		9C419D85228DAFB800922495 /* ShowDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDelegate.swift; sourceTree = "<group>"; };
+		9C419D88228DD5B600922495 /* ShowListDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowListDelegate.swift; sourceTree = "<group>"; };
+		9C419D89228DD5B600922495 /* MovieListDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListDelegate.swift; sourceTree = "<group>"; };
 		9C42EA482284A75300878240 /* ListViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		9C42EA502284CD3F00878240 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		9C42EA512284CD3F00878240 /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
@@ -344,8 +344,8 @@
 		9C419D84228DAFA100922495 /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
-				9C419D82228DAEB700922495 /* MovieDelegate.swift */,
-				9C419D85228DAFB800922495 /* ShowDelegate.swift */,
+				9C419D89228DD5B600922495 /* MovieListDelegate.swift */,
+				9C419D88228DD5B600922495 /* ShowListDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -654,22 +654,22 @@
 				9C310318228333490095FE29 /* MovieListResponse.swift in Sources */,
 				9C3103342284012B0095FE29 /* UIColor.swift in Sources */,
 				9C3433DE228B2CA9009ED080 /* MovieDetailResponse.swift in Sources */,
+				9C419D8B228DD5B600922495 /* MovieListDelegate.swift in Sources */,
 				9C0583102285A80200FAA860 /* ListViewController+SearchBar.swift in Sources */,
 				9C3433E0228B2CC1009ED080 /* ShowDetailResponse.swift in Sources */,
-				9C419D83228DAEB700922495 /* MovieDelegate.swift in Sources */,
 				9C310315228332E40095FE29 /* ListService.swift in Sources */,
 				9C31033822847BFA0095FE29 /* ListData.swift in Sources */,
 				9CEC622F228B9FDF00563DDB /* DetailData.swift in Sources */,
 				9C3102D52282A12E0095FE29 /* TheMovieDatabase.xcdatamodeld in Sources */,
 				9C42EA492284A75300878240 /* ListViewController+CollectionView.swift in Sources */,
 				9C3102CF2282A12E0095FE29 /* MainTabViewController.swift in Sources */,
-				9C419D86228DAFB800922495 /* ShowDelegate.swift in Sources */,
 				9C31031D22833EB70095FE29 /* ListModel.swift in Sources */,
 				9C7D2C6822898C800094E9B6 /* DetailService.swift in Sources */,
 				9C42EA522284CD3F00878240 /* ListViewController.swift in Sources */,
 				9C310324228390B70095FE29 /* DateFormatter.swift in Sources */,
 				9C310326228394F30095FE29 /* String.swift in Sources */,
 				9C7D2C652288D33C0094E9B6 /* DetailViewController.swift in Sources */,
+				9C419D8A228DD5B600922495 /* ShowListDelegate.swift in Sources */,
 				9C31033A2284A34F0095FE29 /* ShowListResponse.swift in Sources */,
 				9C3102CD2282A12E0095FE29 /* AppDelegate.swift in Sources */,
 				9C31030C2282F6D70095FE29 /* ConfigManager.swift in Sources */,

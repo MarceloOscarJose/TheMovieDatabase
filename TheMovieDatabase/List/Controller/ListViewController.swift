@@ -138,4 +138,5 @@ protocol ListViewControllerDelegate: class {
     func listTitle() -> String
     func scopesList() -> [String]
     func getList(animated: Bool, type: Int, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
+    func selectRow(id: Int)
 }

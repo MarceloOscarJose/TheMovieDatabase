@@ -1,5 +1,5 @@
 //
-//  MovieDelegate.swift
+//  MovieListDelegate.swift
 //  TheMovieDatabase
 //
 //  Created by Marcelo José on 16/05/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MovieDelegate: ListViewControllerDelegate {
+class MovieListDelegate: ListViewControllerDelegate {
 
     let model = ListModel()
     var nextPage: Bool = false
@@ -29,5 +29,9 @@ class MovieDelegate: ListViewControllerDelegate {
         }) { (error) in
             errorHandler(error)
         }
+    }
+
+    func selectRow(id: Int) {
+        
     }
 }

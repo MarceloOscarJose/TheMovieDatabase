@@ -1,5 +1,5 @@
 //
-//  ShowDelegate.swift
+//  ShowListDelegate.swift
 //  TheMovieDatabase
 //
 //  Created by Marcelo José on 16/05/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ShowDelegate: ListViewControllerDelegate {
+class ShowListDelegate: ListViewControllerDelegate {
 
     let model = ListModel()
     var nextPage: Bool = false
