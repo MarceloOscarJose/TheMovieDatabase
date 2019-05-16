@@ -24,17 +24,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search by title" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z1y-5S-ziV">
-                    <rect key="frame" x="0.0" y="44" width="414" height="100"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="56"/>
                     <color key="tintColor" red="0.24705882352941178" green="0.71764705882352942" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <textInputTraits key="textInputTraits"/>
-                    <scopeButtonTitles>
-                        <string>Popular</string>
-                        <string>Top rated</string>
-                    </scopeButtonTitles>
                 </searchBar>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="X0p-Jc-9Ba">
-                    <rect key="frame" x="0.0" y="144" width="414" height="718"/>
+                    <rect key="frame" x="0.0" y="100" width="414" height="762"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vJa-nM-TSx">
                         <size key="itemSize" width="50" height="50"/>

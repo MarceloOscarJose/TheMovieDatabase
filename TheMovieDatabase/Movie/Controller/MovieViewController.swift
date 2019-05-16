@@ -8,16 +8,16 @@
 
 import AlamofireImage
 
-class MovieViewController: BaseViewController {
+/*class MovieViewController: BaseViewController {
 
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
 
     let model = DetailModel()
     var id: Int!
-    var section: ListCategory.section!
+    //var section: ListCategory.section!
 
-    convenience init(id: Int, section: ListCategory.section) {
+    /*convenience init(id: Int, section: ListCategory.section) {
         self.init()
         self.id = id
         self.section = section
@@ -46,5 +46,6 @@ class MovieViewController: BaseViewController {
         } else {
             posterImage.image = UIImage(named: "no-image")
         }
-    }
+    }*/
 }
+*/

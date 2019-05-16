@@ -20,14 +20,8 @@ extension ListViewController: UISearchBarDelegate {
             self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
         }
 
-        if self.listSection == .Movie {
-            self.listType = selectedScope == 0 ? .Popular : selectedScope == 1 ? .TopRated : .Upcoming
-        } else {
-            self.listType = selectedScope == 0 ? .Popular : selectedScope == 1 ? .TopRated : .Onair
-        }
-
         reloadResults(data: [], animated: true)
-        self.getList()
+        self.fetchList()
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

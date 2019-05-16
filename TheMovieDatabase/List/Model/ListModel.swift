@@ -12,31 +12,27 @@ class ListModel: NSObject {
 
     let listService = ListService()
 
-    // Page control
-    var moviePage: Int = 1
-    var showPage: Int = 1
-
-    func getList(nextPage: Bool, section: ListCategory.section, type: ListCategory.type, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-
-        moviePage += nextPage ? 1 : 0
-        listService.fetchList(section: section, type: type, page: moviePage, responseHandler: { (result) in
+    func getMovieList(nextPage: Bool, url: String, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+        listService.fetchList(url: url, entity: MovieListResponse.self, page: 1, responseHandler: { (result) in
             var list: [ListData] = []
-            if section == .Movie {
-                for element in (result as! MovieListResponse).results {
-                    list.append(ListData(movie: element))
-                }
-            } else {
-                for element in (result as! ShowListResponse).results {
-                    list.append(ListData(show: element))
-                }
+            for element in (result as! MovieListResponse).results {
+                list.append(ListData(movie: element))
             }
             responseHandler(list)
         }) { (error) in
             errorHandler(error)
         }
     }
-}
 
-struct ListModelData {
-    
+    func getShowList(nextPage: Bool, url: String, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+        listService.fetchList(url: url, entity: ShowListResponse.self, page: 1, responseHandler: { (result) in
+            var list: [ListData] = []
+            for element in (result as! ShowListResponse).results {
+                list.append(ListData(show: element))
+            }
+            responseHandler(list)
+        }) { (error) in
+            errorHandler(error)
+        }
+    }
 }

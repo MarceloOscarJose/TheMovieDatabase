@@ -7,33 +7,60 @@
 //
 
 import UIKit
+import LPSnackbar
 
-class ListViewController: BaseViewController {
+class ListViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
+    var snackbar: LPSnackbar!
+
     var controllerTitle: String!
     let cellIdentifier = "ListCollectionViewCell"
     var showActivityIndicator: Bool = false
 
-    let model = ListModel()
     var listData: [ListData] = []
     var listDataFilter: [ListData] = []
-    var nextPage: Bool = false
-    var listSection: ListCategory.section!
-    var listType: ListCategory.type = .Popular
+    
 
-    convenience init(title: String, type: ListCategory.section) {
-        self.init(nibName: nil, bundle: nil)
-        self.controllerTitle = title
-        self.listSection = type
+    var delegate: ListViewControllerDelegate!
+
+    // MARK: LifeCycle
+    init(delegate: ListViewControllerDelegate) {
+        super.init(nibName: "ListViewController", bundle: .main)
+        self.delegate = delegate
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupControls()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.topItem?.title = self.controllerTitle
+        self.navigationController?.navigationBar.topItem?.title = self.delegate.listTitle()
+    }
+
+    func fetchList(animated: Bool = false) {
+        clearSearchBar()
+        toggleActivityIndicator(show: true)
+
+        self.delegate.getList(animated: animated, type: self.searchBar.selectedScopeButtonIndex, responseHandler: { (resultData) in
+            self.listData = resultData
+            self.reloadResults(data: resultData, animated: animated)
+            self.toggleActivityIndicator(show: false)
+        }) { (error) in
+            self.toggleActivityIndicator(show: false)
+            self.showSnackError(title: "Error connecting to service", buttonText: "Retry", completion: {
+                self.fetchList(animated: animated)
+            })
+        }
     }
 
     func toggleActivityIndicator(show: Bool) {
@@ -52,9 +79,9 @@ class ListViewController: BaseViewController {
         }
     }
 
-    override func setupControls() {
+    func setupControls() {
         // Search bar setup
-        searchBar.scopeButtonTitles?.append(listSection == .Movie ? "Upcoming" : "On air")
+        searchBar.scopeButtonTitles = self.delegate.scopesList()
         searchBar.delegate = self
 
         // Collection view setup
@@ -65,23 +92,7 @@ class ListViewController: BaseViewController {
         gesture.cancelsTouchesInView = false
         collectionView.addGestureRecognizer(gesture)
 
-        getList(animated: true)
-    }
-
-    @objc func getList(animated: Bool = false) {
-        clearSearchBar()
-        toggleActivityIndicator(show: true)
-
-        model.getList(nextPage: nextPage, section: listSection, type: listType, responseHandler: { (resultData) in
-            self.listData = resultData
-            self.reloadResults(data: resultData, animated: animated)
-            self.toggleActivityIndicator(show: false)
-        }) { (error) in
-            self.toggleActivityIndicator(show: false)
-            self.showSnakError(title: "Error connecting to service", buttonText: "Retry", completion: {
-                self.getList(animated: animated)
-            })
-        }
+        fetchList(animated: true)
     }
 
     @objc func hideKeyboard() {
@@ -105,4 +116,27 @@ class ListViewController: BaseViewController {
             self.collectionView.reloadData()
         }
     }
+
+    func showSnackError(title: String, buttonText: String, completion: @escaping () -> Void) {
+        if snackbar != nil {
+            snackbar.dismiss()
+        }
+
+        snackbar = LPSnackbar(title: title, buttonTitle: buttonText)
+        snackbar.view.titleLabel.font = UIFont.systemFont(ofSize: 15)
+        snackbar.view.button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+
+        snackbar.show(animated: true) {(undone) in
+            if undone {
+                completion()
+                self.snackbar = nil
+            }
+        }
+    }
+}
+
+protocol ListViewControllerDelegate: class {
+    func listTitle() -> String
+    func scopesList() -> [String]
+    func getList(animated: Bool, type: Int, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
 }

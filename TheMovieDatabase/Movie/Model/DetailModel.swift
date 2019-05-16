@@ -10,7 +10,7 @@ import UIKit
 
 class DetailModel: NSObject {
 
-    let service = DetailService()
+    /*let service = DetailService()
 
     func getDetail(id: Int, section: ListCategory.section, responseHandler: @escaping (_ response: DetailData) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
 
@@ -23,5 +23,5 @@ class DetailModel: NSObject {
         }) { (error) in
             errorHandler(error)
         }
-    }
+    }*/
 }
