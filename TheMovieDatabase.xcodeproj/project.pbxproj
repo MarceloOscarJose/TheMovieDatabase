@@ -322,11 +322,11 @@
 		9C31031B22833DA30095FE29 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9C419D84228DAFA100922495 /* Delegates */,
 				9C42EA512284CD3F00878240 /* ListViewController.xib */,
 				9C42EA502284CD3F00878240 /* ListViewController.swift */,
 				9C42EA482284A75300878240 /* ListViewController+CollectionView.swift */,
 				9C05830F2285A80200FAA860 /* ListViewController+SearchBar.swift */,
-				9C419D84228DAFA100922495 /* Delegates */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

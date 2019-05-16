@@ -23,7 +23,6 @@ class ListViewController: UIViewController {
 
     var listData: [ListData] = []
     var listDataFilter: [ListData] = []
-    
 
     var delegate: ListViewControllerDelegate!
 
@@ -47,7 +46,7 @@ class ListViewController: UIViewController {
         self.navigationController?.navigationBar.topItem?.title = self.delegate.listTitle()
     }
 
-    func fetchList(animated: Bool = false) {
+    func getList(animated: Bool = false) {
         clearSearchBar()
         toggleActivityIndicator(show: true)
 
@@ -58,7 +57,7 @@ class ListViewController: UIViewController {
         }) { (error) in
             self.toggleActivityIndicator(show: false)
             self.showSnackError(title: "Error connecting to service", buttonText: "Retry", completion: {
-                self.fetchList(animated: animated)
+                self.getList(animated: animated)
             })
         }
     }
@@ -92,7 +91,7 @@ class ListViewController: UIViewController {
         gesture.cancelsTouchesInView = false
         collectionView.addGestureRecognizer(gesture)
 
-        fetchList(animated: true)
+        getList(animated: true)
     }
 
     @objc func hideKeyboard() {

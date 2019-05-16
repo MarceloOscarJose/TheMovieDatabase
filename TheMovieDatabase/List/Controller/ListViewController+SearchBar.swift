@@ -21,7 +21,7 @@ extension ListViewController: UISearchBarDelegate {
         }
 
         reloadResults(data: [], animated: true)
-        self.fetchList()
+        self.getList()
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
