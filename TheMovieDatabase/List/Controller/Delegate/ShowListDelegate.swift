@@ -6,7 +6,7 @@
 //  Copyright © 2019 Marcelo José. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class ShowListDelegate: ListViewControllerDelegate {
 
@@ -31,7 +31,7 @@ class ShowListDelegate: ListViewControllerDelegate {
         }
     }
 
-    func selectRow(id: Int) {
-        
+    func selectRow(id: Int, navController: UINavigationController) {
+        navController.pushViewController(DetailViewController(id: id, delegate: ShowDetailDelegate()), animated: true)
     }
 }

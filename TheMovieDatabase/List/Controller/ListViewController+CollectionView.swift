@@ -34,8 +34,10 @@ extension ListViewController: UICollectionViewDataSource, UICollectionViewDelega
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailId = self.listDataFilter[indexPath.item].id
-        self.delegate.selectRow(id: detailId)
-        //self.navigationController?.pushViewController(detail, animated: true)
+
+        if let navController = self.navigationController {
+            self.delegate.selectRow(id: detailId, navController: navController)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
