@@ -34,7 +34,6 @@ struct ShowDetailResponse: Codable {
     }
 
     public struct Seasons: Codable {
-        var airDate: String
         var episodeCount: Int
         var name: String
         var overview: String
@@ -43,7 +42,6 @@ struct ShowDetailResponse: Codable {
         {
             case name, overview
             case episodeCount = "episode_count"
-            case airDate = "air_date"
         }
     }
 }
