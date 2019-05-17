@@ -16,7 +16,12 @@ class CastCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        castImage.image = nil
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        castImage.af_cancelImageRequest()
+        castImage.image = UIImage(named: "no-image")
     }
 
     func updateCell(image: String?, name: String, character: String) {
