@@ -50,9 +50,8 @@ struct ShowDetailResponse: Codable {
 
     public struct VideoResults: Codable {
         var results: [Video]
-        
+
         struct Video: Codable {
-            var id: String
             var key: String
             var name: String
         }

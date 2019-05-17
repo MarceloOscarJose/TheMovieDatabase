@@ -13,7 +13,7 @@ class MovieDetailDelegate: DetailViewControllerDelegate {
     let model = DetailModel()
 
     func getDetail(id: Int, responseHandler: @escaping (DetailData) -> Void, errorHandler: @escaping (Error?) -> Void) {
-        model.getMovieDetail(url: "tv/\(id)", responseHandler: { (response) in
+        model.getMovieDetail(url: "movie/\(id)", responseHandler: { (response) in
             responseHandler(response)
         }) { (error) in
             errorHandler(error)

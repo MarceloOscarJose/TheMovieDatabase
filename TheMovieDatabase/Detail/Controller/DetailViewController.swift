@@ -13,6 +13,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
 
+    @IBOutlet weak var averageLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var genresLabel: UILabel!
+    @IBOutlet weak var overviewLabel: UILabel!
+
     var id: Int!
     var delegate: DetailViewControllerDelegate!
 
@@ -36,13 +41,17 @@ class DetailViewController: UIViewController {
     }
 
     func updateDetail(detailData: DetailData) {
-        titleLabel.text = detailData.title
-
         if let image = URL(string: detailData.poster ?? "") {
             posterImage.af_setImage(withURL: image)
         } else {
             posterImage.image = UIImage(named: "no-image")
         }
+
+        titleLabel.text = detailData.title
+        averageLabel.text = detailData.average
+        dateLabel.text = detailData.releaseDate
+        genresLabel.text = detailData.genres
+        overviewLabel.text = detailData.overview
     }
 }
 

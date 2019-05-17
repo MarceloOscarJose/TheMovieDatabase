@@ -9,46 +9,49 @@
 import UIKit
 
 struct DetailData {
-    var id: Int
-    var title: String
-    var average: String
-    var overview: String
+    var id: Int = 0
+    var title: String = ""
+    var average: String = ""
+    var genres: String = ""
+    var overview: String = ""
     var poster: String?
-    var backdrop: String?
     var releaseDate: String = ""
 
     init(movieDetail: MovieDetailResponse) {
-        self.id = movieDetail.id
-        self.title = movieDetail.title
-
-        self.average = movieDetail.voteAverage != 0 ? "⭐️ \(movieDetail.voteAverage)" : "N/R"
-        self.overview = movieDetail.overview != "" ? movieDetail.overview : "No description"
-
-        if let posterImage = movieDetail.posterPath {
-            self.poster = "\(ConfigManager.sharedInstance.imageURL)\(posterImage)"
-        }
-        if let backdropImage = movieDetail.backdropPath {
-            self.backdrop = "\(ConfigManager.sharedInstance.imageURL)\(backdropImage)"
-        }
-
-        self.releaseDate = formatDate(date: movieDetail.releaseDate)
+        self.init(id: movieDetail.id,
+            title: movieDetail.title,
+            image: movieDetail.posterPath,
+            average: movieDetail.voteAverage,
+            overview: movieDetail.overview,
+            genres: movieDetail.genres.map({ $0.name }),
+            date: movieDetail.releaseDate
+        )
     }
 
     init(showDetail: ShowDetailResponse) {
-        self.id = showDetail.id
-        self.title = showDetail.name
+        self.init(id: showDetail.id,
+            title: showDetail.name,
+            image: showDetail.posterPath,
+            average: showDetail.voteAverage,
+            overview: showDetail.overview,
+            genres: showDetail.genres.map({ $0.name }),
+            date: showDetail.firstAirDate
+        )
+    }
 
-        self.average = showDetail.voteAverage != 0 ? "⭐️ \(showDetail.voteAverage)" : "N/R"
-        self.overview = showDetail.overview != "" ? showDetail.overview : "No description"
+    init(id: Int, title: String, image: String?, average: Double, overview: String, genres: [String], date: String) {
+        self.id = id
+        self.title = title
 
-        if let posterImage = showDetail.posterPath {
+        if let posterImage = image {
             self.poster = "\(ConfigManager.sharedInstance.imageURL)\(posterImage)"
         }
-        if let backdropImage = showDetail.backdropPath {
-            self.backdrop = "\(ConfigManager.sharedInstance.imageURL)\(backdropImage)"
-        }
 
-        self.releaseDate = formatDate(date: showDetail.firstAirDate)
+        self.average = average != 0 ? "⭐️ \(average)" : "N/R"
+        self.overview = overview != "" ? overview : "No description"
+        self.genres = genres.joined(separator: " / ")
+
+        self.releaseDate = formatDate(date: date)
     }
 
     fileprivate func formatDate(date: String) -> String {

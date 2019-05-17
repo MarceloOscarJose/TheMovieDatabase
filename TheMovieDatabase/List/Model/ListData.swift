@@ -18,31 +18,36 @@ struct ListData {
     var releaseDate: String = ""
 
     init(movie: MovieListResponse.Movie) {
-        self.id = movie.id
-        self.title = movie.title
-
-        self.average = movie.voteAverage != 0 ? "⭐️ \(movie.voteAverage)" : "N/R"
-        self.overview = movie.overview != "" ? movie.overview : "No description"
-
-        if let posterImage = movie.posterPath {
-            self.poster = "\(ConfigManager.sharedInstance.thumbnailURL)\(posterImage)"
-        }
-
-        self.releaseDate = formatDate(date: movie.releaseDate)
+        self.init(id: movie.id,
+          title: movie.title,
+          image: movie.posterPath,
+          average: movie.voteAverage,
+          overview: movie.overview,
+          date: movie.releaseDate
+        )
     }
 
     init(show: ShowListResponse.Show) {
-        self.id = show.id
-        self.title = show.name
+        self.init(id: show.id,
+          title: show.name,
+          image: show.posterPath,
+          average: show.voteAverage,
+          overview: show.overview,
+          date: show.firstAirDate
+        )
+    }
 
-        self.average = show.voteAverage != 0 ? "⭐️ \(show.voteAverage)" : "N/R"
-        self.overview = show.overview != "" ? show.overview : "No description"
+    init(id: Int, title: String, image: String?, average: Double, overview: String, date: String) {
+        self.id = id
+        self.title = title
 
-        if let posterImage = show.posterPath {
+        if let posterImage = image {
             self.poster = "\(ConfigManager.sharedInstance.thumbnailURL)\(posterImage)"
         }
 
-        self.releaseDate = formatDate(date: show.firstAirDate)
+        self.average = average != 0 ? "⭐️ \(average)" : "N/R"
+        self.overview = overview != "" ? overview : "No description"
+        self.releaseDate = formatDate(date: date)
     }
 
     fileprivate func formatDate(date: String) -> String {
