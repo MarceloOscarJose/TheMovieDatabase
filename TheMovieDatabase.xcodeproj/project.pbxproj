@@ -35,6 +35,9 @@
 		9C419D8B228DD5B600922495 /* MovieListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C419D89228DD5B600922495 /* MovieListDelegate.swift */; };
 		9C419D8D228E0F8600922495 /* MovieDetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C419D8C228E0F8600922495 /* MovieDetailDelegate.swift */; };
 		9C419D8F228E0F9600922495 /* ShowDetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C419D8E228E0F9600922495 /* ShowDetailDelegate.swift */; };
+		9C419D92228E3C5700922495 /* DetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C419D91228E3C5700922495 /* DetailResponse.swift */; };
+		9C419D95228E3DBF00922495 /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C419D93228E3DBF00922495 /* CastCollectionViewCell.swift */; };
+		9C419D96228E3DBF00922495 /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C419D94228E3DBF00922495 /* CastCollectionViewCell.xib */; };
 		9C42EA492284A75300878240 /* ListViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C42EA482284A75300878240 /* ListViewController+CollectionView.swift */; };
 		9C42EA522284CD3F00878240 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C42EA502284CD3F00878240 /* ListViewController.swift */; };
 		9C42EA532284CD3F00878240 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C42EA512284CD3F00878240 /* ListViewController.xib */; };
@@ -106,6 +109,9 @@
 		9C419D89228DD5B600922495 /* MovieListDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListDelegate.swift; sourceTree = "<group>"; };
 		9C419D8C228E0F8600922495 /* MovieDetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailDelegate.swift; sourceTree = "<group>"; };
 		9C419D8E228E0F9600922495 /* ShowDetailDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDetailDelegate.swift; sourceTree = "<group>"; };
+		9C419D91228E3C5700922495 /* DetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailResponse.swift; sourceTree = "<group>"; };
+		9C419D93228E3DBF00922495 /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
+		9C419D94228E3DBF00922495 /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
 		9C42EA482284A75300878240 /* ListViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		9C42EA502284CD3F00878240 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		9C42EA512284CD3F00878240 /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
@@ -363,9 +369,19 @@
 			path = Delegate;
 			sourceTree = "<group>";
 		};
+		9C419D90228E3B2800922495 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9C419D93228E3DBF00922495 /* CastCollectionViewCell.swift */,
+				9C419D94228E3DBF00922495 /* CastCollectionViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9C7D2C6922898CF90094E9B6 /* Codeable */ = {
 			isa = PBXGroup;
 			children = (
+				9C419D91228E3C5700922495 /* DetailResponse.swift */,
 				9C3433DD228B2CA9009ED080 /* MovieDetailResponse.swift */,
 				9C3433DF228B2CC1009ED080 /* ShowDetailResponse.swift */,
 			);
@@ -375,6 +391,7 @@
 		9CFE0F842286CC8C004218CD /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				9C419D90228E3B2800922495 /* View */,
 				9CFE0F872286CCA4004218CD /* Service */,
 				9CFE0F862286CC9E004218CD /* Model */,
 				9CFE0F852286CC97004218CD /* Controller */,
@@ -536,6 +553,7 @@
 				9C3102D22282A12E0095FE29 /* Main.storyboard in Resources */,
 				9C3103322283B8210095FE29 /* ListCollectionViewCell.xib in Resources */,
 				9C42EA532284CD3F00878240 /* ListViewController.xib in Resources */,
+				9C419D96228E3DBF00922495 /* CastCollectionViewCell.xib in Resources */,
 				9C31030E2282F7880095FE29 /* Config.plist in Resources */,
 				9C7D2C662288D33C0094E9B6 /* DetailViewController.xib in Resources */,
 			);
@@ -658,6 +676,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C419D8D228E0F8600922495 /* MovieDetailDelegate.swift in Sources */,
+				9C419D92228E3C5700922495 /* DetailResponse.swift in Sources */,
 				9C310318228333490095FE29 /* MovieListResponse.swift in Sources */,
 				9C3103342284012B0095FE29 /* UIColor.swift in Sources */,
 				9C3433DE228B2CA9009ED080 /* MovieDetailResponse.swift in Sources */,
@@ -670,6 +689,7 @@
 				9CEC622F228B9FDF00563DDB /* DetailData.swift in Sources */,
 				9C3102D52282A12E0095FE29 /* TheMovieDatabase.xcdatamodeld in Sources */,
 				9C42EA492284A75300878240 /* ListViewController+CollectionView.swift in Sources */,
+				9C419D95228E3DBF00922495 /* CastCollectionViewCell.swift in Sources */,
 				9C3102CF2282A12E0095FE29 /* MainTabViewController.swift in Sources */,
 				9C31031D22833EB70095FE29 /* ListModel.swift in Sources */,
 				9C7D2C6822898C800094E9B6 /* DetailService.swift in Sources */,

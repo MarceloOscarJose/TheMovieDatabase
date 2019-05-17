@@ -32,15 +32,15 @@ extension ListViewController: UICollectionViewDataSource, UICollectionViewDelega
         return UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
     }
 
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let detailId = self.listDataFilter[indexPath.item].id
 
         if let navController = self.navigationController {
             self.delegate.selectRow(id: detailId, navController: navController)
         }
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
     }
 }

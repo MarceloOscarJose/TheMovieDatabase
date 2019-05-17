@@ -16,6 +16,7 @@ struct DetailData {
     var overview: String = ""
     var poster: String?
     var releaseDate: String = ""
+    var cast: [DetailResponse.Credits.Cast] = []
 
     init(movieDetail: MovieDetailResponse) {
         self.init(id: movieDetail.id,
@@ -24,7 +25,8 @@ struct DetailData {
             average: movieDetail.voteAverage,
             overview: movieDetail.overview,
             genres: movieDetail.genres.map({ $0.name }),
-            date: movieDetail.releaseDate
+            date: movieDetail.releaseDate,
+            cast: movieDetail.credits.cast
         )
     }
 
@@ -35,11 +37,12 @@ struct DetailData {
             average: showDetail.voteAverage,
             overview: showDetail.overview,
             genres: showDetail.genres.map({ $0.name }),
-            date: showDetail.firstAirDate
+            date: showDetail.firstAirDate,
+            cast: showDetail.credits.cast
         )
     }
 
-    init(id: Int, title: String, image: String?, average: Double, overview: String, genres: [String], date: String) {
+    init(id: Int, title: String, image: String?, average: Double, overview: String, genres: [String], date: String, cast: [DetailResponse.Credits.Cast]) {
         self.id = id
         self.title = title
 
@@ -52,6 +55,7 @@ struct DetailData {
         self.genres = genres.joined(separator: " / ")
 
         self.releaseDate = formatDate(date: date)
+        self.cast = cast
     }
 
     fileprivate func formatDate(date: String) -> String {

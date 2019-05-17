@@ -17,8 +17,8 @@ struct ShowDetailResponse: Codable {
     var firstAirDate: String
     var voteAverage: Double
     var genres: [Genres]
-    var videos: VideoResults
-    var credits: Credits
+    var videos: DetailResponse.VideoResults
+    var credits: DetailResponse.Credits
     var seasons: [Seasons]
 
     enum CodingKeys: String, CodingKey {
@@ -31,30 +31,6 @@ struct ShowDetailResponse: Codable {
 
     public struct Genres: Codable {
         var name: String
-    }
-
-    public struct Credits: Codable {
-        var cast: [Cast]
-
-        public struct Cast: Codable {
-            var name: String
-            var character: String
-            var profilePath: String?
-
-            enum CodingKeys: String, CodingKey {
-                case name, character
-                case profilePath = "profile_path"
-            }
-        }
-    }
-
-    public struct VideoResults: Codable {
-        var results: [Video]
-
-        struct Video: Codable {
-            var key: String
-            var name: String
-        }
     }
 
     public struct Seasons: Codable {
