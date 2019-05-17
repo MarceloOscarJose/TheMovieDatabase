@@ -33,7 +33,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" tag="1" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qET-4Y-KdW">
-                            <rect key="frame" x="0.0" y="290" width="414" height="131.5"/>
+                            <rect key="frame" x="0.0" y="290" width="414" height="528"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="scl-E2-EVk">
                                 <size key="itemSize" width="50" height="50"/>
@@ -61,7 +61,7 @@
                             </connections>
                         </segmentedControl>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Uz-sU-EHi">
-                            <rect key="frame" x="0.0" y="290" width="414" height="131.5"/>
+                            <rect key="frame" x="0.0" y="290" width="414" height="175.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DQS-mD-YQZ">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -82,7 +82,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zg8-jP-8mU">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
+                                    <rect key="frame" x="0.0" y="44" width="414" height="94"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwU-w7-DPZ">
                                             <rect key="frame" x="10" y="10" width="63" height="18"/>
@@ -151,7 +151,7 @@
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJ8-Hk-emz">
-                                    <rect key="frame" x="10" y="104" width="394" height="17.5"/>
+                                    <rect key="frame" x="10" y="148" width="394" height="17.5"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -160,7 +160,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="EJ8-Hk-emz" firstAttribute="top" secondItem="zg8-jP-8mU" secondAttribute="bottom" constant="10" id="E4E-uh-SfI"/>
-                                <constraint firstItem="zg8-jP-8mU" firstAttribute="top" secondItem="8Uz-sU-EHi" secondAttribute="top" id="TDe-zR-53S"/>
+                                <constraint firstItem="zg8-jP-8mU" firstAttribute="top" secondItem="DQS-mD-YQZ" secondAttribute="bottom" id="JCc-0l-03j"/>
                                 <constraint firstItem="EJ8-Hk-emz" firstAttribute="leading" secondItem="8Uz-sU-EHi" secondAttribute="leading" constant="10" id="YdE-6a-H3T"/>
                                 <constraint firstItem="DQS-mD-YQZ" firstAttribute="leading" secondItem="8Uz-sU-EHi" secondAttribute="leading" id="bru-is-c8K"/>
                                 <constraint firstAttribute="trailing" secondItem="DQS-mD-YQZ" secondAttribute="trailing" id="gfa-5D-rCY"/>
@@ -176,7 +176,6 @@
                     <constraints>
                         <constraint firstItem="6ak-kx-5OR" firstAttribute="top" secondItem="0Jb-Gd-SeU" secondAttribute="bottom" id="4lm-08-Inm"/>
                         <constraint firstItem="0Jb-Gd-SeU" firstAttribute="width" secondItem="cVJ-t8-15Z" secondAttribute="width" id="9LC-k0-BhP"/>
-                        <constraint firstAttribute="bottom" secondItem="qET-4Y-KdW" secondAttribute="bottom" id="FU8-0j-28g"/>
                         <constraint firstItem="0Jb-Gd-SeU" firstAttribute="top" secondItem="cVJ-t8-15Z" secondAttribute="top" id="GCo-W2-yxN"/>
                         <constraint firstAttribute="bottom" secondItem="8Uz-sU-EHi" secondAttribute="bottom" id="JdS-pT-891"/>
                         <constraint firstItem="0Jb-Gd-SeU" firstAttribute="leading" secondItem="cVJ-t8-15Z" secondAttribute="leading" id="O2z-Qn-2Jb"/>
@@ -198,6 +197,7 @@
                 <constraint firstItem="cVJ-t8-15Z" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Jzr-tU-uKJ"/>
                 <constraint firstItem="cVJ-t8-15Z" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="QBu-GZ-EI7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cVJ-t8-15Z" secondAttribute="bottom" id="SC4-WY-43s"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="qET-4Y-KdW" secondAttribute="bottom" id="hcM-hN-Vu6"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="131.8840579710145" y="102.45535714285714"/>

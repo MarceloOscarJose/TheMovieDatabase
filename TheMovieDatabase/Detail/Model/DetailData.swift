@@ -55,7 +55,7 @@ struct DetailData {
         self.genres = genres.joined(separator: " / ")
 
         self.releaseDate = formatDate(date: date)
-        self.cast = cast
+        self.cast = cast.sorted(by: { $1.order > $0.order })
     }
 
     fileprivate func formatDate(date: String) -> String {

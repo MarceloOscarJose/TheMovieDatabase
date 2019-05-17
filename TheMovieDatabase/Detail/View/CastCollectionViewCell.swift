@@ -10,9 +10,23 @@ import UIKit
 
 class CastCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var castImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var characterLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        castImage.image = nil
     }
 
+    func updateCell(image: String?, name: String, character: String) {
+        nameLabel.text = name.isEmpty ? "-" : name
+        characterLabel.text = character.isEmpty ? "-" : character
+
+        if let image = URL(string: "\(ConfigManager.sharedInstance.thumbnailURL)\(image ?? "")") {
+            castImage.af_setImage(withURL: image)
+        } else {
+            castImage.image = UIImage(named: "no-image")
+        }
+    }
 }

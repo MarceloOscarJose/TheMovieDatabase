@@ -77,9 +77,6 @@ class DetailViewController: UIViewController {
     @IBAction func selectOption(_ sender: UISegmentedControl) {
         detailView.alpha = sender.selectedSegmentIndex == 0 ? 1 : 0
         castCollectionView.alpha = sender.selectedSegmentIndex == 1 ? 1 : 0
-
-        castCollectionView.reloadData()
-        self.view.layoutIfNeeded()
     }
 }
 
@@ -90,17 +87,18 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: castCellIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: castCellIdentifier, for: indexPath) as! CastCollectionViewCell
+        let castData = cast[indexPath.item]
+        cell.updateCell(image: castData.profilePath, name: castData.name, character: castData.character)
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let widthPerItem = self.view.frame.width
-        return CGSize(width: widthPerItem, height: 100)
+        return CGSize(width: collectionView.frame.width, height: 80)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

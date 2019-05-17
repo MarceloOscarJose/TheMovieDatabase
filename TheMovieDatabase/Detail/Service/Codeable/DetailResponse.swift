@@ -17,9 +17,10 @@ struct DetailResponse {
             var name: String
             var character: String
             var profilePath: String?
+            var order: Int
 
             enum CodingKeys: String, CodingKey {
-                case name, character
+                case name, character, order
                 case profilePath = "profile_path"
             }
         }
