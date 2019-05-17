@@ -68,13 +68,17 @@ class DetailViewController: UIViewController {
 
     func updateCast(cast: [DetailResponse.Credits.Cast]) {
         self.cast = cast
-        castCollectionView.register(UINib(nibName: castCellIdentifier, bundle: .main), forCellWithReuseIdentifier: castCellIdentifier)
-        castCollectionView.delegate = self
-        castCollectionView.dataSource = self
-        castCollectionView.alpha = 0
     }
 
     @IBAction func selectOption(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 1 {
+            castCollectionView.alpha = 1
+            castCollectionView.register(UINib(nibName: castCellIdentifier, bundle: .main), forCellWithReuseIdentifier: castCellIdentifier)
+            castCollectionView.delegate = self
+            castCollectionView.dataSource = self
+            castCollectionView.alpha = 0
+        }
+
         detailView.alpha = sender.selectedSegmentIndex == 0 ? 1 : 0
         castCollectionView.alpha = sender.selectedSegmentIndex == 1 ? 1 : 0
     }
