@@ -28,10 +28,12 @@ class CastCollectionViewCell: UICollectionViewCell {
         nameLabel.text = name.isEmpty ? "-" : name
         characterLabel.text = character.isEmpty ? "-" : character
 
-        if let image = URL(string: "\(ConfigManager.sharedInstance.thumbnailURL)\(image ?? "")") {
-            castImage.af_setImage(withURL: image)
-        } else {
-            castImage.image = UIImage(named: "no-image")
+        if let image = image {
+            if let imageURL = URL(string: "\(ConfigManager.sharedInstance.thumbnailURL)\(image)") {
+                castImage.af_setImage(withURL: imageURL, placeholderImage: UIImage(named: "no-image"))
+            } else {
+                castImage.image = UIImage(named: "no-image")
+            }
         }
     }
 }
