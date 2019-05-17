@@ -50,11 +50,11 @@ struct DetailData {
             self.poster = "\(ConfigManager.sharedInstance.imageURL)\(posterImage)"
         }
 
-        self.average = average != 0 ? "⭐️ \(average)" : "N/R"
-        self.overview = overview != "" ? overview : "No description"
-        self.genres = genres.joined(separator: " / ")
+        self.average = "Average: \(average != 0 ? "⭐️\(average)" : "N/R")"
+        self.genres = "Genres: \(genres.joined(separator: " / "))"
+        self.releaseDate = "Date: \(formatDate(date: date))"
 
-        self.releaseDate = formatDate(date: date)
+        self.overview = overview != "" ? overview : "No description"
         self.cast = cast.sorted(by: { $1.order > $0.order })
     }
 

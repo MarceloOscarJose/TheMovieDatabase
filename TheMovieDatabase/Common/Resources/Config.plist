@@ -5,7 +5,7 @@
 	<key>thumbnailURL</key>
 	<string>https://image.tmdb.org/t/p/w185_and_h278_bestv2/</string>
 	<key>imageURL</key>
-	<string>https://image.tmdb.org/t/p/w600_and_h600_bestv2/</string>
+	<string>https://image.tmdb.org/t/p/w600_and_h900_bestv2/</string>
 	<key>baseURL</key>
 	<string>https://api.themoviedb.org/3/</string>
 	<key>apiKey</key>

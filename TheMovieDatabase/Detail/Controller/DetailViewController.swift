@@ -12,7 +12,8 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var posterImage: UIImageView!
-
+    @IBOutlet weak var optionMenu: UISegmentedControl!
+    
     // UI Details
     @IBOutlet weak var detailView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -27,8 +28,11 @@ class DetailViewController: UIViewController {
     var id: Int!
     var delegate: DetailViewControllerDelegate!
 
-    // Data car
+    // Data vars
     let castCellIdentifier = "CastCollectionViewCell"
+    var imageFrame: CGRect = .zero
+    var imagePlaceHolder = UIImage(named: "no-image")
+    var rightButtonTexts: [String] = ["Show poster", "Hide poster"]
     var cast: [DetailResponse.Credits.Cast] = []
 
     convenience init(id: Int, delegate: DetailViewControllerDelegate) {
@@ -39,7 +43,18 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupControls()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.imageFrame = self.posterImage.frame
+    }
+
+    func setupControls() {
         scrollView.delegate = self
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: rightButtonTexts.first!, style: .plain, target: self, action: #selector(showFullScreenPoster))
+
         getdetail()
     }
 
@@ -68,19 +83,44 @@ class DetailViewController: UIViewController {
 
     func updateCast(cast: [DetailResponse.Credits.Cast]) {
         self.cast = cast
+        castCollectionView.register(UINib(nibName: castCellIdentifier, bundle: .main), forCellWithReuseIdentifier: castCellIdentifier)
+        castCollectionView.delegate = self
+        castCollectionView.dataSource = self
+    }
+
+    func hideControls() {
+        posterImage.frame = self.scrollView.bounds
+        posterImage.contentMode = .scaleAspectFill
+        detailView.alpha = 0
+        castCollectionView.alpha = 0
+        optionMenu.alpha = 0
+        scrollView.isScrollEnabled = false
+        self.navigationItem.rightBarButtonItem?.title = self.rightButtonTexts.last!
+    }
+
+    func resetControls() {
+        posterImage.frame = self.imageFrame
+        posterImage.contentMode = .scaleAspectFill
+        optionMenu.alpha = 1
+        selectOption(optionMenu)
+        scrollView.isScrollEnabled = true
+        self.navigationItem.rightBarButtonItem?.title = self.rightButtonTexts.first!
+    }
+
+    @objc func showFullScreenPoster(_ sender: Any) {
+        if self.posterImage.image != imagePlaceHolder {
+            if detailView.alpha != 0 || castCollectionView.alpha != 0 {
+                hideControls()
+            } else {
+                resetControls()
+            }
+        }
     }
 
     @IBAction func selectOption(_ sender: UISegmentedControl) {
-        if sender.selectedSegmentIndex == 1 {
-            castCollectionView.alpha = 1
-            castCollectionView.register(UINib(nibName: castCellIdentifier, bundle: .main), forCellWithReuseIdentifier: castCellIdentifier)
-            castCollectionView.delegate = self
-            castCollectionView.dataSource = self
-            castCollectionView.alpha = 0
-        }
-
         detailView.alpha = sender.selectedSegmentIndex == 0 ? 1 : 0
         castCollectionView.alpha = sender.selectedSegmentIndex == 1 ? 1 : 0
+        self.view.layoutSubviews()
     }
 }
 
