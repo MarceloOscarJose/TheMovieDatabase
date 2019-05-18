@@ -24,10 +24,10 @@ class ListViewController: UIViewController {
     var listData: [ListModelData] = []
     var listDataFilter: [ListModelData] = []
 
-    var delegate: ListViewControllerDelegate!
+    var delegate: ListViewDelegate!
 
     // MARK: LifeCycle
-    init(delegate: ListViewControllerDelegate) {
+    init(delegate: ListViewDelegate) {
         super.init(nibName: "ListViewController", bundle: .main)
         self.delegate = delegate
     }
@@ -134,7 +134,7 @@ class ListViewController: UIViewController {
     }
 }
 
-protocol ListViewControllerDelegate: class {
+protocol ListViewDelegate: class {
     func listTitle() -> String
     func scopesList() -> [String]
     func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)

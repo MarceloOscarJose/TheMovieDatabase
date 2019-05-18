@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShowListDelegate: ListViewControllerDelegate {
+class ShowListDelegate: ListViewDelegate {
 
     let model = ListModel()
     var nextPage: Bool = false

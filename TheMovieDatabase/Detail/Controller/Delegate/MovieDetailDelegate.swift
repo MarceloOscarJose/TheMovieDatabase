@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieDetailDelegate: DetailViewControllerDelegate {
+class MovieDetailDelegate: DetailViewDelegate {
 
     let model = DetailModel()
 

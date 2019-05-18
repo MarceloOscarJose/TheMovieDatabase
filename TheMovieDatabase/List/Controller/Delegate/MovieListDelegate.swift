@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieListDelegate: ListViewControllerDelegate {
+class MovieListDelegate: ListViewDelegate {
 
     let model = ListModel()
     var nextPage: Bool = false

@@ -27,7 +27,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var castCollectionView: UICollectionView!
 
     var id: Int!
-    var delegate: DetailViewControllerDelegate!
+    var delegate: DetailViewDelegate!
 
     // Data vars
     let castCellIdentifier = "CastCollectionViewCell"
@@ -36,7 +36,7 @@ class DetailViewController: UIViewController {
     var rightButtonTexts: [String] = ["Show poster", "Hide poster"]
     var cast: [DetailResponse.Credits.Cast] = []
 
-    convenience init(id: Int, delegate: DetailViewControllerDelegate) {
+    convenience init(id: Int, delegate: DetailViewDelegate) {
         self.init()
         self.id = id
         self.delegate = delegate
@@ -152,6 +152,6 @@ extension DetailViewController: UIScrollViewDelegate {
     }
 }
 
-protocol DetailViewControllerDelegate: class {
+protocol DetailViewDelegate: class {
     func getDetail(id: Int, responseHandler: @escaping (_ response: DetailModelData) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShowDetailDelegate: DetailViewControllerDelegate {
+class ShowDetailDelegate: DetailViewDelegate {
 
     let model = DetailModel()
 
