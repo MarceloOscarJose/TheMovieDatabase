@@ -5,9 +5,9 @@ target 'TheMovieDatabase' do
   use_frameworks!
 
   # Pods for TheMovieDatabase
-  pod 'Alamofire'
-  pod 'AlamofireImage'
-  pod 'LPSnackbar'
+  pod 'Alamofire', '4.8.2'
+  pod 'AlamofireImage', '3.5.2'
+  pod 'LPSnackbar', '3.1.0'
 
   target 'TheMovieDatabaseTests' do
     inherit! :search_paths
