@@ -12,8 +12,9 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var posterImage: UIImageView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var optionMenu: UISegmentedControl!
-    
+
     // UI Details
     @IBOutlet weak var detailView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -55,11 +56,15 @@ class DetailViewController: UIViewController {
         scrollView.delegate = self
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: rightButtonTexts.first!, style: .plain, target: self, action: #selector(showFullScreenPoster))
 
+        hideControls()
         getdetail()
     }
 
     func getdetail() {
+        stoggleIndicator(show: true)
         self.delegate.getDetail(id: id, responseHandler: { (detailData) in
+            self.stoggleIndicator(show: false)
+            self.showControls()
             self.updateDetail(detailData: detailData)
             self.updateCast(cast: detailData.cast)
         }) { (error) in
@@ -88,31 +93,48 @@ class DetailViewController: UIViewController {
         castCollectionView.dataSource = self
     }
 
+    func stoggleIndicator(show: Bool) {
+        if show {
+            loadingIndicator.startAnimating()
+        } else {
+            loadingIndicator.stopAnimating()
+        }
+
+        loadingIndicator.alpha = show ? 1 : 0
+    }
+
     func hideControls() {
-        posterImage.frame = self.scrollView.bounds
-        posterImage.contentMode = .scaleAspectFill
+        posterImage.alpha = 0
         detailView.alpha = 0
         castCollectionView.alpha = 0
         optionMenu.alpha = 0
         scrollView.isScrollEnabled = false
-        self.navigationItem.rightBarButtonItem?.title = self.rightButtonTexts.last!
     }
 
-    func resetControls() {
+    func showControls() {
+        posterImage.alpha = 1
         posterImage.frame = self.imageFrame
         posterImage.contentMode = .scaleAspectFill
         optionMenu.alpha = 1
         selectOption(optionMenu)
         scrollView.isScrollEnabled = true
-        self.navigationItem.rightBarButtonItem?.title = self.rightButtonTexts.first!
+    }
+
+    func showFullPoster() {
+        posterImage.alpha = 1
+        posterImage.frame = self.scrollView.bounds
+        posterImage.contentMode = .scaleAspectFill
     }
 
     @objc func showFullScreenPoster(_ sender: Any) {
         if self.posterImage.image != imagePlaceHolder {
             if detailView.alpha != 0 || castCollectionView.alpha != 0 {
                 hideControls()
+                showFullPoster()
+                self.navigationItem.rightBarButtonItem?.title = self.rightButtonTexts.last!
             } else {
-                resetControls()
+                showControls()
+                self.navigationItem.rightBarButtonItem?.title = self.rightButtonTexts.first!
             }
         }
     }
