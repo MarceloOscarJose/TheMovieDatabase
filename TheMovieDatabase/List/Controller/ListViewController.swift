@@ -38,7 +38,8 @@ class ListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupControls()
+        setupControls()
+        getList(animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -90,8 +91,6 @@ class ListViewController: UIViewController {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         gesture.cancelsTouchesInView = false
         collectionView.addGestureRecognizer(gesture)
-
-        getList(animated: true)
     }
 
     @objc func hideKeyboard() {

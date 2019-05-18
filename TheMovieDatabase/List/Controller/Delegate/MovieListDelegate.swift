@@ -14,11 +14,11 @@ class MovieListDelegate: ListViewDelegate {
     var nextPage: Bool = false
 
     func listTitle() -> String {
-        return "Movies"
+        return ConfigManager.sharedInstance.listScopes.movie.title
     }
 
     func scopesList() -> [String] {
-        return ["Popular", "Top rated", "Upcoming"]
+        return ConfigManager.sharedInstance.listScopes.movie.scopes.map({ $0.title })
     }
 
     func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {

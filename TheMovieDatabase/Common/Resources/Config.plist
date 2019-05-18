@@ -10,5 +10,60 @@
 	<string>https://api.themoviedb.org/3/</string>
 	<key>apiKey</key>
 	<string>bb9ac5448ad8593af996f124a80e868e</string>
+	<key>listScopes</key>
+	<dict>
+		<key>movie</key>
+		<dict>
+			<key>title</key>
+			<string>Movies</string>
+			<key>scopes</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>Popular</string>
+					<key>url</key>
+					<string>movie/popular</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Top rated</string>
+					<key>url</key>
+					<string>movie/top_rated</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Upcoming</string>
+					<key>url</key>
+					<string>movie/upcoming</string>
+				</dict>
+			</array>
+		</dict>
+		<key>show</key>
+		<dict>
+			<key>title</key>
+			<string>TV Shows</string>
+			<key>scopes</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>Popular</string>
+					<key>url</key>
+					<string>tv/popular</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Top rated</string>
+					<key>url</key>
+					<string>tv/top_rated</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>On air</string>
+					<key>url</key>
+					<string>tv/on_the_air</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
 </dict>
 </plist>

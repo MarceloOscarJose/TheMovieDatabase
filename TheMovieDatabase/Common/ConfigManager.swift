@@ -18,14 +18,41 @@ class ConfigManager: NSObject {
     var thumbnailURL = ""
     var imageURL = ""
 
+    var listScopes: ConfigData!
+
     override init() {
         if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
-            if let nsDictionary: NSDictionary = NSDictionary(contentsOfFile: path) {
-                self.baseURL = nsDictionary["baseURL"] as! String
-                self.apiKey = nsDictionary["apiKey"] as! String
-                self.thumbnailURL = nsDictionary["thumbnailURL"] as! String
-                self.imageURL = nsDictionary["imageURL"] as! String
+            if let data: NSDictionary = NSDictionary(contentsOfFile: path) {
+
+                // General config
+                self.baseURL = data["baseURL"] as! String
+                self.apiKey = data["apiKey"] as! String
+                self.thumbnailURL = data["thumbnailURL"] as! String
+                self.imageURL = data["imageURL"] as! String
+
+                // List scopes
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: data["listScopes"] as! NSDictionary , options: .prettyPrinted)
+                    self.listScopes = try JSONDecoder().decode(ConfigData.self, from: jsonData)
+                } catch let error {
+                    print(error)
+                }
             }
+        }
+    }
+}
+
+struct ConfigData: Codable {
+    var movie: ScopeSection
+    var show: ScopeSection
+
+    struct ScopeSection: Codable {
+        var title: String
+        var scopes: [ScopeData]
+
+        struct ScopeData: Codable {
+            var title: String
+            var url: String
         }
     }
 }
