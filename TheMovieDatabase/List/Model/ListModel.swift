@@ -16,11 +16,11 @@ class ListModel: NSObject {
     let movieScopeTypes: [String] = ["movie/popular", "movie/top_rated", "movie/upcoming"]
     let showScopeTypes: [String] = ["tv/popular", "tv/top_rated", "tv/on_the_air"]
 
-    func getMovieList(nextPage: Bool, scope: Int, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    func getMovieList(nextPage: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         listService.fetchList(url: movieScopeTypes[scope], entity: MovieListResponse.self, page: 1, responseHandler: { (result) in
-            var list: [ListData] = []
+            var list: [ListModelData] = []
             for element in (result as! MovieListResponse).results {
-                list.append(ListData(movie: element))
+                list.append(ListModelData(movie: element))
             }
             responseHandler(list)
         }) { (error) in
@@ -28,11 +28,11 @@ class ListModel: NSObject {
         }
     }
 
-    func getShowList(nextPage: Bool, scope: Int, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    func getShowList(nextPage: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         listService.fetchList(url: showScopeTypes[scope], entity: ShowListResponse.self, page: 1, responseHandler: { (result) in
-            var list: [ListData] = []
+            var list: [ListModelData] = []
             for element in (result as! ShowListResponse).results {
-                list.append(ListData(show: element))
+                list.append(ListModelData(show: element))
             }
             responseHandler(list)
         }) { (error) in

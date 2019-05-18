@@ -21,7 +21,7 @@ class MovieListDelegate: ListViewControllerDelegate {
         return ["Popular", "Top rated", "Upcoming"]
     }
 
-    func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         model.getMovieList(nextPage: nextPage, scope: scope, responseHandler: { (resultData) in
             responseHandler(resultData)
         }) { (error) in

@@ -21,8 +21,8 @@ class ListViewController: UIViewController {
     let cellIdentifier = "ListCollectionViewCell"
     var showActivityIndicator: Bool = false
 
-    var listData: [ListData] = []
-    var listDataFilter: [ListData] = []
+    var listData: [ListModelData] = []
+    var listDataFilter: [ListModelData] = []
 
     var delegate: ListViewControllerDelegate!
 
@@ -103,7 +103,7 @@ class ListViewController: UIViewController {
         hideKeyboard()
     }
 
-    func reloadResults(data: [ListData], animated: Bool) {
+    func reloadResults(data: [ListModelData], animated: Bool) {
         self.listDataFilter = data
         self.toggleActivityIndicator(show: false)
 
@@ -137,6 +137,6 @@ class ListViewController: UIViewController {
 protocol ListViewControllerDelegate: class {
     func listTitle() -> String
     func scopesList() -> [String]
-    func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
+    func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
     func selectRow(id: Int, navController: UINavigationController)
 }

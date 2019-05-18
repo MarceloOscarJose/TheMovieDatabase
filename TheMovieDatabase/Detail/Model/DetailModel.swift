@@ -12,17 +12,17 @@ class DetailModel: NSObject {
 
     let service = DetailService()
 
-    func getMovieDetail(url: String, responseHandler: @escaping (_ response: DetailData) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    func getMovieDetail(url: String, responseHandler: @escaping (_ response: DetailModelData) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         service.fetchDetail(url: url, entity: MovieDetailResponse.self, responseHandler: { (result) in
-            responseHandler(DetailData(movieDetail: result as! MovieDetailResponse))
+            responseHandler(DetailModelData(movieDetail: result as! MovieDetailResponse))
         }) { (error) in
             errorHandler(error)
         }
     }
 
-    func getShowDetail(url: String, responseHandler: @escaping (_ response: DetailData) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    func getShowDetail(url: String, responseHandler: @escaping (_ response: DetailModelData) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         service.fetchDetail(url: url, entity: ShowDetailResponse.self, responseHandler: { (result) in
-            responseHandler(DetailData(showDetail: result as! ShowDetailResponse))
+            responseHandler(DetailModelData(showDetail: result as! ShowDetailResponse))
         }) { (error) in
             errorHandler(error)
         }

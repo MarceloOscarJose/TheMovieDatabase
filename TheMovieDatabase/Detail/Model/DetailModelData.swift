@@ -1,5 +1,5 @@
 //
-//  DetailData.swift
+//  DetailModelData.swift
 //  TheMovieDatabase
 //
 //  Created by Marcelo José on 14/05/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct DetailData {
+struct DetailModelData {
     var id: Int = 0
     var title: String = ""
     var average: String = ""

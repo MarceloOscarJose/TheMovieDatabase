@@ -1,5 +1,5 @@
 //
-//  MovieData.swift
+//  ListModelData.swift
 //  TheMovieDatabase
 //
 //  Created by Marcelo José on 08/05/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ListData {
+struct ListModelData {
 
     var id: Int
     var title: String

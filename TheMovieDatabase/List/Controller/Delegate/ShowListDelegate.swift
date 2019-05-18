@@ -21,7 +21,7 @@ class ShowListDelegate: ListViewControllerDelegate {
         return ["Popular", "Top rated", "On air"]
     }
 
-    func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         model.getShowList(nextPage: nextPage, scope: scope, responseHandler: { (resultData) in
             responseHandler(resultData)
         }) { (error) in

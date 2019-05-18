@@ -27,7 +27,7 @@ extension ListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
         guard !searchText.isEmpty else { reloadResults(data: self.listData, animated: true); return }
-        self.listDataFilter = self.listData.filter({ (list: ListData) -> Bool in
+        self.listDataFilter = self.listData.filter({ (list: ListModelData) -> Bool in
             return list.title.lowercased().contains(searchText.lowercased())
         })
 

@@ -67,7 +67,7 @@ class DetailViewController: UIViewController {
         }
     }
 
-    func updateDetail(detailData: DetailData) {
+    func updateDetail(detailData: DetailModelData) {
         if let image = URL(string: detailData.poster ?? "") {
             posterImage.af_setImage(withURL: image, imageTransition: .crossDissolve(0.5))
         } else {
@@ -157,5 +157,5 @@ extension DetailViewController: UIScrollViewDelegate {
 }
 
 protocol DetailViewControllerDelegate: class {
-    func getDetail(id: Int, responseHandler: @escaping (_ response: DetailData) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
+    func getDetail(id: Int, responseHandler: @escaping (_ response: DetailModelData) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
 }

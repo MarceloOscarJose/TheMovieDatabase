@@ -12,7 +12,7 @@ class ShowDetailDelegate: DetailViewControllerDelegate {
 
     let model = DetailModel()
 
-    func getDetail(id: Int, responseHandler: @escaping (DetailData) -> Void, errorHandler: @escaping (Error?) -> Void) {
+    func getDetail(id: Int, responseHandler: @escaping (DetailModelData) -> Void, errorHandler: @escaping (Error?) -> Void) {
         model.getShowDetail(url: "tv/\(id)", responseHandler: { (response) in
             responseHandler(response)
         }) { (error) in
