@@ -402,9 +402,9 @@
 		9CFE0F852286CC97004218CD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				9C419D87228DD27900922495 /* Delegate */,
-				9C7D2C632288D33C0094E9B6 /* DetailViewController.swift */,
 				9C7D2C642288D33C0094E9B6 /* DetailViewController.xib */,
+				9C7D2C632288D33C0094E9B6 /* DetailViewController.swift */,
+				9C419D87228DD27900922495 /* Delegate */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
