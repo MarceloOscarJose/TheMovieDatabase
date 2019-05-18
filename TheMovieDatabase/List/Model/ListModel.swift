@@ -13,8 +13,8 @@ class ListModel: NSObject {
     let listService = ListService()
 
     // Scope vars
-    let movieScopes = ConfigManager.sharedInstance.listScopes.movie.scopes
-    let showScopes = ConfigManager.sharedInstance.listScopes.show.scopes
+    let movieScopes = ConfigManager.shared.config.listScopes.movie.scopes
+    let showScopes = ConfigManager.shared.config.listScopes.show.scopes
 
     func getMovieList(nextPage: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         listService.fetchList(url: movieScopes[scope].url, entity: MovieListResponse.self, page: 1, responseHandler: { (result) in

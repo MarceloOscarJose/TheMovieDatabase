@@ -42,7 +42,7 @@ struct ListModelData {
         self.title = title
 
         if let posterImage = image {
-            self.poster = "\(ConfigManager.sharedInstance.thumbnailURL)\(posterImage)"
+            self.poster = "\(ConfigManager.shared.config.thumbnailURL)\(posterImage)"
         }
 
         self.average = average != 0 ? "⭐️ \(average)" : "N/R"

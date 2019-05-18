@@ -47,7 +47,7 @@ struct DetailModelData {
         self.title = title
 
         if let posterImage = image {
-            self.poster = "\(ConfigManager.sharedInstance.imageURL)\(posterImage)"
+            self.poster = "\(ConfigManager.shared.config.imageURL)\(posterImage)"
         }
 
         self.average = "Average: \(average != 0 ? "⭐️\(average)" : "N/R")"

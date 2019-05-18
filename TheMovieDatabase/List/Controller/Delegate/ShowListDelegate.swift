@@ -14,11 +14,11 @@ class ShowListDelegate: ListViewDelegate {
     var nextPage: Bool = false
 
     func listTitle() -> String {
-        return ConfigManager.sharedInstance.listScopes.show.title
+        return ConfigManager.shared.config.listScopes.show.title
     }
 
     func scopesList() -> [String] {
-        return ConfigManager.sharedInstance.listScopes.show.scopes.map({ $0.title })
+        return ConfigManager.shared.config.listScopes.show.scopes.map({ $0.title })
     }
 
     func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {

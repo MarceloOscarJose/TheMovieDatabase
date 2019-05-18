@@ -25,7 +25,7 @@ class CastCollectionViewCell: UICollectionViewCell {
         characterLabel.text = character.isEmpty ? "-" : character
 
         if let image = image {
-            if let imageURL = URL(string: "\(ConfigManager.sharedInstance.thumbnailURL)\(image)") {
+            if let imageURL = URL(string: "\(ConfigManager.shared.config.thumbnailURL)\(image)") {
                 castImage.af_setImage(withURL: imageURL, placeholderImage: UIImage(named: "no-image"), imageTransition: .crossDissolve(0.5))
             }
         }

@@ -10,30 +10,17 @@ import UIKit
 
 class ConfigManager: NSObject {
 
-    static let sharedInstance = ConfigManager()
+    static let shared = ConfigManager()
 
     // Config vars
-    var baseURL = ""
-    var apiKey = ""
-    var thumbnailURL = ""
-    var imageURL = ""
-
-    var listScopes: ConfigData!
+    var config: ConfigData!
 
     override init() {
         if let path = Bundle.main.path(forResource: "Config", ofType: "plist") {
             if let data: NSDictionary = NSDictionary(contentsOfFile: path) {
-
-                // General config
-                self.baseURL = data["baseURL"] as! String
-                self.apiKey = data["apiKey"] as! String
-                self.thumbnailURL = data["thumbnailURL"] as! String
-                self.imageURL = data["imageURL"] as! String
-
-                // List scopes
                 do {
-                    let jsonData = try JSONSerialization.data(withJSONObject: data["listScopes"] as! NSDictionary , options: .prettyPrinted)
-                    self.listScopes = try JSONDecoder().decode(ConfigData.self, from: jsonData)
+                    let jsonData = try JSONSerialization.data(withJSONObject: data as NSDictionary , options: .prettyPrinted)
+                    self.config = try JSONDecoder().decode(ConfigData.self, from: jsonData)
                 } catch let error {
                     print(error)
                 }
@@ -43,16 +30,25 @@ class ConfigManager: NSObject {
 }
 
 struct ConfigData: Codable {
-    var movie: ScopeSection
-    var show: ScopeSection
 
-    struct ScopeSection: Codable {
-        var title: String
-        var scopes: [ScopeData]
+    var baseURL: String
+    var apiKey: String
+    var thumbnailURL: String
+    var imageURL: String
+    var listScopes: ListScopes
 
-        struct ScopeData: Codable {
+    struct ListScopes: Codable {
+        var movie: ScopeSection
+        var show: ScopeSection
+
+        struct ScopeSection: Codable {
             var title: String
-            var url: String
+            var scopes: [ScopeData]
+            
+            struct ScopeData: Codable {
+                var title: String
+                var url: String
+            }
         }
     }
 }

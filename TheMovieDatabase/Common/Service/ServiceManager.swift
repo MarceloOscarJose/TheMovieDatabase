@@ -12,9 +12,9 @@ class GeneralService: NSObject {
 
     public func executeRequest(url: String, paramaters: [String: AnyObject], responseHandler: @escaping (_ response: Data) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         var params = paramaters
-        params["api_key"] = ConfigManager.sharedInstance.apiKey as AnyObject
+        params["api_key"] = ConfigManager.shared.config.apiKey as AnyObject
 
-        if let finalURL = URL(string: "\(ConfigManager.sharedInstance.baseURL)\(url)") {
+        if let finalURL = URL(string: "\(ConfigManager.shared.config.baseURL)\(url)") {
             self.executeRequest(method: .get, url: finalURL, paramaters: params, responseHandler: responseHandler, errorHandler: errorHandler)
         }
     }
