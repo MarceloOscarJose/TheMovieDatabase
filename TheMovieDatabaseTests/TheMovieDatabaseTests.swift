@@ -33,7 +33,24 @@ class TheMovieDatabaseTests: XCTestCase {
         }
 
         waitForExpectations(timeout: 10, handler: nil)
-        XCTAssert(listData != nil)
+        XCTAssert(listData.count == 20)
+    }
+
+    func testDetailModel() {
+        let model = DetailModel()
+        var detailData: DetailModelData!
+
+        let expectation = self.expectation(description: "Scaling")
+
+        model.getMovieDetail(id: 447404, responseHandler: { (result) in
+            detailData = result
+            expectation.fulfill()
+        }) { (error) in
+            expectation.fulfill()
+        }
+
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssert(detailData.title == "Pokémon Detective Pikachu")
     }
 
     func testPerformanceExample() {
