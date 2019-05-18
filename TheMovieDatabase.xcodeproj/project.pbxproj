@@ -42,6 +42,7 @@
 		9C42EA492284A75300878240 /* ListViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C42EA482284A75300878240 /* ListViewController+CollectionView.swift */; };
 		9C42EA522284CD3F00878240 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C42EA502284CD3F00878240 /* ListViewController.swift */; };
 		9C42EA532284CD3F00878240 /* ListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C42EA512284CD3F00878240 /* ListViewController.xib */; };
+		9C55C9C5228FB58C004C1A07 /* DetailViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C55C9C4228FB58C004C1A07 /* DetailViewController+CollectionView.swift */; };
 		9C7D2C652288D33C0094E9B6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7D2C632288D33C0094E9B6 /* DetailViewController.swift */; };
 		9C7D2C662288D33C0094E9B6 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C7D2C642288D33C0094E9B6 /* DetailViewController.xib */; };
 		9C7D2C6822898C800094E9B6 /* DetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7D2C6722898C800094E9B6 /* DetailService.swift */; };
@@ -116,6 +117,7 @@
 		9C42EA482284A75300878240 /* ListViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		9C42EA502284CD3F00878240 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		9C42EA512284CD3F00878240 /* ListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewController.xib; sourceTree = "<group>"; };
+		9C55C9C4228FB58C004C1A07 /* DetailViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		9C7D2C632288D33C0094E9B6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9C7D2C642288D33C0094E9B6 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		9C7D2C6722898C800094E9B6 /* DetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailService.swift; sourceTree = "<group>"; };
@@ -402,9 +404,10 @@
 		9CFE0F852286CC97004218CD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9C419D87228DD27900922495 /* Delegate */,
 				9C7D2C642288D33C0094E9B6 /* DetailViewController.xib */,
 				9C7D2C632288D33C0094E9B6 /* DetailViewController.swift */,
-				9C419D87228DD27900922495 /* Delegate */,
+				9C55C9C4228FB58C004C1A07 /* DetailViewController+CollectionView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 				9C419D8F228E0F9600922495 /* ShowDetailDelegate.swift in Sources */,
 				9C419D8B228DD5B600922495 /* MovieListDelegate.swift in Sources */,
 				9C0583102285A80200FAA860 /* ListViewController+SearchBar.swift in Sources */,
+				9C55C9C5228FB58C004C1A07 /* DetailViewController+CollectionView.swift in Sources */,
 				9C3433E0228B2CC1009ED080 /* ShowDetailResponse.swift in Sources */,
 				9C310315228332E40095FE29 /* ListService.swift in Sources */,
 				9C31033822847BFA0095FE29 /* ListModelData.swift in Sources */,
