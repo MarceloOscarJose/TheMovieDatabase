@@ -19,21 +19,21 @@ class TheMovieDatabaseTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testMovieService() {
-        let service = ListService()
-        var movideData: ListResult!
+    func testListModel() {
+        let model = ListModel()
+        var listData: [ListModelData]!
 
         let expectation = self.expectation(description: "Scaling")
 
-        service.fetchMovies(categorogy: .popular, page: 1, responseHandler: { (data) in
-            movideData = data
+        model.getMovieList(nextPage: false, scope: 0, responseHandler: { (result) in
+            listData = result
             expectation.fulfill()
-        }) { (_) in
+        }) { (error) in
             expectation.fulfill()
         }
 
         waitForExpectations(timeout: 10, handler: nil)
-        XCTAssert(movideData != nil)
+        XCTAssert(listData != nil)
     }
 
     func testPerformanceExample() {
