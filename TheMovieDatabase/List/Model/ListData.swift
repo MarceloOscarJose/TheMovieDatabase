@@ -47,15 +47,6 @@ struct ListData {
 
         self.average = average != 0 ? "⭐️ \(average)" : "N/R"
         self.overview = overview != "" ? overview : "No description"
-        self.releaseDate = formatDate(date: date)
-    }
-
-    fileprivate func formatDate(date: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-
-        let formatter = DateFormatter.longDate
-        guard let formattedDate = dateFormatter.date(from: date) else { return "" }
-        return formatter.string(from: formattedDate).capitalizedFirstLetter()
+        self.releaseDate = date.parseToLongDate()
     }
 }

@@ -14,10 +14,6 @@ class CastCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var characterLabel: UILabel!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
     override func prepareForReuse() {
         super.prepareForReuse()
         castImage.af_cancelImageRequest()

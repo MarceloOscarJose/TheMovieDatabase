@@ -10,6 +10,10 @@ import UIKit
 
 struct DetailResponse {
 
+    public struct Genres: Codable {
+        var name: String
+    }
+
     public struct Credits: Codable {
         var cast: [Cast]
 

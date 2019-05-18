@@ -9,7 +9,17 @@
 import Foundation
 
 extension String {
+
     func capitalizedFirstLetter() -> String {
         return prefix(1).uppercased() + self.lowercased().dropFirst()
+    }
+
+    func parseToLongDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+
+        let formatter = DateFormatter.longDate
+        guard let formattedDate = dateFormatter.date(from: self) else { return "" }
+        return formatter.string(from: formattedDate).capitalizedFirstLetter()
     }
 }

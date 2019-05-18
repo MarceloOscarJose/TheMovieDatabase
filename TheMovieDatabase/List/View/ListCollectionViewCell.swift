@@ -46,7 +46,7 @@ class ListCollectionViewCell: UICollectionViewCell {
         averageLabel.text = average
 
         if let image = URL(string: image ?? "") {
-            movieImage.af_setImage(withURL: image)
+            movieImage.af_setImage(withURL: image, imageTransition: .crossDissolve(0.5))
         } else {
             movieImage.image = UIImage(named: "no-image")
         }

@@ -16,7 +16,7 @@ struct MovieDetailResponse: Codable {
     var backdropPath: String?
     var releaseDate: String
     var voteAverage: Double
-    var genres: [Genres]
+    var genres: [DetailResponse.Genres]
     var videos: DetailResponse.VideoResults
     var credits: DetailResponse.Credits
 
@@ -26,9 +26,5 @@ struct MovieDetailResponse: Codable {
         case backdropPath = "backdrop_path"
         case releaseDate = "release_date"
         case voteAverage = "vote_average"
-    }
-
-    public struct Genres: Codable {
-        var name: String
     }
 }

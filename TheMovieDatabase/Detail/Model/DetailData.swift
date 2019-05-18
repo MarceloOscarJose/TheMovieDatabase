@@ -52,18 +52,9 @@ struct DetailData {
 
         self.average = "Average: \(average != 0 ? "⭐️\(average)" : "N/R")"
         self.genres = "Genres: \(genres.joined(separator: " / "))"
-        self.releaseDate = "Date: \(formatDate(date: date))"
+        self.releaseDate = "Date: \(date.parseToLongDate())"
 
         self.overview = overview != "" ? overview : "No description"
         self.cast = cast.sorted(by: { $1.order > $0.order })
-    }
-
-    fileprivate func formatDate(date: String) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-
-        let formatter = DateFormatter.longDate
-        guard let formattedDate = dateFormatter.date(from: date) else { return "" }
-        return formatter.string(from: formattedDate).capitalizedFirstLetter()
     }
 }

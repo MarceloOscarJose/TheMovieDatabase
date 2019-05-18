@@ -69,7 +69,7 @@ class DetailViewController: UIViewController {
 
     func updateDetail(detailData: DetailData) {
         if let image = URL(string: detailData.poster ?? "") {
-            posterImage.af_setImage(withURL: image)
+            posterImage.af_setImage(withURL: image, imageTransition: .crossDissolve(0.5))
         } else {
             posterImage.image = UIImage(named: "no-image")
         }

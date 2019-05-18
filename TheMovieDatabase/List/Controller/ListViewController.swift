@@ -50,7 +50,7 @@ class ListViewController: UIViewController {
         clearSearchBar()
         toggleActivityIndicator(show: true)
 
-        self.delegate.getList(animated: animated, type: self.searchBar.selectedScopeButtonIndex, responseHandler: { (resultData) in
+        self.delegate.getList(animated: animated, scope: self.searchBar.selectedScopeButtonIndex, responseHandler: { (resultData) in
             self.listData = resultData
             self.reloadResults(data: resultData, animated: animated)
             self.toggleActivityIndicator(show: false)
@@ -137,6 +137,6 @@ class ListViewController: UIViewController {
 protocol ListViewControllerDelegate: class {
     func listTitle() -> String
     func scopesList() -> [String]
-    func getList(animated: Bool, type: Int, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
+    func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
     func selectRow(id: Int, navController: UINavigationController)
 }
