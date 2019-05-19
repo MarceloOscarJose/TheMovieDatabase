@@ -18,11 +18,11 @@ class SearchListDelegate: ListViewDelegate {
     }
 
     func scopesList() -> [String] {
-        return []
+        return ConfigManager.shared.config.listScopes.search.scopes.map({ $0.title })
     }
 
     func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        model.getShowList(nextPage: nextPage, scope: scope, responseHandler: { (resultData) in
+        model.getSearchList(nextPage: nextPage, scope: scope, responseHandler: { (resultData) in
             responseHandler(resultData)
         }) { (error) in
             errorHandler(error)
