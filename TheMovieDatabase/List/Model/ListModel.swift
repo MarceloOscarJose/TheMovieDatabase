@@ -18,7 +18,7 @@ class ListModel: NSObject {
     let searchScope = ConfigManager.shared.config.listScopes.search
 
     func getMovieList(nextPage: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        listService.fetchList(url: movieScopes[scope].url, entity: MovieListResponse.self, page: 1, responseHandler: { (result) in
+        listService.fetchList(url: movieScopes[scope].url, entity: MovieListResponse.self, page: 1, params: nil, responseHandler: { (result) in
             var list: [ListModelData] = []
             for element in (result as! MovieListResponse).results {
                 list.append(ListModelData(movie: element))
@@ -30,7 +30,7 @@ class ListModel: NSObject {
     }
 
     func getShowList(nextPage: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        listService.fetchList(url: showScopes[scope].url, entity: ShowListResponse.self, page: 1, responseHandler: { (result) in
+        listService.fetchList(url: showScopes[scope].url, entity: ShowListResponse.self, page: 1, params: nil, responseHandler: { (result) in
             var list: [ListModelData] = []
             for element in (result as! ShowListResponse).results {
                 list.append(ListModelData(show: element))
@@ -42,7 +42,7 @@ class ListModel: NSObject {
     }
 
     func getSearchList(nextPage: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        listService.fetchList(url: searchScope.url, entity: ShowListResponse.self, page: 1, responseHandler: { (result) in
+        listService.fetchList(url: searchScope.url, entity: ShowListResponse.self, page: 1, params: ["query" : "game"], responseHandler: { (result) in
             var list: [ListModelData] = []
             for element in (result as! ShowListResponse).results {
                 list.append(ListModelData(show: element))

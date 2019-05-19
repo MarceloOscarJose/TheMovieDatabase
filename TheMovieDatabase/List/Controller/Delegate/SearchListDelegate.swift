@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchListDelegate: ListViewDelegate {
+class SearchListDelegate: ListViewDelegate, ListViewSearchDelegate {
 
     let model = ListModel()
     var nextPage: Bool = false
@@ -31,5 +31,13 @@ class SearchListDelegate: ListViewDelegate {
 
     func selectRow(id: Int, navController: UINavigationController) {
         navController.pushViewController(DetailViewController(id: id, delegate: ShowDetailDelegate()), animated: true)
+    }
+
+    func searchByTitle(title: String, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+        model.getSearchList(nextPage: nextPage, scope: 0, responseHandler: { (resultData) in
+            responseHandler(resultData)
+        }) { (error) in
+            errorHandler(error)
+        }
     }
 }

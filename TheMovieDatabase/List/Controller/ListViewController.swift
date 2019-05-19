@@ -20,11 +20,18 @@ class ListViewController: BaseViewController {
     var listDataFilter: [ListModelData] = []
 
     var delegate: ListViewDelegate!
+    var searchDelegate: ListViewSearchDelegate!
 
     // MARK: LifeCycle
     convenience init(delegate: ListViewDelegate) {
         self.init()
         self.delegate = delegate
+    }
+
+    convenience init(delegate: ListViewDelegate, searchDelegate: ListViewSearchDelegate) {
+        self.init()
+        self.delegate = delegate
+        self.searchDelegate = searchDelegate
     }
 
     override func viewDidLoad() {
@@ -100,4 +107,8 @@ protocol ListViewDelegate: class {
     func scopesList() -> [String]
     func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
     func selectRow(id: Int, navController: UINavigationController)
+}
+
+protocol ListViewSearchDelegate: class {
+    func searchByTitle(title: String, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
 }

@@ -13,6 +13,15 @@ extension ListViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         hideKeyboard()
+
+        if let searchDelegate = self.searchDelegate {
+            guard let searchText = searchBar.text else { return }
+            searchDelegate.searchByTitle(title: searchText, responseHandler: { (result) in
+                print(result)
+            }) { (error) in
+                print(error)
+            }
+        }
     }
 
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
@@ -25,7 +34,6 @@ extension ListViewController: UISearchBarDelegate {
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
         guard !searchText.isEmpty else { reloadResults(data: self.listData, animated: true); return }
         self.listDataFilter = self.listData.filter({ (list: ListModelData) -> Bool in
             return list.title.lowercased().contains(searchText.lowercased())
