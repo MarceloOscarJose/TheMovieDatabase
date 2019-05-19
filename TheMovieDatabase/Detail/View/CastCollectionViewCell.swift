@@ -17,7 +17,7 @@ class CastCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         castImage.af_cancelImageRequest()
-        castImage.image = UIImage(named: "no-image")
+        castImage.image = UIImage.noImage
     }
 
     func updateCell(image: String?, name: String, character: String) {
@@ -26,7 +26,7 @@ class CastCollectionViewCell: UICollectionViewCell {
 
         if let image = image {
             if let imageURL = URL(string: "\(ConfigManager.shared.config.thumbnailURL)\(image)") {
-                castImage.af_setImage(withURL: imageURL, placeholderImage: UIImage(named: "no-image"), imageTransition: .crossDissolve(0.5))
+                castImage.af_setImage(withURL: imageURL, placeholderImage: UIImage.noImage, imageTransition: .crossDissolve(0.5))
             }
         }
     }

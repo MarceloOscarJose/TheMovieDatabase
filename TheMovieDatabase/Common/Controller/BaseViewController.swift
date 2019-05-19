@@ -6,7 +6,6 @@
 //  Copyright © 2019 Marcelo José. All rights reserved.
 //
 
-import UIKit
 import LPSnackbar
 
 class BaseViewController: UIViewController {

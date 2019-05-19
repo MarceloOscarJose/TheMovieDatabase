@@ -36,7 +36,7 @@ class ListCollectionViewCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        movieImage.image = UIImage(named: "no-image")
+        movieImage.image = UIImage.noImage
     }
 
     func updateCell(image: String?, title: String, overview: String, date: String, average: String) {
@@ -48,7 +48,7 @@ class ListCollectionViewCell: UICollectionViewCell {
         if let image = URL(string: image ?? "") {
             movieImage.af_setImage(withURL: image, imageTransition: .crossDissolve(0.5))
         } else {
-            movieImage.image = UIImage(named: "no-image")
+            movieImage.image = UIImage.noImage
         }
     }
 }

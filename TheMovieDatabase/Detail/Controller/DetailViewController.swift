@@ -31,7 +31,7 @@ class DetailViewController: BaseViewController {
     // Data vars
     let castCellIdentifier = "CastCollectionViewCell"
     var imageFrame: CGRect = .zero
-    var imagePlaceHolder = UIImage(named: "no-image")
+    var imagePlaceHolder = UIImage.noImage
     var rightButtonTexts: [String] = ["Show poster", "Hide poster"]
     var cast: [DetailResponse.Credits.Cast] = []
 
@@ -75,7 +75,7 @@ class DetailViewController: BaseViewController {
         if let image = URL(string: detailData.poster ?? "") {
             posterImage.af_setImage(withURL: image, imageTransition: .crossDissolve(0.5))
         } else {
-            posterImage.image = UIImage(named: "no-image")
+            posterImage.image = UIImage.noImage
         }
 
         titleLabel.text = detailData.title
