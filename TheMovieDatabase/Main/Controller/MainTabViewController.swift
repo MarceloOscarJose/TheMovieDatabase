@@ -10,6 +10,8 @@ import UIKit
 
 class MainTabViewController: UITabBarController {
 
+    let scopes = ConfigManager.shared.config.listScopes
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
@@ -18,10 +20,12 @@ class MainTabViewController: UITabBarController {
     func setupTabBar() {
         let moviesList = ListViewController(delegate: MovieListDelegate())
         let showsList = ListViewController(delegate: ShowListDelegate())
+        let searchList = ListViewController(delegate: ShowListDelegate())
 
-        moviesList.tabBarItem = UITabBarItem(title: "Movies", image: UIImage(named: "movies"), tag: 0)
-        showsList.tabBarItem = UITabBarItem(title: "TV Shows", image: UIImage(named: "shows"), tag: 1)
+        moviesList.tabBarItem = UITabBarItem(title: scopes.movie.title, image: UIImage(named: scopes.movie.icon), tag: 0)
+        showsList.tabBarItem = UITabBarItem(title: scopes.show.title, image: UIImage(named: scopes.show.icon), tag: 1)
+        searchList.tabBarItem = UITabBarItem(title: scopes.search.title, image: UIImage(named: scopes.search.icon), tag: 2)
 
-        self.viewControllers = [moviesList, showsList]
+        self.viewControllers = [moviesList, showsList, searchList]
     }
 }

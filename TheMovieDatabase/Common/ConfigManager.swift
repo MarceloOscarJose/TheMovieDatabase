@@ -40,10 +40,12 @@ struct ConfigData: Codable {
     struct ListScopes: Codable {
         var movie: ScopeSection
         var show: ScopeSection
+        var search: ScopeSection
 
         struct ScopeSection: Codable {
             var title: String
-            var scopes: [ScopeData]
+            var icon: String
+            var scopes: [ScopeData]?
             
             struct ScopeData: Codable {
                 var title: String

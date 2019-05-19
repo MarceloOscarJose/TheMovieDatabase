@@ -16,6 +16,8 @@
 		<dict>
 			<key>title</key>
 			<string>Movies</string>
+			<key>icon</key>
+			<string>movies</string>
 			<key>scopes</key>
 			<array>
 				<dict>
@@ -42,6 +44,8 @@
 		<dict>
 			<key>title</key>
 			<string>TV Shows</string>
+			<key>icon</key>
+			<string>shows</string>
 			<key>scopes</key>
 			<array>
 				<dict>
@@ -63,6 +67,13 @@
 					<string>tv/on_the_air</string>
 				</dict>
 			</array>
+		</dict>
+		<key>search</key>
+		<dict>
+			<key>title</key>
+			<string>Search</string>
+			<key>icon</key>
+			<string>search</string>
 		</dict>
 	</dict>
 </dict>
