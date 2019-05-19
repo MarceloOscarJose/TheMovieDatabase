@@ -77,7 +77,7 @@ class ListViewController: BaseViewController {
     }
 
     func clearSearchBar() {
-        self.searchBar.text = ""
+        self.searchBar.text = String()
         hideKeyboard()
     }
 
