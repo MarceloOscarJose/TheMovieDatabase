@@ -16,7 +16,7 @@ class BaseViewController: UIViewController {
     let activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         activityIndicator.color = UIColor.ligthBlue
-        activityIndicator.startAnimating()
+        activityIndicator.stopAnimating()
         return activityIndicator
     }()
 
@@ -24,17 +24,15 @@ class BaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: activityIndicator, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: activityIndicator, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
     }
 
     func toggleActivityIndicator(show: Bool) {
         showActivityIndicator = show
         if show {
-            self.view.addSubview(activityIndicator)
-            activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint(item: activityIndicator, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
-            NSLayoutConstraint(item: activityIndicator, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: 0).isActive = true
-
             let tinyDelay = DispatchTime.now() + Double(Int64(0.2 * Float(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
             DispatchQueue.main.asyncAfter(deadline: tinyDelay) {
                 if self.showActivityIndicator {
@@ -42,7 +40,7 @@ class BaseViewController: UIViewController {
                 }
             }
         } else {
-            activityIndicator.removeFromSuperview()
+            activityIndicator.stopAnimating()
         }
     }
 

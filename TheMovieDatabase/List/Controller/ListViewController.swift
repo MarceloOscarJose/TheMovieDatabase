@@ -22,13 +22,9 @@ class ListViewController: BaseViewController {
     var delegate: ListViewDelegate!
 
     // MARK: LifeCycle
-    init(delegate: ListViewDelegate) {
-        super.init(nibName: "ListViewController", bundle: .main)
+    convenience init(delegate: ListViewDelegate) {
+        self.init()
         self.delegate = delegate
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     override func viewDidLoad() {
@@ -64,10 +60,7 @@ class ListViewController: BaseViewController {
 
     func setupControls() {
         // Search bar setup
-        if self.delegate.scopesList().count > 0 {
-            searchBar.scopeButtonTitles = self.delegate.scopesList()
-        }
-
+        searchBar.scopeButtonTitles = self.delegate.scopesList()
         searchBar.delegate = self
 
         // Collection view setup
