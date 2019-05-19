@@ -13,8 +13,9 @@ class ListModel: NSObject {
     let listService = ListService()
 
     // Scope vars
-    let movieScopes = ConfigManager.shared.config.listScopes.movie.scopes!
-    let showScopes = ConfigManager.shared.config.listScopes.show.scopes!
+    let movieScopes = ConfigManager.shared.config.listScopes.movie.scopes
+    let showScopes = ConfigManager.shared.config.listScopes.show.scopes
+    let searchScopes = ConfigManager.shared.config.listScopes.search.scopes
 
     func getMovieList(nextPage: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         listService.fetchList(url: movieScopes[scope].url, entity: MovieListResponse.self, page: 1, responseHandler: { (result) in
@@ -30,6 +31,18 @@ class ListModel: NSObject {
 
     func getShowList(nextPage: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         listService.fetchList(url: showScopes[scope].url, entity: ShowListResponse.self, page: 1, responseHandler: { (result) in
+            var list: [ListModelData] = []
+            for element in (result as! ShowListResponse).results {
+                list.append(ListModelData(show: element))
+            }
+            responseHandler(list)
+        }) { (error) in
+            errorHandler(error)
+        }
+    }
+
+    func getSearchList(nextPage: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+        listService.fetchList(url: searchScopes[scope].url, entity: ShowListResponse.self, page: 1, responseHandler: { (result) in
             var list: [ListModelData] = []
             for element in (result as! ShowListResponse).results {
                 list.append(ListModelData(show: element))

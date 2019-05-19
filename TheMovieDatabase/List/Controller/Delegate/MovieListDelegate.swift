@@ -18,7 +18,7 @@ class MovieListDelegate: ListViewDelegate {
     }
 
     func scopesList() -> [String] {
-        return ConfigManager.shared.config.listScopes.movie.scopes!.map({ $0.title })
+        return ConfigManager.shared.config.listScopes.movie.scopes.map({ $0.title })
     }
 
     func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {

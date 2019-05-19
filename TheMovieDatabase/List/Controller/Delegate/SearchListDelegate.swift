@@ -1,24 +1,24 @@
 //
-//  ShowListDelegate.swift
+//  SearchListDelegate.swift
 //  TheMovieDatabase
 //
-//  Created by Marcelo José on 16/05/2019.
+//  Created by Marcelo José on 18/05/2019.
 //  Copyright © 2019 Marcelo José. All rights reserved.
 //
 
 import UIKit
 
-class ShowListDelegate: ListViewDelegate {
+class SearchListDelegate: ListViewDelegate {
 
     let model = ListModel()
     var nextPage: Bool = false
 
     func listTitle() -> String {
-        return ConfigManager.shared.config.listScopes.show.title
+        return ConfigManager.shared.config.listScopes.search.title
     }
 
     func scopesList() -> [String] {
-        return ConfigManager.shared.config.listScopes.show.scopes.map({ $0.title })
+        return []
     }
 
     func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {

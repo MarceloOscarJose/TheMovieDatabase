@@ -74,6 +74,21 @@
 			<string>Search</string>
 			<key>icon</key>
 			<string>search</string>
+			<key>scopes</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>Movies</string>
+					<key>url</key>
+					<string>search/movie</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>Shows</string>
+					<key>url</key>
+					<string>search/tv</string>
+				</dict>
+			</array>
 		</dict>
 	</dict>
 </dict>

@@ -20,7 +20,7 @@ class MainTabViewController: UITabBarController {
     func setupTabBar() {
         let moviesList = ListViewController(delegate: MovieListDelegate())
         let showsList = ListViewController(delegate: ShowListDelegate())
-        let searchList = ListViewController(delegate: ShowListDelegate())
+        let searchList = ListViewController(delegate: SearchListDelegate())
 
         moviesList.tabBarItem = UITabBarItem(title: scopes.movie.title, image: UIImage(named: scopes.movie.icon), tag: 0)
         showsList.tabBarItem = UITabBarItem(title: scopes.show.title, image: UIImage(named: scopes.show.icon), tag: 1)

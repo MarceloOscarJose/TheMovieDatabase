@@ -45,8 +45,8 @@ struct ConfigData: Codable {
         struct ScopeSection: Codable {
             var title: String
             var icon: String
-            var scopes: [ScopeData]?
-            
+            var scopes: [ScopeData]
+
             struct ScopeData: Codable {
                 var title: String
                 var url: String
