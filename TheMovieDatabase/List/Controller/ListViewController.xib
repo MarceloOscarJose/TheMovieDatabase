@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ListViewController" customModule="TheMovieDatabase" customModuleProvider="target">
             <connections>
-                <outlet property="activityIndicator" destination="7Y5-Jx-aB5" id="W7D-9f-7MJ"/>
                 <outlet property="collectionView" destination="X0p-Jc-9Ba" id="BTQ-yA-9os"/>
                 <outlet property="searchBar" destination="Z1y-5S-ziV" id="1W7-wv-wpE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -39,19 +38,13 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="7Y5-Jx-aB5">
-                    <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
-                    <color key="color" red="0.2470588235" green="0.71764705880000002" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="7Y5-Jx-aB5" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="0Uh-rv-Og7"/>
                 <constraint firstItem="Z1y-5S-ziV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="47Z-h7-s6M"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="X0p-Jc-9Ba" secondAttribute="bottom" id="6OV-om-ni7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="X0p-Jc-9Ba" secondAttribute="trailing" id="EwP-mk-qFc"/>
                 <constraint firstItem="X0p-Jc-9Ba" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="d0w-Sw-MVc"/>
-                <constraint firstItem="7Y5-Jx-aB5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gJc-Kz-NKb"/>
                 <constraint firstItem="X0p-Jc-9Ba" firstAttribute="top" secondItem="Z1y-5S-ziV" secondAttribute="bottom" id="kP5-rK-62p"/>
                 <constraint firstItem="Z1y-5S-ziV" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="oHa-Uq-nVa"/>
                 <constraint firstItem="Z1y-5S-ziV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xpf-0S-zWN"/>

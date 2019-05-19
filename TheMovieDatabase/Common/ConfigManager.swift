@@ -40,7 +40,7 @@ struct ConfigData: Codable {
     struct ListScopes: Codable {
         var movie: ScopeSection
         var show: ScopeSection
-        var search: ScopeSection
+        var search: ListScopeSection
 
         struct ScopeSection: Codable {
             var title: String
@@ -51,6 +51,12 @@ struct ConfigData: Codable {
                 var title: String
                 var url: String
             }
+        }
+
+        struct ListScopeSection: Codable {
+            var title: String
+            var icon: String
+            var url: String
         }
     }
 }

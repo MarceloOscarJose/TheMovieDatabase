@@ -17,7 +17,6 @@
                 <outlet property="dateLabel" destination="GqK-wJ-2bB" id="2gP-tZ-b4t"/>
                 <outlet property="detailView" destination="8Uz-sU-EHi" id="98x-nu-Xyd"/>
                 <outlet property="genresLabel" destination="qbL-0q-3lH" id="W98-6e-9dk"/>
-                <outlet property="loadingIndicator" destination="pGc-GH-Hcb" id="iBU-gG-6ky"/>
                 <outlet property="optionMenu" destination="6ak-kx-5OR" id="PFi-5k-7U1"/>
                 <outlet property="overviewLabel" destination="EJ8-Hk-emz" id="cox-UN-tvc"/>
                 <outlet property="posterImage" destination="0Jb-Gd-SeU" id="oMy-7a-A6X"/>
@@ -47,12 +46,6 @@
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no-image" translatesAutoresizingMaskIntoConstraints="NO" id="0Jb-Gd-SeU">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="327"/>
                         </imageView>
-                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pGc-GH-Hcb">
-                            <rect key="frame" x="188.5" y="390.5" width="37" height="37"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="tintColor" red="0.2470588235" green="0.71764705880000002" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <color key="color" red="0.2470588235" green="0.71764705880000002" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </activityIndicatorView>
                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6ak-kx-5OR">
                             <rect key="frame" x="0.0" y="327" width="414" height="41"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -159,13 +152,11 @@
                         <constraint firstAttribute="trailing" secondItem="8Uz-sU-EHi" secondAttribute="trailing" id="PcY-XI-Z3a"/>
                         <constraint firstAttribute="trailing" secondItem="0Jb-Gd-SeU" secondAttribute="trailing" id="Q3K-Xq-K0K"/>
                         <constraint firstItem="8Uz-sU-EHi" firstAttribute="leading" secondItem="cVJ-t8-15Z" secondAttribute="leading" id="RaU-Bc-vIy"/>
-                        <constraint firstItem="pGc-GH-Hcb" firstAttribute="centerY" secondItem="cVJ-t8-15Z" secondAttribute="centerY" id="S7I-UZ-iUP"/>
                         <constraint firstItem="qET-4Y-KdW" firstAttribute="leading" secondItem="cVJ-t8-15Z" secondAttribute="leading" id="W0b-PR-Gmw"/>
                         <constraint firstItem="6ak-kx-5OR" firstAttribute="leading" secondItem="cVJ-t8-15Z" secondAttribute="leading" id="Z01-sG-hlV"/>
                         <constraint firstAttribute="trailing" secondItem="qET-4Y-KdW" secondAttribute="trailing" id="ZnA-h0-hDM"/>
                         <constraint firstItem="qET-4Y-KdW" firstAttribute="top" secondItem="6ak-kx-5OR" secondAttribute="bottom" id="c6j-Cl-qSD"/>
                         <constraint firstItem="8Uz-sU-EHi" firstAttribute="top" secondItem="6ak-kx-5OR" secondAttribute="bottom" id="fJ4-VJ-cHh"/>
-                        <constraint firstItem="pGc-GH-Hcb" firstAttribute="centerX" secondItem="cVJ-t8-15Z" secondAttribute="centerX" id="iBf-iW-17W"/>
                         <constraint firstAttribute="trailing" secondItem="6ak-kx-5OR" secondAttribute="trailing" id="z4u-9p-mAZ"/>
                     </constraints>
                 </scrollView>

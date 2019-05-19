@@ -7,19 +7,14 @@
 //
 
 import UIKit
-import LPSnackbar
 
-class ListViewController: UIViewController {
+class ListViewController: BaseViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-
-    var snackbar: LPSnackbar!
 
     var controllerTitle: String!
     let cellIdentifier = "ListCollectionViewCell"
-    var showActivityIndicator: Bool = false
 
     var listData: [ListModelData] = []
     var listDataFilter: [ListModelData] = []
@@ -39,7 +34,11 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupControls()
-        getList(animated: true)
+        if self.delegate.scopesList().count > 0 {
+            getList(animated: true)
+        } else {
+            toggleActivityIndicator(show: false)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -63,25 +62,12 @@ class ListViewController: UIViewController {
         }
     }
 
-    func toggleActivityIndicator(show: Bool) {
-        showActivityIndicator = show
-        if show {
-            let tinyDelay = DispatchTime.now() + Double(Int64(0.2 * Float(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-            DispatchQueue.main.asyncAfter(deadline: tinyDelay) {
-                if self.showActivityIndicator {
-                    self.activityIndicator.isHidden = !show
-                    self.activityIndicator.startAnimating()
-                }
-            }
-        } else {
-            self.activityIndicator.isHidden = !show
-            self.activityIndicator.stopAnimating()
-        }
-    }
-
     func setupControls() {
         // Search bar setup
-        searchBar.scopeButtonTitles = self.delegate.scopesList()
+        if self.delegate.scopesList().count > 0 {
+            searchBar.scopeButtonTitles = self.delegate.scopesList()
+        }
+
         searchBar.delegate = self
 
         // Collection view setup
@@ -112,23 +98,6 @@ class ListViewController: UIViewController {
             }, completion: nil)
         } else {
             self.collectionView.reloadData()
-        }
-    }
-
-    func showSnackError(title: String, buttonText: String, completion: @escaping () -> Void) {
-        if snackbar != nil {
-            snackbar.dismiss()
-        }
-
-        snackbar = LPSnackbar(title: title, buttonTitle: buttonText)
-        snackbar.view.titleLabel.font = UIFont.systemFont(ofSize: 15)
-        snackbar.view.button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-
-        snackbar.show(animated: true) {(undone) in
-            if undone {
-                completion()
-                self.snackbar = nil
-            }
         }
     }
 }

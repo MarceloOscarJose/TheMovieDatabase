@@ -18,7 +18,7 @@ class SearchListDelegate: ListViewDelegate {
     }
 
     func scopesList() -> [String] {
-        return ConfigManager.shared.config.listScopes.search.scopes.map({ $0.title })
+        return []
     }
 
     func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {

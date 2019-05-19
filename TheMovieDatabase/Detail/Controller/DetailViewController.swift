@@ -8,11 +8,10 @@
 
 import AlamofireImage
 
-class DetailViewController: UIViewController {
+class DetailViewController: BaseViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var posterImage: UIImageView!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var optionMenu: UISegmentedControl!
 
     // UI Details
@@ -61,9 +60,9 @@ class DetailViewController: UIViewController {
     }
 
     func getdetail() {
-        stoggleIndicator(show: true)
+        toggleActivityIndicator(show: true)
         self.delegate.getDetail(id: id, responseHandler: { (detailData) in
-            self.stoggleIndicator(show: false)
+            self.toggleActivityIndicator(show: false)
             self.showControls()
             self.updateDetail(detailData: detailData)
             self.updateCast(cast: detailData.cast)
@@ -91,16 +90,6 @@ class DetailViewController: UIViewController {
         castCollectionView.register(UINib(nibName: castCellIdentifier, bundle: .main), forCellWithReuseIdentifier: castCellIdentifier)
         castCollectionView.delegate = self
         castCollectionView.dataSource = self
-    }
-
-    func stoggleIndicator(show: Bool) {
-        if show {
-            loadingIndicator.startAnimating()
-        } else {
-            loadingIndicator.stopAnimating()
-        }
-
-        loadingIndicator.alpha = show ? 1 : 0
     }
 
     func hideControls() {
