@@ -18,7 +18,9 @@ extension String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
 
-        let formatter = DateFormatter.longDate
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM d, yyyy"
+
         guard let formattedDate = dateFormatter.date(from: self) else { return "" }
         return formatter.string(from: formattedDate).capitalizedFirstLetter()
     }

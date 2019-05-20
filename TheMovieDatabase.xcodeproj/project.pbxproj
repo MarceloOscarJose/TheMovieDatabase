@@ -22,7 +22,6 @@
 		9C310315228332E40095FE29 /* ListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310314228332E40095FE29 /* ListService.swift */; };
 		9C310318228333490095FE29 /* MovieListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310317228333490095FE29 /* MovieListResponse.swift */; };
 		9C31031D22833EB70095FE29 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31031C22833EB70095FE29 /* ListModel.swift */; };
-		9C310324228390B70095FE29 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310323228390B70095FE29 /* DateFormatter.swift */; };
 		9C310326228394F30095FE29 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C310325228394F30095FE29 /* String.swift */; };
 		9C3103312283B8210095FE29 /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C31032F2283B8210095FE29 /* ListCollectionViewCell.swift */; };
 		9C3103322283B8210095FE29 /* ListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C3103302283B8210095FE29 /* ListCollectionViewCell.xib */; };
@@ -101,7 +100,6 @@
 		9C310314228332E40095FE29 /* ListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListService.swift; sourceTree = "<group>"; };
 		9C310317228333490095FE29 /* MovieListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListResponse.swift; sourceTree = "<group>"; };
 		9C31031C22833EB70095FE29 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
-		9C310323228390B70095FE29 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		9C310325228394F30095FE29 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9C31032F2283B8210095FE29 /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCell.swift; sourceTree = "<group>"; };
 		9C3103302283B8210095FE29 /* ListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -348,7 +346,6 @@
 		9C310322228390A70095FE29 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				9C310323228390B70095FE29 /* DateFormatter.swift */,
 				9C310325228394F30095FE29 /* String.swift */,
 				9C3103332284012B0095FE29 /* UIColor.swift */,
 				9CB116E022921A0C0040954A /* UIImage.swift */,
@@ -714,7 +711,6 @@
 				9C9F19D122918ABE00350CB7 /* SearchListResponse.swift in Sources */,
 				9C419D98228F9B3300922495 /* DetailModelData.swift in Sources */,
 				9CB116E122921A0C0040954A /* UIImage.swift in Sources */,
-				9C310324228390B70095FE29 /* DateFormatter.swift in Sources */,
 				9C310326228394F30095FE29 /* String.swift in Sources */,
 				9C7D2C652288D33C0094E9B6 /* DetailViewController.swift in Sources */,
 				9C419D8A228DD5B600922495 /* ShowListDelegate.swift in Sources */,
