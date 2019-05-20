@@ -43,12 +43,13 @@ class BaseViewController: UIViewController {
         }
     }
 
-    func showSnackError(title: String, buttonText: String, completion: @escaping () -> Void) {
+    func showSnackError(title: String, buttonText: String, view: UIView, completion: @escaping () -> Void) {
         if snackbar != nil {
             snackbar.dismiss()
         }
 
         snackbar = LPSnackbar(title: title, buttonTitle: buttonText)
+        snackbar.viewToDisplayIn = view
         snackbar.view.titleLabel.font = UIFont.systemFont(ofSize: 15)
         snackbar.view.button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
 

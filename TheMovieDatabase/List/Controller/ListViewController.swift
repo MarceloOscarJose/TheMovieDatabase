@@ -55,7 +55,7 @@ class ListViewController: BaseViewController {
             self.toggleActivityIndicator(show: false)
         }) { (error) in
             self.toggleActivityIndicator(show: false)
-            self.showSnackError(title: "Error connecting to service", buttonText: "Retry", completion: {
+            self.showSnackError(title: "Error connecting to service", buttonText: "Retry", view: self.collectionView, completion: {
                 self.getList(animated: animated)
             })
         }

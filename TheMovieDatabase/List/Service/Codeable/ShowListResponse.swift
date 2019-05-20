@@ -27,7 +27,7 @@ struct ShowListResponse: Codable {
         var name: String
         var posterPath: String?
         var overview: String
-        var firstAirDate: String
+        var firstAirDate: String?
 
         enum CodingKeys: String, CodingKey {
             case id, name, overview

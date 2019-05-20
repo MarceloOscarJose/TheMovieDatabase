@@ -72,8 +72,12 @@ class DetailViewController: BaseViewController {
     }
 
     func updateDetail(detailData: DetailModelData) {
+        self.posterImage.contentMode = .scaleAspectFit
+
         if let image = URL(string: detailData.poster ?? "") {
-            posterImage.af_setImage(withURL: image, imageTransition: .crossDissolve(0.5))
+            posterImage.af_setImage(withURL: image, placeholderImage: UIImage.noImage, imageTransition: .crossDissolve(0.5)) { (result) in
+                self.posterImage.contentMode = .scaleAspectFill
+            }
         } else {
             posterImage.image = UIImage.noImage
         }

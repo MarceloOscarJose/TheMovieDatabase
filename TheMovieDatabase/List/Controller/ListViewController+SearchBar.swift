@@ -23,7 +23,7 @@ extension ListViewController: UISearchBarDelegate {
                 self.toggleActivityIndicator(show: false)
             }) { (error) in
                 self.toggleActivityIndicator(show: false)
-                self.showSnackError(title: "Can't find results", buttonText: "Clear", completion: {
+                self.showSnackError(title: "Can't find results", buttonText: "Clear", view: self.collectionView, completion: {
                     self.clearSearchBar()
                     self.showKeyboard()
                 })

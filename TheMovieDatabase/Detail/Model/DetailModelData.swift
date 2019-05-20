@@ -37,7 +37,7 @@ struct DetailModelData {
             average: showDetail.voteAverage,
             overview: showDetail.overview,
             genres: showDetail.genres.map({ $0.name }),
-            date: showDetail.firstAirDate,
+            date: showDetail.firstAirDate ?? "",
             cast: showDetail.credits.cast
         )
     }

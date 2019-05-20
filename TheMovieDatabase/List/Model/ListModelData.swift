@@ -36,7 +36,7 @@ struct ListModelData {
           image: show.posterPath,
           average: show.voteAverage,
           overview: show.overview,
-          date: show.firstAirDate
+          date: show.firstAirDate ?? ""
         )
 
         self.mediaType = .Show

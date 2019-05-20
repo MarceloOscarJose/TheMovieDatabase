@@ -14,7 +14,7 @@ struct ShowDetailResponse: Codable {
     var overview: String
     var posterPath: String?
     var backdropPath: String?
-    var firstAirDate: String
+    var firstAirDate: String?
     var voteAverage: Double
     var genres: [DetailResponse.Genres]
     var videos: DetailResponse.VideoResults
