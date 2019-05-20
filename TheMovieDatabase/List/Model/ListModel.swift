@@ -41,11 +41,14 @@ class ListModel: NSObject {
         }
     }
 
-    func getSearchList(nextPage: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        listService.fetchList(url: searchScope.url, entity: ShowListResponse.self, page: 1, params: ["query" : "game"], responseHandler: { (result) in
+    func getSearchList(nextPage: Bool, searchText: String, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+
+        let searchParams = ["query" : searchText]
+
+        listService.fetchList(url: searchScope.url, entity: SearchListResponse.self, page: 1, params: searchParams, responseHandler: { (result) in
             var list: [ListModelData] = []
-            for element in (result as! ShowListResponse).results {
-                list.append(ListModelData(show: element))
+            for element in (result as! SearchListResponse).results {
+                list.append(ListModelData(result: element))
             }
             responseHandler(list)
         }) { (error) in

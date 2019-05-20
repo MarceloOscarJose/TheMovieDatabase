@@ -12,14 +12,18 @@ import UIKit
 extension ListViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+
         hideKeyboard()
 
         if let searchDelegate = self.searchDelegate {
             guard let searchText = searchBar.text else { return }
             searchDelegate.searchByTitle(title: searchText, responseHandler: { (result) in
-                print(result)
+                self.reloadResults(data: result, animated: true)
             }) { (error) in
-                print(error)
+                self.showSnackError(title: "Can't find results", buttonText: "Clear", completion: {
+                    self.clearSearchBar()
+                    self.showKeyboard()
+                })
             }
         }
     }

@@ -30,11 +30,9 @@ struct ShowListResponse: Codable {
         var firstAirDate: String
 
         enum CodingKeys: String, CodingKey {
-            case id
+            case id, name, overview
             case voteAverage = "vote_average"
-            case name
             case posterPath = "poster_path"
-            case overview
             case firstAirDate = "first_air_date"
         }
     }

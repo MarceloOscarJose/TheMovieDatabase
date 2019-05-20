@@ -22,19 +22,11 @@ class SearchListDelegate: ListViewDelegate, ListViewSearchDelegate {
     }
 
     func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        model.getSearchList(nextPage: nextPage, scope: scope, responseHandler: { (resultData) in
-            responseHandler(resultData)
-        }) { (error) in
-            errorHandler(error)
-        }
-    }
-
-    func selectRow(id: Int, navController: UINavigationController) {
-        navController.pushViewController(DetailViewController(id: id, delegate: ShowDetailDelegate()), animated: true)
+        responseHandler([])
     }
 
     func searchByTitle(title: String, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        model.getSearchList(nextPage: nextPage, scope: 0, responseHandler: { (resultData) in
+        model.getSearchList(nextPage: nextPage, searchText: title, responseHandler: { (resultData) in
             responseHandler(resultData)
         }) { (error) in
             errorHandler(error)

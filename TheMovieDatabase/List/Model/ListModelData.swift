@@ -16,6 +16,7 @@ struct ListModelData {
     var overview: String
     var poster: String?
     var releaseDate: String = ""
+    var mediaType: MediaType!
 
     init(movie: MovieListResponse.Movie) {
         self.init(id: movie.id,
@@ -25,6 +26,8 @@ struct ListModelData {
           overview: movie.overview,
           date: movie.releaseDate
         )
+
+        self.mediaType = .Movie
     }
 
     init(show: ShowListResponse.Show) {
@@ -35,6 +38,21 @@ struct ListModelData {
           overview: show.overview,
           date: show.firstAirDate
         )
+
+        self.mediaType = .Show
+    }
+
+    init(result: SearchListResponse.Result) {
+
+        self.init(id: result.id,
+              title: result.name ?? result.title ?? "",
+              image: result.posterPath,
+              average: result.voteAverage,
+              overview: result.overview,
+              date: result.firstAirDate ?? result.releaseDate ?? ""
+        )
+
+        self.mediaType = result.mediaType == "movie" ? .Movie : .Show
     }
 
     init(id: Int, title: String, image: String?, average: Double, overview: String, date: String) {
@@ -49,4 +67,9 @@ struct ListModelData {
         self.overview = overview != "" ? overview : "No description"
         self.releaseDate = date.parseToLongDate()
     }
+}
+
+enum MediaType {
+    case Movie
+    case Show
 }

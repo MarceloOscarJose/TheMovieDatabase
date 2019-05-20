@@ -30,11 +30,9 @@ struct MovieListResponse: Codable {
         var releaseDate: String
 
         enum CodingKeys: String, CodingKey {
-            case id
+            case id, title, overview
             case voteAverage = "vote_average"
-            case title
             case posterPath = "poster_path"
-            case overview
             case releaseDate = "release_date"
         }
     }

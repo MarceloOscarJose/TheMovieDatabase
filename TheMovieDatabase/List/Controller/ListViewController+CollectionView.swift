@@ -37,10 +37,14 @@ extension ListViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailId = self.listDataFilter[indexPath.item].id
+        let detail = self.listDataFilter[indexPath.item]
 
         if let navController = self.navigationController {
-            self.delegate.selectRow(id: detailId, navController: navController)
+            if detail.mediaType == .Movie {
+                navController.pushViewController(DetailViewController(id: detail.id, delegate: MovieDetailDelegate()), animated: true)
+            } else {
+                navController.pushViewController(DetailViewController(id: detail.id, delegate: ShowDetailDelegate()), animated: true)
+            }
         }
     }
 }

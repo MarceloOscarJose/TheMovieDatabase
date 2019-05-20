@@ -37,11 +37,7 @@ class ListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupControls()
-        if self.delegate.scopesList().count > 0 {
-            getList(animated: true)
-        } else {
-            toggleActivityIndicator(show: false)
-        }
+        getList(animated: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -79,6 +75,10 @@ class ListViewController: BaseViewController {
         collectionView.addGestureRecognizer(gesture)
     }
 
+    func showKeyboard() {
+        searchBar.becomeFirstResponder()
+    }
+
     @objc func hideKeyboard() {
         searchBar.endEditing(true)
     }
@@ -106,7 +106,6 @@ protocol ListViewDelegate: class {
     func listTitle() -> String
     func scopesList() -> [String]
     func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
-    func selectRow(id: Int, navController: UINavigationController)
 }
 
 protocol ListViewSearchDelegate: class {

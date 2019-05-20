@@ -28,8 +28,4 @@ class ShowListDelegate: ListViewDelegate {
             errorHandler(error)
         }
     }
-
-    func selectRow(id: Int, navController: UINavigationController) {
-        navController.pushViewController(DetailViewController(id: id, delegate: ShowDetailDelegate()), animated: true)
-    }
 }
