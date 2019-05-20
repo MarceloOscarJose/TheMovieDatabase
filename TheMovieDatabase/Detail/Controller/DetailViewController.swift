@@ -67,7 +67,10 @@ class DetailViewController: BaseViewController {
             self.updateDetail(detailData: detailData)
             self.updateCast(cast: detailData.cast)
         }) { (error) in
-            print(error as Any)
+            self.toggleActivityIndicator(show: false)
+            self.showSnackError(title: "Error connecting to service", buttonText: "Retry", view: self.scrollView, completion: {
+                self.getdetail()
+            })
         }
     }
 
