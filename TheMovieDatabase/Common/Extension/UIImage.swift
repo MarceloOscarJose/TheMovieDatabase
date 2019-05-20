@@ -10,6 +10,6 @@ import UIKit
 
 extension UIImage {
     class var noImage: UIImage {
-        return UIImage(named: "no-image")!
+        return UIImage(named: "noImage")!
     }
 }
