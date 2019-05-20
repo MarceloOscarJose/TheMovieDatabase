@@ -12,7 +12,8 @@ class ListViewController: BaseViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
-
+    @IBOutlet weak var scrollTopButton: UIButton!
+    
     var controllerTitle: String!
     let cellIdentifier = "ListCollectionViewCell"
 
@@ -66,6 +67,8 @@ class ListViewController: BaseViewController {
         searchBar.scopeButtonTitles = self.delegate.scopesList()
         searchBar.delegate = self
 
+        scrollTopButton.isHidden = true
+
         // Collection view setup
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -99,6 +102,9 @@ class ListViewController: BaseViewController {
         } else {
             self.collectionView.reloadData()
         }
+    }
+
+    @IBAction func scrollToTop(_ sender: Any) {
     }
 }
 
