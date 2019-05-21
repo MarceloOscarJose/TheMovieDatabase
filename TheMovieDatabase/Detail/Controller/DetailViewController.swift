@@ -32,11 +32,12 @@ class DetailViewController: BaseViewController {
     var delegate: DetailViewDelegate!
 
     // Data vars
+    var rightButtonTexts: [String] = ["Show poster", "Hide poster"]
     let castCellIdentifier = "CastCollectionViewCell"
     let videoCellIdentifier = "VideoTableViewCell"
+
     var imageFrame: CGRect = .zero
     var imagePlaceHolder = UIImage.noImage
-    var rightButtonTexts: [String] = ["Show poster", "Hide poster"]
 
     // Detail vars
     var cast: [DetailResponse.Credits.Cast] = []
@@ -73,6 +74,7 @@ class DetailViewController: BaseViewController {
             self.showControls()
             self.updateDetail(detailData: detailData)
             self.updateCast(cast: detailData.cast)
+            self.updateVideo(video: detailData.video)
         }) { (error) in
             self.toggleActivityIndicator(show: false)
             self.showSnackError(title: "Error connecting to service", buttonText: "Retry", view: self.scrollView, completion: {
@@ -108,7 +110,7 @@ class DetailViewController: BaseViewController {
 
     func updateVideo(video: [DetailResponse.VideoResults.Video]) {
         self.video = video
-        castCollectionView.register(UINib(nibName: videoCellIdentifier, bundle: .main), forCellWithReuseIdentifier: videoCellIdentifier)
+        videoTableView.register(UINib(nibName: videoCellIdentifier, bundle: .main), forCellReuseIdentifier: videoCellIdentifier)
         videoTableView.delegate = self
         videoTableView.dataSource = self
     }
@@ -117,6 +119,7 @@ class DetailViewController: BaseViewController {
         posterImage.alpha = 0
         detailView.alpha = 0
         castCollectionView.alpha = 0
+        videoTableView.alpha = 0
         optionMenu.alpha = 0
         scrollView.isScrollEnabled = false
     }

@@ -17,6 +17,7 @@ struct DetailModelData {
     var poster: String?
     var releaseDate: String = ""
     var cast: [DetailResponse.Credits.Cast] = []
+    var video: [DetailResponse.VideoResults.Video] = []
 
     init(movieDetail: MovieDetailResponse) {
         self.init(id: movieDetail.id,
@@ -26,7 +27,8 @@ struct DetailModelData {
             overview: movieDetail.overview,
             genres: movieDetail.genres.map({ $0.name }),
             date: movieDetail.releaseDate,
-            cast: movieDetail.credits.cast
+            cast: movieDetail.credits.cast,
+            video: movieDetail.videos.results
         )
     }
 
@@ -38,11 +40,12 @@ struct DetailModelData {
             overview: showDetail.overview,
             genres: showDetail.genres.map({ $0.name }),
             date: showDetail.firstAirDate ?? "",
-            cast: showDetail.credits.cast
+            cast: showDetail.credits.cast,
+            video: showDetail.videos.results
         )
     }
 
-    init(id: Int, title: String, image: String?, average: Double, overview: String, genres: [String], date: String, cast: [DetailResponse.Credits.Cast]) {
+    init(id: Int, title: String, image: String?, average: Double, overview: String, genres: [String], date: String, cast: [DetailResponse.Credits.Cast], video: [DetailResponse.VideoResults.Video]) {
         self.id = id
         self.title = title
 
@@ -56,5 +59,6 @@ struct DetailModelData {
 
         self.overview = overview != "" ? overview : "No description"
         self.cast = cast.sorted(by: { $1.order > $0.order })
+        self.video = video
     }
 }
