@@ -111,6 +111,7 @@ class DetailViewController: BaseViewController {
     func updateVideo(video: [DetailResponse.VideoResults.Video]) {
         self.video = video
         videoTableView.register(UINib(nibName: videoCellIdentifier, bundle: .main), forCellReuseIdentifier: videoCellIdentifier)
+        videoTableView.rowHeight = 100
         videoTableView.delegate = self
         videoTableView.dataSource = self
     }
