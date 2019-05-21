@@ -10,6 +10,8 @@
 	<string>https://image.tmdb.org/t/p/w185_and_h278_bestv2/</string>
 	<key>imageURL</key>
 	<string>https://image.tmdb.org/t/p/w600_and_h900_bestv2/</string>
+	<key>videoURL</key>
+	<string>https://i.ytimg.com/vi/[id]/hqdefault.jpg</string>
 	<key>listScopes</key>
 	<dict>
 		<key>movie</key>

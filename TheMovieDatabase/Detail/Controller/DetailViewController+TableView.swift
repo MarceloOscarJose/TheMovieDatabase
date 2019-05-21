@@ -16,6 +16,8 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: videoCellIdentifier, for: indexPath) as! VideoTableViewCell
+        cell.updateCell(image: video[indexPath.item].key, title: video[indexPath.item].name)
+        return cell
     }
 }

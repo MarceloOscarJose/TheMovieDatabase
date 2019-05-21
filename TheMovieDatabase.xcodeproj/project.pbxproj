@@ -51,6 +51,8 @@
 		9CB116E122921A0C0040954A /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB116E022921A0C0040954A /* UIImage.swift */; };
 		9CC190BE2290D78D00D42D89 /* SearchListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC190BD2290D78D00D42D89 /* SearchListDelegate.swift */; };
 		9CEA72ED229418A600334F73 /* DetailViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA72EC229418A600334F73 /* DetailViewController+TableView.swift */; };
+		9CEA72F022941A5F00334F73 /* VideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEA72EE22941A5F00334F73 /* VideoTableViewCell.swift */; };
+		9CEA72F122941A5F00334F73 /* VideoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9CEA72EF22941A5F00334F73 /* VideoTableViewCell.xib */; };
 		B2FFD5B1C9D0B85B19BC8F9C /* Pods_TheMovieDatabaseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 694B12D49F0ABB105EF19554 /* Pods_TheMovieDatabaseTests.framework */; };
 		D3F7349644A6F245565B2650 /* Pods_TheMovieDatabaseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8966AEF746755D515D77076 /* Pods_TheMovieDatabaseUITests.framework */; };
 		DA194A0669015D919AF51652 /* Pods_TheMovieDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86CC619762517DFCA660A620 /* Pods_TheMovieDatabase.framework */; };
@@ -130,6 +132,8 @@
 		9CB116E022921A0C0040954A /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		9CC190BD2290D78D00D42D89 /* SearchListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListDelegate.swift; sourceTree = "<group>"; };
 		9CEA72EC229418A600334F73 /* DetailViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+TableView.swift"; sourceTree = "<group>"; };
+		9CEA72EE22941A5F00334F73 /* VideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewCell.swift; sourceTree = "<group>"; };
+		9CEA72EF22941A5F00334F73 /* VideoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoTableViewCell.xib; sourceTree = "<group>"; };
 		BD06FEC69B35307FAA68764C /* Pods-TheMovieDatabaseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDatabaseUITests.debug.xcconfig"; path = "Target Support Files/Pods-TheMovieDatabaseUITests/Pods-TheMovieDatabaseUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8966AEF746755D515D77076 /* Pods_TheMovieDatabaseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieDatabaseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD356CF201A10A141B828F85 /* Pods-TheMovieDatabaseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDatabaseTests.debug.xcconfig"; path = "Target Support Files/Pods-TheMovieDatabaseTests/Pods-TheMovieDatabaseTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -379,6 +383,8 @@
 			children = (
 				9C419D93228E3DBF00922495 /* CastCollectionViewCell.swift */,
 				9C419D94228E3DBF00922495 /* CastCollectionViewCell.xib */,
+				9CEA72EE22941A5F00334F73 /* VideoTableViewCell.swift */,
+				9CEA72EF22941A5F00334F73 /* VideoTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -571,6 +577,7 @@
 				9C419D96228E3DBF00922495 /* CastCollectionViewCell.xib in Resources */,
 				9C31030E2282F7880095FE29 /* Config.plist in Resources */,
 				9C7D2C662288D33C0094E9B6 /* DetailViewController.xib in Resources */,
+				9CEA72F122941A5F00334F73 /* VideoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,6 +706,7 @@
 				9C3433DE228B2CA9009ED080 /* MovieDetailResponse.swift in Sources */,
 				9C419D8F228E0F9600922495 /* ShowDetailDelegate.swift in Sources */,
 				9C419D8B228DD5B600922495 /* MovieListDelegate.swift in Sources */,
+				9CEA72F022941A5F00334F73 /* VideoTableViewCell.swift in Sources */,
 				9C0583102285A80200FAA860 /* ListViewController+SearchBar.swift in Sources */,
 				9C55C9C5228FB58C004C1A07 /* DetailViewController+CollectionView.swift in Sources */,
 				9C3433E0228B2CC1009ED080 /* ShowDetailResponse.swift in Sources */,

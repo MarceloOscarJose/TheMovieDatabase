@@ -33,6 +33,7 @@ class DetailViewController: BaseViewController {
 
     // Data vars
     let castCellIdentifier = "CastCollectionViewCell"
+    let videoCellIdentifier = "VideoTableViewCell"
     var imageFrame: CGRect = .zero
     var imagePlaceHolder = UIImage.noImage
     var rightButtonTexts: [String] = ["Show poster", "Hide poster"]
@@ -107,6 +108,7 @@ class DetailViewController: BaseViewController {
 
     func updateVideo(video: [DetailResponse.VideoResults.Video]) {
         self.video = video
+        castCollectionView.register(UINib(nibName: videoCellIdentifier, bundle: .main), forCellWithReuseIdentifier: videoCellIdentifier)
         videoTableView.delegate = self
         videoTableView.dataSource = self
     }
@@ -150,6 +152,7 @@ class DetailViewController: BaseViewController {
     @IBAction func selectOption(_ sender: UISegmentedControl) {
         detailView.alpha = sender.selectedSegmentIndex == 0 ? 1 : 0
         castCollectionView.alpha = sender.selectedSegmentIndex == 1 ? 1 : 0
+        videoTableView.alpha = sender.selectedSegmentIndex == 2 ? 1 : 0
         self.view.layoutSubviews()
     }
 }

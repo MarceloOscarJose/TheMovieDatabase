@@ -35,6 +35,7 @@ struct ConfigData: Codable {
     var apiKey: String
     var thumbnailURL: String
     var imageURL: String
+    var videoURL: String
     var listScopes: ListScopes
 
     struct ListScopes: Codable {
