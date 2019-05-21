@@ -142,7 +142,7 @@ class DetailViewController: BaseViewController {
 
     @objc func showFullScreenPoster(_ sender: Any) {
         if self.posterImage.image != imagePlaceHolder {
-            if detailView.alpha != 0 || castCollectionView.alpha != 0 {
+            if detailView.alpha != 0 || castCollectionView.alpha != 0 || videoTableView.alpha != 0 {
                 hideControls()
                 showFullPoster()
                 self.navigationItem.rightBarButtonItem?.title = self.rightButtonTexts.last!
