@@ -22,6 +22,7 @@
                 <outlet property="posterImage" destination="0Jb-Gd-SeU" id="oMy-7a-A6X"/>
                 <outlet property="scrollView" destination="cVJ-t8-15Z" id="3mD-fN-jtd"/>
                 <outlet property="titleLabel" destination="LCk-UL-jR9" id="yql-8F-UP8"/>
+                <outlet property="videoTableView" destination="6Ex-hh-pbj" id="Cpe-au-zvV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -33,6 +34,10 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVJ-t8-15Z">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Ex-hh-pbj">
+                            <rect key="frame" x="0.0" y="367" width="414" height="104"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" tag="1" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qET-4Y-KdW">
                             <rect key="frame" x="0.0" y="367" width="414" height="451"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -149,14 +154,18 @@
                         <constraint firstItem="0Jb-Gd-SeU" firstAttribute="height" secondItem="cVJ-t8-15Z" secondAttribute="height" multiplier="0.4" id="GPA-0Z-GOM"/>
                         <constraint firstAttribute="bottom" secondItem="8Uz-sU-EHi" secondAttribute="bottom" id="JdS-pT-891"/>
                         <constraint firstItem="0Jb-Gd-SeU" firstAttribute="leading" secondItem="cVJ-t8-15Z" secondAttribute="leading" id="O2z-Qn-2Jb"/>
+                        <constraint firstItem="6Ex-hh-pbj" firstAttribute="leading" secondItem="cVJ-t8-15Z" secondAttribute="leading" id="O7o-Gb-6gm"/>
                         <constraint firstAttribute="trailing" secondItem="8Uz-sU-EHi" secondAttribute="trailing" id="PcY-XI-Z3a"/>
                         <constraint firstAttribute="trailing" secondItem="0Jb-Gd-SeU" secondAttribute="trailing" id="Q3K-Xq-K0K"/>
                         <constraint firstItem="8Uz-sU-EHi" firstAttribute="leading" secondItem="cVJ-t8-15Z" secondAttribute="leading" id="RaU-Bc-vIy"/>
+                        <constraint firstAttribute="bottom" secondItem="6Ex-hh-pbj" secondAttribute="bottom" id="Vda-gC-Z0P"/>
                         <constraint firstItem="qET-4Y-KdW" firstAttribute="leading" secondItem="cVJ-t8-15Z" secondAttribute="leading" id="W0b-PR-Gmw"/>
                         <constraint firstItem="6ak-kx-5OR" firstAttribute="leading" secondItem="cVJ-t8-15Z" secondAttribute="leading" id="Z01-sG-hlV"/>
                         <constraint firstAttribute="trailing" secondItem="qET-4Y-KdW" secondAttribute="trailing" id="ZnA-h0-hDM"/>
                         <constraint firstItem="qET-4Y-KdW" firstAttribute="top" secondItem="6ak-kx-5OR" secondAttribute="bottom" id="c6j-Cl-qSD"/>
+                        <constraint firstItem="6Ex-hh-pbj" firstAttribute="top" secondItem="6ak-kx-5OR" secondAttribute="bottom" id="cEg-7J-j2C"/>
                         <constraint firstItem="8Uz-sU-EHi" firstAttribute="top" secondItem="6ak-kx-5OR" secondAttribute="bottom" id="fJ4-VJ-cHh"/>
+                        <constraint firstAttribute="trailing" secondItem="6Ex-hh-pbj" secondAttribute="trailing" id="kFt-R1-Ad9"/>
                         <constraint firstAttribute="trailing" secondItem="6ak-kx-5OR" secondAttribute="trailing" id="z4u-9p-mAZ"/>
                     </constraints>
                 </scrollView>

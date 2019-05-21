@@ -25,6 +25,9 @@ class DetailViewController: BaseViewController {
     // UI Cast
     @IBOutlet weak var castCollectionView: UICollectionView!
 
+    // UI Videos
+    @IBOutlet weak var videoTableView: UITableView!
+    
     var id: Int!
     var delegate: DetailViewDelegate!
 
@@ -33,7 +36,10 @@ class DetailViewController: BaseViewController {
     var imageFrame: CGRect = .zero
     var imagePlaceHolder = UIImage.noImage
     var rightButtonTexts: [String] = ["Show poster", "Hide poster"]
+
+    // Detail vars
     var cast: [DetailResponse.Credits.Cast] = []
+    var video: [DetailResponse.VideoResults.Video] = []
 
     convenience init(id: Int, delegate: DetailViewDelegate) {
         self.init()
@@ -97,6 +103,12 @@ class DetailViewController: BaseViewController {
         castCollectionView.register(UINib(nibName: castCellIdentifier, bundle: .main), forCellWithReuseIdentifier: castCellIdentifier)
         castCollectionView.delegate = self
         castCollectionView.dataSource = self
+    }
+
+    func updateVideo(video: [DetailResponse.VideoResults.Video]) {
+        self.video = video
+        videoTableView.delegate = self
+        videoTableView.dataSource = self
     }
 
     func hideControls() {

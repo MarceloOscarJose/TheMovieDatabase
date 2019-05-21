@@ -105,6 +105,7 @@ class ListViewController: BaseViewController {
     }
 
     @IBAction func scrollToTop(_ sender: Any) {
+        self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
     }
 }
 

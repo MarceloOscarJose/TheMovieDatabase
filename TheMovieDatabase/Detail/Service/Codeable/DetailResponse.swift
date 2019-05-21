@@ -33,7 +33,7 @@ struct DetailResponse {
     public struct VideoResults: Codable {
         var results: [Video]
 
-        struct Video: Codable {
+        public struct Video: Codable {
             var key: String
             var name: String
         }

@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: CollectionView behaviour
-extension ListViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension ListViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.listDataFilter.count
@@ -21,6 +21,10 @@ extension ListViewController: UICollectionViewDataSource, UICollectionViewDelega
         cell.updateCell(image: data.poster, title: data.title, overview: data.overview, date: data.releaseDate, average: data.average)
 
         return cell
+    }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollTopButton.isHidden = scrollView.contentOffset.y > scrollView.frame.height ? false : true
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
