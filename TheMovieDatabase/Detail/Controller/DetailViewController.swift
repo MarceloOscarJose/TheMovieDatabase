@@ -70,11 +70,11 @@ class DetailViewController: BaseViewController {
     func getdetail() {
         toggleActivityIndicator(show: true)
         self.delegate.getDetail(id: id, responseHandler: { (detailData) in
-            self.toggleActivityIndicator(show: false)
             self.showControls()
             self.updateDetail(detailData: detailData)
             self.updateCast(cast: detailData.cast)
             self.updateVideo(video: detailData.video)
+            self.toggleActivityIndicator(show: false)
         }) { (error) in
             self.toggleActivityIndicator(show: false)
             self.showSnackError(title: "Error connecting to service", buttonText: "Retry", view: self.scrollView, completion: {
