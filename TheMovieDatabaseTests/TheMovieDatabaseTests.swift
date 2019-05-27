@@ -25,7 +25,7 @@ class TheMovieDatabaseTests: XCTestCase {
 
         let expectation = self.expectation(description: "Scaling")
 
-        model.getMovieList(nextPage: false, scope: 0, responseHandler: { (result) in
+        model.getList(nextPage: false, query: "", scope: 0, entity: MovieListResponse.self, responseHandler: { (result) in
             listData = result
             expectation.fulfill()
         }) { (error) in
