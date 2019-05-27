@@ -10,19 +10,24 @@ import UIKit
 
 class MovieListDelegate: ListViewDelegate {
 
-    let model = ListModel()
-    let scopes = ConfigManager.shared.config.listScopes.movie
+    let model: ListModel!
+    let scope: ConfigData.Scope!
+
+    init(scope: ConfigData.Scope) {
+        self.scope = scope
+        self.model = ListModel(scope: scope)
+    }
 
     func listTitle() -> String {
-        return scopes.title
+        return scope.title
     }
 
     func scopesList() -> [String] {
-        return scopes.scopes.map({ $0.title })
+        return scope.data.map({ $0.title })
     }
 
     func getList(animated: Bool, scope: Int, nextPage: Bool, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        model.getMovieList(nextPage: nextPage, scope: scope, responseHandler: { (resultData) in
+        model.getList(nextPage: nextPage, query: "", scope: scope, entity: MovieListResponse.self, responseHandler: { (resultData) in
             responseHandler(resultData)
         }) { (error) in
             errorHandler(error)

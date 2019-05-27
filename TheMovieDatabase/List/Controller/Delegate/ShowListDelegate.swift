@@ -10,19 +10,24 @@ import UIKit
 
 class ShowListDelegate: ListViewDelegate {
 
-    let model = ListModel()
-    let scopes = ConfigManager.shared.config.listScopes.show
+    let model: ListModel!
+    let scope: ConfigData.Scope!
 
-    func listTitle() -> String {
-        return scopes.title
+    init(scope: ConfigData.Scope) {
+        self.scope = scope
+        self.model = ListModel(scope: scope)
     }
 
+    func listTitle() -> String {
+        return scope.title
+    }
+    
     func scopesList() -> [String] {
-        return scopes.scopes.map({ $0.title })
+        return scope.data.map({ $0.title })
     }
 
     func getList(animated: Bool, scope: Int, nextPage: Bool, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        model.getShowList(nextPage: nextPage, scope: scope, responseHandler: { (resultData) in
+        model.getList(nextPage: nextPage, query: "", scope: scope, entity: ShowListResponse.self, responseHandler: { (resultData) in
             responseHandler(resultData)
         }) { (error) in
             errorHandler(error)

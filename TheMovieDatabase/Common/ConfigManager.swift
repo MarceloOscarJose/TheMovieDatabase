@@ -36,28 +36,33 @@ struct ConfigData: Codable {
     var thumbnailURL: String
     var imageURL: String
     var videoURL: String
-    var listScopes: ListScopes
+    var scopes: [Scope]
 
-    struct ListScopes: Codable {
-        var movie: ScopeSection
-        var show: ScopeSection
-        var search: ListScopeSection
+    struct Scope: Codable {
+        var id: String
+        var title: String
+        var data: [ScopeData]
+    }
 
-        struct ScopeSection: Codable {
-            var title: String
-            var icon: String
-            var scopes: [ScopeData]
+    struct ScopeData: Codable {
+        var id: String
+        var title: String
+        var url: String
+    }
 
-            struct ScopeData: Codable {
-                var title: String
-                var url: String
-            }
+    func getDataScopes() -> [String: [ScopeData]] {
+        return self.scopes.reduce(into: [String: [ScopeData]]()) {
+            $0[$1.id] = $1.data
         }
+    }
 
-        struct ListScopeSection: Codable {
-            var title: String
-            var icon: String
-            var url: String
+    func getSectionScopes() -> [String: Scope] {
+        return self.scopes.reduce(into: [String: Scope]()) {
+            $0[$1.id] = $1
         }
+    }
+
+    func getSectionScope(section: String) -> Scope {
+        return self.scopes.filter({ $0.id ==  section}).first!
     }
 }

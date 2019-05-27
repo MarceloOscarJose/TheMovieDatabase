@@ -80,5 +80,91 @@
 			<string>search/multi</string>
 		</dict>
 	</dict>
+	<key>scopes</key>
+	<array>
+		<dict>
+			<key>id</key>
+			<string>movies</string>
+			<key>title</key>
+			<string>Movies</string>
+			<key>data</key>
+			<array>
+				<dict>
+					<key>id</key>
+					<string>popular</string>
+					<key>title</key>
+					<string>Popular</string>
+					<key>url</key>
+					<string>movie/popular</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<string>top_rated</string>
+					<key>title</key>
+					<string>Top rated</string>
+					<key>url</key>
+					<string>movie/top_rated</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<string>upcoming</string>
+					<key>title</key>
+					<string>Upcoming</string>
+					<key>url</key>
+					<string>movie/upcoming</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>shows</string>
+			<key>title</key>
+			<string>TV Shows</string>
+			<key>data</key>
+			<array>
+				<dict>
+					<key>id</key>
+					<string>popular</string>
+					<key>title</key>
+					<string>Popular</string>
+					<key>url</key>
+					<string>tv/popular</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<string>top_rated</string>
+					<key>title</key>
+					<string>Top rated</string>
+					<key>url</key>
+					<string>tv/top_rated</string>
+				</dict>
+				<dict>
+					<key>id</key>
+					<string>on_the_air</string>
+					<key>title</key>
+					<string>On air</string>
+					<key>url</key>
+					<string>tv/on_the_air</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>search</string>
+			<key>title</key>
+			<string>Search</string>
+			<key>data</key>
+			<array>
+				<dict>
+					<key>id</key>
+					<string>search</string>
+					<key>title</key>
+					<string>Search</string>
+					<key>url</key>
+					<string>search/multi</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

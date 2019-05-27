@@ -11,66 +11,37 @@ import Foundation
 class ListModel: NSObject {
 
     let listService = ListService()
+    var currentScope: ConfigData.Scope!
 
-    // Scope vars
-    let movieScopes = ConfigManager.shared.config.listScopes.movie.scopes
-    let showScopes = ConfigManager.shared.config.listScopes.show.scopes
-    let searchScope = ConfigManager.shared.config.listScopes.search
-
-    var moviePages: [Int] = []
-    var showPages: [Int] = []
-    var searchPage: Int = 1
+    var currentPages: [Int]!
 
     var params: [String: String] = ["page" : "1"]
 
-    override init() {
-        moviePages = Array(repeating: 1, count: movieScopes.count)
-        showPages = Array(repeating: 1, count: showScopes.count)
+    convenience init(scope: ConfigData.Scope) {
+        self.init()
+        self.currentScope = scope
+        self.currentPages = Array(repeating: 1, count: scope.data.count)
     }
 
-    func getMovieList(nextPage: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    func getList<T: Codable>(nextPage: Bool, query: String, scope: Int, entity: T.Type, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+        currentPages[scope] = nextPage ? currentPages[scope] + 1 : 1
+        params["page"] = "\(currentPages[scope])"
+        params["query"] = query
 
-        moviePages[scope] = nextPage ? moviePages[scope] + 1 : 1
-        params["page"] = "\(moviePages[scope])"
+        listService.fetchList(url: currentScope.data[scope].url, entity: entity, params: params, responseHandler: { (result) in
 
-        listService.fetchList(url: movieScopes[scope].url, entity: MovieListResponse.self, params: params, responseHandler: { (result) in
-            let list: [ListModelData] = (result as! MovieListResponse).results.map( { ListModelData(movie: $0) })
-            responseHandler(list)
+            switch self.currentScope.id {
+            case "movies":
+                responseHandler((result as! MovieListResponse).results.map( { ListModelData(movie: $0) }))
+            case "shows":
+                responseHandler((result as! ShowListResponse).results.map( { ListModelData(show: $0) }))
+            case "search":
+                responseHandler((result as! SearchListResponse).results.map( { ListModelData(result: $0) }))
+            default:
+                break
+            }
         }) { (error) in
             errorHandler(error)
         }
     }
-
-    func getShowList(nextPage: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-
-        showPages[scope] = nextPage ? moviePages[scope] + 1 : 1
-        params["page"] = "\(showPages[scope])"
-
-        listService.fetchList(url: showScopes[scope].url, entity: ShowListResponse.self, params: params, responseHandler: { (result) in
-            let list: [ListModelData] = (result as! ShowListResponse).results.map( { ListModelData(show: $0) })
-            responseHandler(list)
-        }) { (error) in
-            errorHandler(error)
-        }
-    }
-
-    func getSearchList(nextPage: Bool, searchText: String, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-
-        searchPage += nextPage ? 1 : 0
-        params["page"] = "\(searchPage)"
-        params["query"] = searchText
-
-        listService.fetchList(url: searchScope.url, entity: SearchListResponse.self, params: params, responseHandler: { (result) in
-            let list: [ListModelData] = (result as! SearchListResponse).results.map( { ListModelData(result: $0) })
-            responseHandler(list)
-        }) { (error) in
-            errorHandler(error)
-        }
-    }
-}
-
-struct ListModelConfig {
-    var moviePages: [Int] = [1, 1, 1]
-    var showPages: [Int] = [1, 1, 1]
-    var searchPage: Int = 1
 }

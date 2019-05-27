@@ -10,11 +10,16 @@ import UIKit
 
 class SearchListDelegate: ListViewDelegate, ListViewSearchDelegate {
 
-    let model = ListModel()
-    let scopes = ConfigManager.shared.config.listScopes.search
+    let model: ListModel!
+    let scope: ConfigData.Scope!
+
+    init(scope: ConfigData.Scope) {
+        self.scope = scope
+        self.model = ListModel(scope: scope)
+    }
 
     func listTitle() -> String {
-        return scopes.title
+        return scope.title
     }
 
     func scopesList() -> [String] {
@@ -26,7 +31,7 @@ class SearchListDelegate: ListViewDelegate, ListViewSearchDelegate {
     }
 
     func searchByTitle(title: String, nextPage: Bool, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        model.getSearchList(nextPage: nextPage, searchText: title, responseHandler: { (resultData) in
+        model.getList(nextPage: nextPage, query: title, scope: 0, entity: SearchListResponse.self, responseHandler: { (resultData) in
             responseHandler(resultData)
         }) { (error) in
             errorHandler(error)
