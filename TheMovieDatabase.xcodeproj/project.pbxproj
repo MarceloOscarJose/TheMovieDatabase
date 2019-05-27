@@ -310,20 +310,20 @@
 		9C310313228332CF0095FE29 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				9C3103162283333D0095FE29 /* Codeable */,
+				9C3103162283333D0095FE29 /* Codable */,
 				9C310314228332E40095FE29 /* ListService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
 		};
-		9C3103162283333D0095FE29 /* Codeable */ = {
+		9C3103162283333D0095FE29 /* Codable */ = {
 			isa = PBXGroup;
 			children = (
 				9C3103392284A34F0095FE29 /* ShowListResponse.swift */,
 				9C310317228333490095FE29 /* MovieListResponse.swift */,
 				9C9F19D022918ABE00350CB7 /* SearchListResponse.swift */,
 			);
-			path = Codeable;
+			path = Codable;
 			sourceTree = "<group>";
 		};
 		9C31031922833D950095FE29 /* Model */ = {
@@ -396,14 +396,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		9C7D2C6922898CF90094E9B6 /* Codeable */ = {
+		9C7D2C6922898CF90094E9B6 /* Codable */ = {
 			isa = PBXGroup;
 			children = (
 				9C419D91228E3C5700922495 /* DetailResponse.swift */,
 				9C3433DD228B2CA9009ED080 /* MovieDetailResponse.swift */,
 				9C3433DF228B2CC1009ED080 /* ShowDetailResponse.swift */,
 			);
-			path = Codeable;
+			path = Codable;
 			sourceTree = "<group>";
 		};
 		9CB116DD22920AB40040954A /* Controller */ = {
@@ -451,7 +451,7 @@
 		9CFE0F872286CCA4004218CD /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				9C7D2C6922898CF90094E9B6 /* Codeable */,
+				9C7D2C6922898CF90094E9B6 /* Codable */,
 				9C7D2C6722898C800094E9B6 /* DetailService.swift */,
 			);
 			path = Service;
