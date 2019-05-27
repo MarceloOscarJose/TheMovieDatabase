@@ -18,7 +18,7 @@ extension ListViewController: UISearchBarDelegate {
         if let searchDelegate = self.searchDelegate {
             guard let searchText = searchBar.text else { return }
             self.toggleActivityIndicator(show: true)
-            searchDelegate.searchByTitle(title: searchText, responseHandler: { (result) in
+            searchDelegate.searchByTitle(title: searchText, nextPage: false, responseHandler: { (result) in
                 self.reloadResults(data: result, animated: true)
                 self.toggleActivityIndicator(show: false)
             }) { (error) in
