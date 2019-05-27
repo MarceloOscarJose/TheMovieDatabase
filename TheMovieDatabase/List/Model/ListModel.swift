@@ -21,6 +21,8 @@ class ListModel: NSObject {
     var showPages: [Int] = []
     var searchPage: Int = 1
 
+    var params: [String: String] = ["page" : "1"]
+
     override init() {
         moviePages = Array(repeating: 1, count: movieScopes.count)
         showPages = Array(repeating: 1, count: showScopes.count)
@@ -28,13 +30,11 @@ class ListModel: NSObject {
 
     func getMovieList(nextPage: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
 
-        moviePages[scope] += nextPage ? 1 : 0
+        moviePages[scope] = nextPage ? moviePages[scope] + 1 : 1
+        params["page"] = "\(moviePages[scope])"
 
-        listService.fetchList(url: movieScopes[scope].url, entity: MovieListResponse.self, page: moviePages[scope], params: nil, responseHandler: { (result) in
-            var list: [ListModelData] = []
-            for element in (result as! MovieListResponse).results {
-                list.append(ListModelData(movie: element))
-            }
+        listService.fetchList(url: movieScopes[scope].url, entity: MovieListResponse.self, params: params, responseHandler: { (result) in
+            let list: [ListModelData] = (result as! MovieListResponse).results.map( { ListModelData(movie: $0) })
             responseHandler(list)
         }) { (error) in
             errorHandler(error)
@@ -43,13 +43,11 @@ class ListModel: NSObject {
 
     func getShowList(nextPage: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
 
-        showPages[scope] += nextPage ? 1 : 0
+        showPages[scope] = nextPage ? moviePages[scope] + 1 : 1
+        params["page"] = "\(showPages[scope])"
 
-        listService.fetchList(url: showScopes[scope].url, entity: ShowListResponse.self, page: showPages[scope], params: nil, responseHandler: { (result) in
-            var list: [ListModelData] = []
-            for element in (result as! ShowListResponse).results {
-                list.append(ListModelData(show: element))
-            }
+        listService.fetchList(url: showScopes[scope].url, entity: ShowListResponse.self, params: params, responseHandler: { (result) in
+            let list: [ListModelData] = (result as! ShowListResponse).results.map( { ListModelData(show: $0) })
             responseHandler(list)
         }) { (error) in
             errorHandler(error)
@@ -58,17 +56,21 @@ class ListModel: NSObject {
 
     func getSearchList(nextPage: Bool, searchText: String, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
 
-        let searchParams = ["query" : searchText]
         searchPage += nextPage ? 1 : 0
+        params["page"] = "\(searchPage)"
+        params["query"] = searchText
 
-        listService.fetchList(url: searchScope.url, entity: SearchListResponse.self, page: searchPage, params: searchParams, responseHandler: { (result) in
-            var list: [ListModelData] = []
-            for element in (result as! SearchListResponse).results {
-                list.append(ListModelData(result: element))
-            }
+        listService.fetchList(url: searchScope.url, entity: SearchListResponse.self, params: params, responseHandler: { (result) in
+            let list: [ListModelData] = (result as! SearchListResponse).results.map( { ListModelData(result: $0) })
             responseHandler(list)
         }) { (error) in
             errorHandler(error)
         }
     }
+}
+
+struct ListModelConfig {
+    var moviePages: [Int] = [1, 1, 1]
+    var showPages: [Int] = [1, 1, 1]
+    var searchPage: Int = 1
 }

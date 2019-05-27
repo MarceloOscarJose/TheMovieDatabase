@@ -50,9 +50,14 @@ class ListViewController: BaseViewController {
         clearSearchBar()
         toggleActivityIndicator(show: true)
 
-        self.delegate.getList(animated: animated, scope: self.searchBar.selectedScopeButtonIndex,nextPage: false, responseHandler: { (resultData) in
-            self.listData = resultData
-            self.reloadResults(data: resultData, animated: animated)
+        self.delegate.getList(animated: animated, scope: self.searchBar.selectedScopeButtonIndex, nextPage: nextPage, responseHandler: { (resultData) in
+            if nextPage {
+                self.listData.append(contentsOf: resultData)
+            } else {
+                self.listData = resultData
+            }
+
+            self.reloadResults(data: self.listData, animated: animated)
             self.toggleActivityIndicator(show: false)
         }) { (error) in
             self.toggleActivityIndicator(show: false)
@@ -95,12 +100,14 @@ class ListViewController: BaseViewController {
         self.listDataFilter = data
         self.toggleActivityIndicator(show: false)
 
-        if animated {
-            UIView.transition(with: collectionView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+        DispatchQueue.main.async {
+            if animated {
+                UIView.transition(with: self.collectionView, duration: 0.3, options: .transitionCrossDissolve, animations: {
+                    self.collectionView.reloadData()
+                }, completion: nil)
+            } else {
                 self.collectionView.reloadData()
-            }, completion: nil)
-        } else {
-            self.collectionView.reloadData()
+            }
         }
     }
 

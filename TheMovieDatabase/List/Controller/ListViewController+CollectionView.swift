@@ -17,8 +17,15 @@ extension ListViewController: UICollectionViewDataSource, UICollectionViewDelega
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ListCollectionViewCell
-        let data = self.listDataFilter[indexPath.item]
-        cell.updateCell(image: data.poster, title: data.title, overview: data.overview, date: data.releaseDate, average: data.average)
+
+        if self.listDataFilter.count > indexPath.item {
+            let data = self.listDataFilter[indexPath.item]
+            cell.updateCell(image: data.poster, title: data.title, overview: data.overview, date: data.releaseDate, average: data.average)
+
+            if indexPath.item == self.listDataFilter.count - 1 {
+                self.getList(animated: false, nextPage: true)
+            }
+        }
 
         return cell
     }

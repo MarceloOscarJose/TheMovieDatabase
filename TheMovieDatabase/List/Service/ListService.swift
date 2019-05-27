@@ -10,11 +10,9 @@ import Foundation
 
 class ListService: GeneralService {
 
-    func fetchList<T: Codable>(url: String, entity: T.Type, page: Int, params: [String: String]?, responseHandler: @escaping (_ response: Codable) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        var parameters: [String: String] = params ?? [:]
-        parameters["page"] = "\(page)"
+    func fetchList<T: Codable>(url: String, entity: T.Type, params: [String: String], responseHandler: @escaping (_ response: Codable) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
 
-        self.executeRequest(url: url, paramaters: parameters as [String : AnyObject], responseHandler: { (data) in
+        self.executeRequest(url: url, paramaters: params as [String : AnyObject], responseHandler: { (data) in
 
             do {
                 let listResult = try JSONDecoder().decode(entity, from: data)
