@@ -20,13 +20,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="22T-pQ-Rl0">
-                        <rect key="frame" x="0.0" y="0.0" width="130" height="99.5"/>
+                        <rect key="frame" x="2" y="0.0" width="130" height="99.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="130" id="X3L-MU-uBa"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FaH-H0-HZz">
-                        <rect key="frame" x="138" y="8" width="284" height="0.0"/>
+                        <rect key="frame" x="140" y="0.0" width="282" height="99.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -34,11 +34,12 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="22T-pQ-Rl0" secondAttribute="bottom" id="2fS-FZ-iLM"/>
-                    <constraint firstItem="FaH-H0-HZz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="3ag-JS-xXc"/>
+                    <constraint firstItem="FaH-H0-HZz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3ag-JS-xXc"/>
+                    <constraint firstItem="FaH-H0-HZz" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="4Am-1X-riP"/>
                     <constraint firstItem="22T-pQ-Rl0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ZDJ-pR-JOF"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FaH-H0-HZz" secondAttribute="bottom" constant="8" id="h47-F2-x0Z"/>
+                    <constraint firstAttribute="bottom" secondItem="FaH-H0-HZz" secondAttribute="bottom" id="h47-F2-x0Z"/>
                     <constraint firstAttribute="trailing" secondItem="FaH-H0-HZz" secondAttribute="trailing" constant="8" id="ltE-lm-ztj"/>
-                    <constraint firstItem="22T-pQ-Rl0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="rIy-Mq-Uua"/>
+                    <constraint firstItem="22T-pQ-Rl0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="rIy-Mq-Uua"/>
                     <constraint firstItem="FaH-H0-HZz" firstAttribute="leading" secondItem="22T-pQ-Rl0" secondAttribute="trailing" constant="8" id="vcO-0W-2tW"/>
                 </constraints>
             </tableViewCellContentView>
