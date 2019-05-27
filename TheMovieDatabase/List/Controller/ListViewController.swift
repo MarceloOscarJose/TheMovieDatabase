@@ -13,7 +13,7 @@ class ListViewController: BaseViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var scrollTopButton: UIButton!
-    
+
     var controllerTitle: String!
     let cellIdentifier = "ListCollectionViewCell"
 
@@ -114,7 +114,9 @@ class ListViewController: BaseViewController {
     }
 
     @IBAction func scrollToTop(_ sender: Any) {
-        self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+        if self.collectionView.numberOfItems(inSection: 0) > 0 {
+            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+        }
     }
 }
 

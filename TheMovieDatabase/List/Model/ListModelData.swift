@@ -64,7 +64,7 @@ struct ListModelData {
         }
 
         self.average = average != 0 ? "⭐️ \(average)" : "N/R"
-        self.overview = overview != "" ? overview : "No description"
+        self.overview = overview.isEmpty ? "No description" : overview
         self.releaseDate = date.parseToLongDate()
     }
 }

@@ -22,6 +22,7 @@ extension ListViewController: UISearchBarDelegate {
             self.delegate.getList(animated: true, scope: 0, nextPage: false, query: searchText, responseHandler: { (resultData) in
                 if let result = resultData {
                     self.reloadResults(data: result, animated: true)
+                    self.scrollToTop(0)
                 }
                 self.toggleActivityIndicator(show: false)
             }) { (error) in
@@ -35,9 +36,7 @@ extension ListViewController: UISearchBarDelegate {
     }
 
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        if self.collectionView.numberOfItems(inSection: 0) > 0 {
-            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
-        }
+        self.scrollToTop(0)
 
         reloadResults(data: [], animated: true)
         self.getList()
