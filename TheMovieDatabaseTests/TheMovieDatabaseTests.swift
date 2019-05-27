@@ -20,7 +20,7 @@ class TheMovieDatabaseTests: XCTestCase {
     }
 
     func testListModel() {
-        let scope = ConfigData.Scope.init(id: "movies", title: "Movies", data: [ConfigData.ScopeData.init(id: "popular", title: "Popular", url: "movie/popular")])
+        let scope = ConfigManager.shared.config.getSectionScope(section: "movies")
         let model = ListModel(scope: scope)
         var listData: [ListModelData]!
 
