@@ -10,23 +10,23 @@ import UIKit
 
 class MainTabViewController: UITabBarController {
 
-    let scopes = ConfigManager.shared.config.getSectionScopes()
+    let movieScope = ConfigManager.shared.config.getSectionScope(section: "movies")
+    let showScope = ConfigManager.shared.config.getSectionScope(section: "shows")
+    let searchScope = ConfigManager.shared.config.getSectionScope(section: "search")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTabBar()
+        setupDelegates()
     }
 
-    func setupTabBar() {
-        let movieScope = ConfigManager.shared.config.getSectionScope(section: "movies")
-        let showScope = ConfigManager.shared.config.getSectionScope(section: "shows")
-        let searchScope = ConfigManager.shared.config.getSectionScope(section: "search")
-
-        let moviesList = ListViewController(delegate: MovieListDelegate(scope: movieScope))
-        let showsList = ListViewController(delegate: ShowListDelegate(scope: showScope))
-
+    func setupDelegates() {
+        let movieDelegate = MovieListDelegate(scope: movieScope)
+        let showDelegate = ShowListDelegate(scope: showScope)
         let searchDelegate = SearchListDelegate(scope: searchScope)
-        let searchList = ListViewController(delegate: searchDelegate, searchDelegate: searchDelegate)
+
+        let moviesList = ListViewController(delegate: movieDelegate)
+        let showsList = ListViewController(delegate: showDelegate)
+        let searchList = ListViewController(delegate: searchDelegate)
 
         moviesList.tabBarItem = UITabBarItem(title: movieScope.title, image: UIImage(named: movieScope.id), tag: 0)
         showsList.tabBarItem = UITabBarItem(title: showScope.title, image: UIImage(named: showScope.id), tag: 1)

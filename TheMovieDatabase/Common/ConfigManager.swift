@@ -50,18 +50,6 @@ struct ConfigData: Codable {
         var url: String
     }
 
-    func getDataScopes() -> [String: [ScopeData]] {
-        return self.scopes.reduce(into: [String: [ScopeData]]()) {
-            $0[$1.id] = $1.data
-        }
-    }
-
-    func getSectionScopes() -> [String: Scope] {
-        return self.scopes.reduce(into: [String: Scope]()) {
-            $0[$1.id] = $1
-        }
-    }
-
     func getSectionScope(section: String) -> Scope {
         return self.scopes.filter({ $0.id ==  section}).first!
     }

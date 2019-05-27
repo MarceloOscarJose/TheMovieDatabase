@@ -21,18 +21,11 @@ class ListViewController: BaseViewController {
     var listDataFilter: [ListModelData] = []
 
     var delegate: ListViewDelegate!
-    var searchDelegate: ListViewSearchDelegate!
 
     // MARK: LifeCycle
     convenience init(delegate: ListViewDelegate) {
         self.init()
         self.delegate = delegate
-    }
-
-    convenience init(delegate: ListViewDelegate, searchDelegate: ListViewSearchDelegate) {
-        self.init()
-        self.delegate = delegate
-        self.searchDelegate = searchDelegate
     }
 
     override func viewDidLoad() {
@@ -46,11 +39,11 @@ class ListViewController: BaseViewController {
         self.navigationController?.navigationBar.topItem?.title = self.delegate.listTitle()
     }
 
-    func getList(animated: Bool = false, nextPage: Bool = false) {
+    func getList(animated: Bool = false, nextPage: Bool = false, query: String = "") {
         clearSearchBar()
         toggleActivityIndicator(show: true)
 
-        self.delegate.getList(animated: animated, scope: self.searchBar.selectedScopeButtonIndex, nextPage: nextPage, responseHandler: { (resultData) in
+        self.delegate.getList(animated: animated, scope: self.searchBar.selectedScopeButtonIndex, nextPage: nextPage, query: query, responseHandler: { (resultData) in
             if nextPage {
                 self.listData.append(contentsOf: resultData)
             } else {
@@ -119,9 +112,6 @@ class ListViewController: BaseViewController {
 protocol ListViewDelegate: class {
     func listTitle() -> String
     func scopesList() -> [String]
-    func getList(animated: Bool, scope: Int, nextPage: Bool, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
-}
-
-protocol ListViewSearchDelegate: class {
-    func searchByTitle(title: String, nextPage: Bool, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
+    func isSearchScope() -> Bool
+    func getList(animated: Bool, scope: Int, nextPage: Bool, query: String, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
 }

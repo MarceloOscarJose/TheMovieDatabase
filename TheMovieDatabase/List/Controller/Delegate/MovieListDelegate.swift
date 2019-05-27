@@ -26,7 +26,11 @@ class MovieListDelegate: ListViewDelegate {
         return scope.data.map({ $0.title })
     }
 
-    func getList(animated: Bool, scope: Int, nextPage: Bool, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    func isSearchScope() -> Bool {
+        return false
+    }
+
+    func getList(animated: Bool, scope: Int, nextPage: Bool, query: String, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         model.getList(nextPage: nextPage, query: "", scope: scope, entity: MovieListResponse.self, responseHandler: { (resultData) in
             responseHandler(resultData)
         }) { (error) in

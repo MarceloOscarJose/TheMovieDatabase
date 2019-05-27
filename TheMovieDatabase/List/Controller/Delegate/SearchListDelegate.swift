@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchListDelegate: ListViewDelegate, ListViewSearchDelegate {
+class SearchListDelegate: ListViewDelegate {
 
     let model: ListModel!
     let scope: ConfigData.Scope!
@@ -26,12 +26,12 @@ class SearchListDelegate: ListViewDelegate, ListViewSearchDelegate {
         return []
     }
 
-    func getList(animated: Bool, scope: Int, nextPage: Bool, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        responseHandler([])
+    func isSearchScope() -> Bool {
+        return true
     }
 
-    func searchByTitle(title: String, nextPage: Bool, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        model.getList(nextPage: nextPage, query: title, scope: 0, entity: SearchListResponse.self, responseHandler: { (resultData) in
+    func getList(animated: Bool, scope: Int, nextPage: Bool, query: String, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+        model.getList(nextPage: nextPage, query: query, scope: 0, entity: SearchListResponse.self, responseHandler: { (resultData) in
             responseHandler(resultData)
         }) { (error) in
             errorHandler(error)

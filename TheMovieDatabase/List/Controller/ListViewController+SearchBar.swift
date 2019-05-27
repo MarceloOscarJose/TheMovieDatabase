@@ -15,10 +15,11 @@ extension ListViewController: UISearchBarDelegate {
 
         hideKeyboard()
 
-        if let searchDelegate = self.searchDelegate {
+        if self.delegate.isSearchScope() {
             guard let searchText = searchBar.text else { return }
             self.toggleActivityIndicator(show: true)
-            searchDelegate.searchByTitle(title: searchText, nextPage: false, responseHandler: { (result) in
+
+            self.delegate.getList(animated: true, scope: 0, nextPage: false, query: searchText, responseHandler: { (result) in
                 self.reloadResults(data: result, animated: true)
                 self.toggleActivityIndicator(show: false)
             }) { (error) in
