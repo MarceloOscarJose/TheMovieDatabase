@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="lkw-eG-c33">
-                                <rect key="frame" x="103.5" y="224" width="207" height="448"/>
+                                <rect key="frame" x="103.5" y="192" width="207" height="512"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marcelo Oscar José - 2019" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ASS-3S-5wd">
-                                <rect key="frame" x="111.5" y="858" width="191.5" height="18"/>
+                                <rect key="frame" x="111.5" y="824" width="191.5" height="18"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                 <color key="textColor" red="0.94862490889999995" green="0.95285898449999995" blue="0.92477405069999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -30,12 +30,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.00027582529583014548" green="0.74984091520309448" blue="0.41955414414405823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="ASS-3S-5wd" secondAttribute="bottom" constant="20" id="2iz-oE-dcr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ASS-3S-5wd" secondAttribute="bottom" constant="20" id="2iz-oE-dcr"/>
                             <constraint firstItem="lkw-eG-c33" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Ez4-lO-yqC"/>
                             <constraint firstItem="ASS-3S-5wd" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="G2p-eg-V5s"/>
                             <constraint firstItem="lkw-eG-c33" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.5" id="jlN-qm-Yhj"/>
                             <constraint firstItem="lkw-eG-c33" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ksV-9V-hAM"/>
-                            <constraint firstItem="lkw-eG-c33" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.5" id="xHF-4K-yki"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
