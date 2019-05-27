@@ -47,8 +47,8 @@ struct ListModelData {
         self.init(id: result.id,
               title: result.name ?? result.title ?? "",
               image: result.posterPath,
-              average: result.voteAverage,
-              overview: result.overview,
+              average: result.voteAverage ?? 0,
+              overview: result.overview ?? "",
               date: result.firstAirDate ?? result.releaseDate ?? ""
         )
 

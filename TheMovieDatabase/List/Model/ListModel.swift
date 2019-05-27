@@ -51,7 +51,7 @@ class ListModel: NSObject {
             case "search":
                 let responseData = (result as! SearchListResponse)
                 totalPages = responseData.totalPages
-                responseList = responseData.results.map( { ListModelData(result: $0) })
+                responseList = responseData.results.filter({ $0.mediaType != "person" }).map( { ListModelData(result: $0) })
             default:
                 break
             }

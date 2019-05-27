@@ -23,15 +23,15 @@ struct SearchListResponse: Codable {
 
     public struct Result: Codable {
         var id: Int
-        var voteAverage: Double
+        var voteAverage: Double?
         var name: String?
         var title: String?
         var posterPath: String?
-        var overview: String
+        var overview: String?
         var releaseDate: String?
         var firstAirDate: String?
         var mediaType: String
-    
+
         enum CodingKeys: String, CodingKey {
             case id, name, title, overview
             case voteAverage = "vote_average"
