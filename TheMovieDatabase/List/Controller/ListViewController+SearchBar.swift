@@ -16,13 +16,14 @@ extension ListViewController: UISearchBarDelegate {
         hideKeyboard()
 
         if !self.delegate.getListOnInit() {
-            guard let searchText = searchBar.text else { return }
-            self.toggleActivityIndicator(show: true)
+            guard let searchText = searchBar.text, !searchText.isEmpty else { return }
+            toggleActivityIndicator(show: true)
+            reloadResults(data: [], animated: false)
+            self.scrollToTop()
 
             self.delegate.getList(animated: true, scope: 0, nextPage: false, query: searchText, responseHandler: { (resultData) in
                 if let result = resultData {
                     self.reloadResults(data: result, animated: true)
-                    self.scrollToTop(0)
                 }
                 self.toggleActivityIndicator(show: false)
             }) { (error) in
@@ -36,20 +37,19 @@ extension ListViewController: UISearchBarDelegate {
     }
 
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        self.scrollToTop(0)
-
+        scrollToTop()
         reloadResults(data: [], animated: true)
-        self.getList()
+        getList()
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if self.delegate.getListOnInit() {
-            guard !searchText.isEmpty else { reloadResults(data: self.listData, animated: true); return }
-            self.listDataFilter = self.listData.filter({ (list: ListModelData) -> Bool in
+            guard !searchText.isEmpty else { reloadResults(data: listData, animated: true); return }
+            listDataFilter = self.listData.filter({ (list: ListModelData) -> Bool in
                 return list.title.lowercased().contains(searchText.lowercased())
             })
 
-            reloadResults(data: self.listDataFilter, animated: true)
+            reloadList(animated: true)
         }
     }
 }

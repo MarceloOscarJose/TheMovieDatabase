@@ -42,12 +42,28 @@ class ListViewController: BaseViewController {
         self.navigationController?.navigationBar.topItem?.title = self.delegate.listTitle()
     }
 
+    // MARK: UI Setup
+    func setupControls() {
+        // Search bar setup
+        searchBar.scopeButtonTitles = self.delegate.scopesList()
+        searchBar.delegate = self
+
+        // Collection view setup
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(UINib(nibName: cellIdentifier, bundle: .main), forCellWithReuseIdentifier: cellIdentifier)
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        gesture.cancelsTouchesInView = false
+        collectionView.addGestureRecognizer(gesture)
+        scrollTopButton.isHidden = true
+        scrollTopButton.addTarget(self, action: #selector(scrollToTop), for: .touchUpInside)
+    }
+
     func getList(animated: Bool = false, nextPage: Bool = false, query: String = "") {
         if self.delegate.getListOnInit() {
             clearSearchBar()
+            toggleActivityIndicator(show: true)
         }
-
-        toggleActivityIndicator(show: true)
 
         self.delegate.getList(animated: animated, scope: self.searchBar.selectedScopeButtonIndex, nextPage: nextPage, query: query, responseHandler: { (resultData) in
             if let result = resultData {
@@ -69,22 +85,6 @@ class ListViewController: BaseViewController {
         }
     }
 
-    func setupControls() {
-        // Search bar setup
-        searchBar.scopeButtonTitles = self.delegate.scopesList()
-        searchBar.delegate = self
-
-        scrollTopButton.isHidden = true
-
-        // Collection view setup
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.register(UINib(nibName: cellIdentifier, bundle: .main), forCellWithReuseIdentifier: cellIdentifier)
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        gesture.cancelsTouchesInView = false
-        collectionView.addGestureRecognizer(gesture)
-    }
-
     func showKeyboard() {
         searchBar.becomeFirstResponder()
     }
@@ -99,9 +99,13 @@ class ListViewController: BaseViewController {
     }
 
     func reloadResults(data: [ListModelData], animated: Bool) {
+        self.listData = data
         self.listDataFilter = data
         self.toggleActivityIndicator(show: false)
+        reloadList(animated: animated)
+    }
 
+    func reloadList(animated: Bool) {
         DispatchQueue.main.async {
             if animated {
                 UIView.transition(with: self.collectionView, duration: 0.3, options: .transitionCrossDissolve, animations: {
@@ -113,7 +117,7 @@ class ListViewController: BaseViewController {
         }
     }
 
-    @IBAction func scrollToTop(_ sender: Any) {
+    @objc func scrollToTop() {
         if self.collectionView.numberOfItems(inSection: 0) > 0 {
             self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
         }
