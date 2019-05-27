@@ -20,7 +20,8 @@ class TheMovieDatabaseTests: XCTestCase {
     }
 
     func testListModel() {
-        let model = ListModel()
+        let scope = ConfigData.Scope.init(id: "movies", title: "Movies", data: [ConfigData.ScopeData.init(id: "popular", title: "Popular", url: "movie/popular")])
+        let model = ListModel(scope: scope)
         var listData: [ListModelData]!
 
         let expectation = self.expectation(description: "Scaling")
@@ -51,10 +52,5 @@ class TheMovieDatabaseTests: XCTestCase {
 
         waitForExpectations(timeout: 10, handler: nil)
         XCTAssert(detailData.title == "Pokémon Detective Pikachu")
-    }
-
-    func testPerformanceExample() {
-        self.measure {
-        }
     }
 }
