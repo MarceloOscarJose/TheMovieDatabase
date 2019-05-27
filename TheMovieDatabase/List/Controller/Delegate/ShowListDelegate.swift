@@ -11,17 +11,17 @@ import UIKit
 class ShowListDelegate: ListViewDelegate {
 
     let model = ListModel()
-    var nextPage: Bool = false
+    let scopes = ConfigManager.shared.config.listScopes.show
 
     func listTitle() -> String {
-        return ConfigManager.shared.config.listScopes.show.title
+        return scopes.title
     }
 
     func scopesList() -> [String] {
-        return ConfigManager.shared.config.listScopes.show.scopes.map({ $0.title })
+        return scopes.scopes.map({ $0.title })
     }
 
-    func getList(animated: Bool, scope: Int, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    func getList(animated: Bool, scope: Int, nextPage: Bool, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         model.getShowList(nextPage: nextPage, scope: scope, responseHandler: { (resultData) in
             responseHandler(resultData)
         }) { (error) in
