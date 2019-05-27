@@ -46,7 +46,7 @@ class ListViewController: BaseViewController {
         self.navigationController?.navigationBar.topItem?.title = self.delegate.listTitle()
     }
 
-    func getList(animated: Bool = false) {
+    func getList(animated: Bool = false, nextPage: Bool = false) {
         clearSearchBar()
         toggleActivityIndicator(show: true)
 
