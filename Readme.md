@@ -2,9 +2,9 @@
 
 ### Pods used
 #### Alamofire
-#### AlamofireImage
-#### LPSnackbar
-#### YoutubePlayer-in-WKWebView
+AlamofireImage
+LPSnackbar
+YoutubePlayer-in-WKWebView
 
 ### Usage
 ```ruby
@@ -48,4 +48,4 @@ Un beneficio muy importante de programar con mínimas dependecias y de manera l�
 
 En resúmen lo más importante al momento de programar en generar un código testeable, símple de comprender, fácilmente extendible o incorporable a otras funcionalidades de una app y evitar siempre la redundancia de código.
 
-## Marcelo Oscar José - 2019
+### Marcelo Oscar José - 2019
