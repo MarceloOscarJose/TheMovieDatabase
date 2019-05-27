@@ -2,9 +2,9 @@
 
 ### Pods used
 #### Alamofire
-AlamofireImage
-LPSnackbar
-YoutubePlayer-in-WKWebView
+#### AlamofireImage
+#### LPSnackbar
+#### YoutubePlayer-in-WKWebView
 
 ### Usage
 ```ruby
