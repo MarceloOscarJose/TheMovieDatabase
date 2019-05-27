@@ -1,5 +1,5 @@
 //
-//  VideoViewController.swift
+//  DetailVideoViewController.swift
 //  TheMovieDatabase
 //
 //  Created by Marcelo José on 26/05/2019.
@@ -9,7 +9,7 @@
 import UIKit
 import YoutubePlayer_in_WKWebView
 
-class VideoViewController: UIViewController {
+class DetailVideoViewController: UIViewController {
 
     @IBOutlet weak var videoPlayerContainer: WKYTPlayerView!
 

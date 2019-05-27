@@ -22,7 +22,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let videoController = VideoViewController()
+        let videoController = DetailVideoViewController()
         videoController.setVideoId(videoId: video[indexPath.item].key)
         self.navigationController?.pushViewController(videoController, animated: true)
     }
