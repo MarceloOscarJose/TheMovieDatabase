@@ -23,7 +23,14 @@ extension ListViewController: UICollectionViewDataSource, UICollectionViewDelega
             cell.updateCell(image: data.poster, title: data.title, overview: data.overview, date: data.releaseDate, average: data.average)
 
             if indexPath.item == self.listDataFilter.count - 1 {
-                self.getList(animated: false, nextPage: true)
+                guard let query = self.searchBar.text else { return cell }
+                if self.delegate.getListOnInit() {
+                    if query.isEmpty {
+                        self.getList(animated: false, nextPage: true)
+                    }
+                } else {
+                    self.getList(animated: false, nextPage: true, query: query)
+                }
             }
         }
 

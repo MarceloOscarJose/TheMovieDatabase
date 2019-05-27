@@ -26,8 +26,8 @@ class SearchListDelegate: ListViewDelegate {
         return []
     }
 
-    func isSearchScope() -> Bool {
-        return true
+    func getListOnInit() -> Bool {
+        return false
     }
 
     func getList(animated: Bool, scope: Int, nextPage: Bool, query: String, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {

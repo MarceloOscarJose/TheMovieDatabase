@@ -31,7 +31,10 @@ class ListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupControls()
-        getList(animated: true)
+
+        if self.delegate.getListOnInit() {
+            getList(animated: true)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -40,7 +43,10 @@ class ListViewController: BaseViewController {
     }
 
     func getList(animated: Bool = false, nextPage: Bool = false, query: String = "") {
-        clearSearchBar()
+        if self.delegate.getListOnInit() {
+            clearSearchBar()
+        }
+
         toggleActivityIndicator(show: true)
 
         self.delegate.getList(animated: animated, scope: self.searchBar.selectedScopeButtonIndex, nextPage: nextPage, query: query, responseHandler: { (resultData) in
@@ -112,6 +118,6 @@ class ListViewController: BaseViewController {
 protocol ListViewDelegate: class {
     func listTitle() -> String
     func scopesList() -> [String]
-    func isSearchScope() -> Bool
+    func getListOnInit() -> Bool
     func getList(animated: Bool, scope: Int, nextPage: Bool, query: String, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
 }

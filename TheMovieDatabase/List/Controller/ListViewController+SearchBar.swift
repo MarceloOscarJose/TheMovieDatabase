@@ -15,7 +15,7 @@ extension ListViewController: UISearchBarDelegate {
 
         hideKeyboard()
 
-        if self.delegate.isSearchScope() {
+        if !self.delegate.getListOnInit() {
             guard let searchText = searchBar.text else { return }
             self.toggleActivityIndicator(show: true)
 

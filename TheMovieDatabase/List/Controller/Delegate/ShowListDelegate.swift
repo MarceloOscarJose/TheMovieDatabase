@@ -26,8 +26,8 @@ class ShowListDelegate: ListViewDelegate {
         return scope.data.map({ $0.title })
     }
 
-    func isSearchScope() -> Bool {
-        return false
+    func getListOnInit() -> Bool {
+        return true
     }
 
     func getList(animated: Bool, scope: Int, nextPage: Bool, query: String, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
