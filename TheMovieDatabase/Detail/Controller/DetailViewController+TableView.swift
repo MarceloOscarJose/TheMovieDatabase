@@ -20,4 +20,10 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
         cell.updateCell(image: video[indexPath.item].key, title: video[indexPath.item].name)
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let videoController = VideoViewController()
+        videoController.setVideoId(videoId: video[indexPath.item].key)
+        self.navigationController?.pushViewController(videoController, animated: true)
+    }
 }
