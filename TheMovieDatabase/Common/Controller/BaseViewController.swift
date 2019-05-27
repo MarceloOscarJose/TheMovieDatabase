@@ -12,7 +12,7 @@ class BaseViewController: UIViewController {
 
     var snackbar: LPSnackbar!
 
-    let activityIndicator: UIActivityIndicatorView = {
+    lazy var activityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
         activityIndicator.color = UIColor.ligthBlue
         activityIndicator.stopAnimating()
