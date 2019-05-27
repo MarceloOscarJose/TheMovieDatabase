@@ -19,8 +19,10 @@ extension ListViewController: UISearchBarDelegate {
             guard let searchText = searchBar.text else { return }
             self.toggleActivityIndicator(show: true)
 
-            self.delegate.getList(animated: true, scope: 0, nextPage: false, query: searchText, responseHandler: { (result) in
-                self.reloadResults(data: result, animated: true)
+            self.delegate.getList(animated: true, scope: 0, nextPage: false, query: searchText, responseHandler: { (resultData) in
+                if let result = resultData {
+                    self.reloadResults(data: result, animated: true)
+                }
                 self.toggleActivityIndicator(show: false)
             }) { (error) in
                 self.toggleActivityIndicator(show: false)
@@ -42,11 +44,13 @@ extension ListViewController: UISearchBarDelegate {
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard !searchText.isEmpty else { reloadResults(data: self.listData, animated: true); return }
-        self.listDataFilter = self.listData.filter({ (list: ListModelData) -> Bool in
-            return list.title.lowercased().contains(searchText.lowercased())
-        })
+        if self.delegate.getListOnInit() {
+            guard !searchText.isEmpty else { reloadResults(data: self.listData, animated: true); return }
+            self.listDataFilter = self.listData.filter({ (list: ListModelData) -> Bool in
+                return list.title.lowercased().contains(searchText.lowercased())
+            })
 
-        reloadResults(data: self.listDataFilter, animated: true)
+            reloadResults(data: self.listDataFilter, animated: true)
+        }
     }
 }

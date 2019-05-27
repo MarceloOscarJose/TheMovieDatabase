@@ -14,17 +14,24 @@ class ListModel: NSObject {
     var currentScope: ConfigData.Scope!
     var currentPages: [ListModelPages] = []
 
-    var params: [String: String] = ["page" : "1"]
+    var params: [String: String] = ["page" : "0"]
 
     convenience init(scope: ConfigData.Scope) {
         self.init()
         self.currentScope = scope
-        self.currentPages = scope.data.map { _ in ListModelPages(currentPage: 1, maxPages: 1) }
+        self.currentPages = scope.data.map { _ in ListModelPages(currentPage: 0, maxPages: 1) }
     }
 
-    func getList<T: Codable>(nextPage: Bool, query: String, scope: Int, entity: T.Type, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    func getList<T: Codable>(nextPage: Bool, query: String, scope: Int, entity: T.Type, responseHandler: @escaping (_ response: [ListModelData]?) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+
+        if nextPage && currentPages[scope].maxPages == currentPages[scope].currentPage {
+            responseHandler(nil)
+            return
+        }
+
         currentPages[scope].currentPage = nextPage ? currentPages[scope].currentPage + 1 : 1
-        params["page"] = "\(currentPages[scope])"
+
+        params["page"] = "\(currentPages[scope].currentPage)"
         params["query"] = query
 
         listService.fetchList(url: currentScope.data[scope].url, entity: entity, params: params, responseHandler: { (result) in

@@ -50,13 +50,16 @@ class ListViewController: BaseViewController {
         toggleActivityIndicator(show: true)
 
         self.delegate.getList(animated: animated, scope: self.searchBar.selectedScopeButtonIndex, nextPage: nextPage, query: query, responseHandler: { (resultData) in
-            if nextPage {
-                self.listData.append(contentsOf: resultData)
-            } else {
-                self.listData = resultData
+            if let result = resultData {
+                if nextPage {
+                    self.listData.append(contentsOf: result)
+                } else {
+                    self.listData = result
+                }
+
+                self.reloadResults(data: self.listData, animated: animated)
             }
 
-            self.reloadResults(data: self.listData, animated: animated)
             self.toggleActivityIndicator(show: false)
         }) { (error) in
             self.toggleActivityIndicator(show: false)
@@ -119,5 +122,5 @@ protocol ListViewDelegate: class {
     func listTitle() -> String
     func scopesList() -> [String]
     func getListOnInit() -> Bool
-    func getList(animated: Bool, scope: Int, nextPage: Bool, query: String, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
+    func getList(animated: Bool, scope: Int, nextPage: Bool, query: String, responseHandler: @escaping (_ response: [ListModelData]?) -> Void, errorHandler: @escaping (_ error: Error?) -> Void)
 }

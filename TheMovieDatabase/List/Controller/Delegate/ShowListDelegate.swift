@@ -30,7 +30,7 @@ class ShowListDelegate: ListViewDelegate {
         return true
     }
 
-    func getList(animated: Bool, scope: Int, nextPage: Bool, query: String, responseHandler: @escaping (_ response: [ListModelData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    func getList(animated: Bool, scope: Int, nextPage: Bool, query: String, responseHandler: @escaping (_ response: [ListModelData]?) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         model.getList(nextPage: nextPage, query: "", scope: scope, entity: ShowListResponse.self, responseHandler: { (resultData) in
             responseHandler(resultData)
         }) { (error) in
