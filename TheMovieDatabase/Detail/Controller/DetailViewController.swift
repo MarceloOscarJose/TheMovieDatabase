@@ -10,10 +10,11 @@ import AlamofireImage
 
 class DetailViewController: BaseViewController {
 
+    // UI Main controls
+    var rightButton: UIBarButtonItem!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var optionMenu: UISegmentedControl!
-    var rightButton: UIBarButtonItem!
 
     // UI Details
     @IBOutlet weak var detailContainer: UIView!
@@ -29,7 +30,7 @@ class DetailViewController: BaseViewController {
 
     // UI Videos
     @IBOutlet weak var videoTableView: UITableView!
-    
+
     var id: Int!
     var delegate: DetailViewDelegate!
 
@@ -49,7 +50,7 @@ class DetailViewController: BaseViewController {
         self.init()
         self.id = id
         self.delegate = delegate
-        self.rightButton = UIBarButtonItem(title: rightButtonTexts.first!, style: .plain, target: self, action: #selector(showFullScreenPoster))
+        self.rightButton = UIBarButtonItem(title: rightButtonTexts.first!, style: .plain, target: self, action: #selector(showFullPoster))
     }
 
     override func viewDidLoad() {
@@ -57,16 +58,20 @@ class DetailViewController: BaseViewController {
         setupControls()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.imageFrame = posterImage.frame
+    }
+
     func setupControls() {
         scrollView.delegate = self
-        self.imageFrame = posterImage.frame
-
         hideControls()
         getdetail()
     }
 
     func getdetail() {
         toggleActivityIndicator(show: true)
+
         self.delegate.getDetail(id: id, responseHandler: { (detailData) in
             self.showControls()
             self.updateDetail(detailData: detailData)
@@ -82,8 +87,6 @@ class DetailViewController: BaseViewController {
     }
 
     func updateDetail(detailData: DetailModelData) {
-        self.posterImage.contentMode = .scaleAspectFit
-
         if let image = URL(string: detailData.poster ?? "") {
             posterImage.af_setImage(withURL: image, placeholderImage: UIImage.noImage, imageTransition: .crossDissolve(0.5)) { (result) in
                 self.posterImage.contentMode = .scaleAspectFill
@@ -127,22 +130,17 @@ class DetailViewController: BaseViewController {
         selectOption(optionMenu)
     }
 
-    func showFullPoster() {
-
-        if !detailContainer.isHidden {
-            detailContainer.isHidden = true
-            posterImage.frame = self.scrollView.bounds
-            self.navigationItem.rightBarButtonItem?.title = self.rightButtonTexts.last!
-        } else {
-            detailContainer.isHidden = false
-            posterImage.frame = self.imageFrame
-            self.navigationItem.rightBarButtonItem?.title = self.rightButtonTexts.first!
-        }
-    }
-
-    @objc func showFullScreenPoster(_ sender: Any) {
+    @objc func showFullPoster() {
         if self.posterImage.image != imagePlaceHolder {
-            self.showFullPoster()
+            if !detailContainer.isHidden {
+                detailContainer.isHidden = true
+                posterImage.frame = self.scrollView.bounds
+                self.navigationItem.rightBarButtonItem?.title = self.rightButtonTexts.last!
+            } else {
+                detailContainer.isHidden = false
+                posterImage.frame = self.imageFrame
+                self.navigationItem.rightBarButtonItem?.title = self.rightButtonTexts.first!
+            }
         }
     }
 
