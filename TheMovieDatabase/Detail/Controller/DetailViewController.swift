@@ -13,9 +13,11 @@ class DetailViewController: BaseViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var optionMenu: UISegmentedControl!
+    var rightButton: UIBarButtonItem!
 
     // UI Details
-    @IBOutlet weak var detailView: UIView!
+    @IBOutlet weak var detailContainer: UIView!
+    @IBOutlet weak var detailView: UIScrollView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var averageLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -47,6 +49,7 @@ class DetailViewController: BaseViewController {
         self.init()
         self.id = id
         self.delegate = delegate
+        self.rightButton = UIBarButtonItem(title: rightButtonTexts.first!, style: .plain, target: self, action: #selector(showFullScreenPoster))
     }
 
     override func viewDidLoad() {
@@ -54,14 +57,9 @@ class DetailViewController: BaseViewController {
         setupControls()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.imageFrame = self.posterImage.frame
-    }
-
     func setupControls() {
         scrollView.delegate = self
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: rightButtonTexts.first!, style: .plain, target: self, action: #selector(showFullScreenPoster))
+        self.imageFrame = posterImage.frame
 
         hideControls()
         getdetail()
@@ -89,9 +87,11 @@ class DetailViewController: BaseViewController {
         if let image = URL(string: detailData.poster ?? "") {
             posterImage.af_setImage(withURL: image, placeholderImage: UIImage.noImage, imageTransition: .crossDissolve(0.5)) { (result) in
                 self.posterImage.contentMode = .scaleAspectFill
+                self.navigationItem.rightBarButtonItem = self.rightButton
             }
         } else {
             posterImage.image = UIImage.noImage
+            posterImage.contentMode = .scaleAspectFit
         }
 
         titleLabel.text = detailData.title
@@ -117,46 +117,39 @@ class DetailViewController: BaseViewController {
     }
 
     func hideControls() {
-        posterImage.alpha = 0
-        detailView.alpha = 0
-        castCollectionView.alpha = 0
-        videoTableView.alpha = 0
-        optionMenu.alpha = 0
+        scrollView.isHidden = true
         scrollView.isScrollEnabled = false
     }
 
     func showControls() {
-        posterImage.alpha = 1
-        posterImage.frame = self.imageFrame
-        posterImage.contentMode = .scaleAspectFill
-        optionMenu.alpha = 1
+        scrollView.isHidden = false
+        scrollView.isScrollEnabled = false
         selectOption(optionMenu)
-        scrollView.isScrollEnabled = true
     }
 
     func showFullPoster() {
-        posterImage.alpha = 1
-        posterImage.frame = self.scrollView.bounds
-        posterImage.contentMode = .scaleAspectFill
+
+        if !detailContainer.isHidden {
+            detailContainer.isHidden = true
+            posterImage.frame = self.scrollView.bounds
+            self.navigationItem.rightBarButtonItem?.title = self.rightButtonTexts.last!
+        } else {
+            detailContainer.isHidden = false
+            posterImage.frame = self.imageFrame
+            self.navigationItem.rightBarButtonItem?.title = self.rightButtonTexts.first!
+        }
     }
 
     @objc func showFullScreenPoster(_ sender: Any) {
         if self.posterImage.image != imagePlaceHolder {
-            if detailView.alpha != 0 || castCollectionView.alpha != 0 || videoTableView.alpha != 0 {
-                hideControls()
-                showFullPoster()
-                self.navigationItem.rightBarButtonItem?.title = self.rightButtonTexts.last!
-            } else {
-                showControls()
-                self.navigationItem.rightBarButtonItem?.title = self.rightButtonTexts.first!
-            }
+            self.showFullPoster()
         }
     }
 
     @IBAction func selectOption(_ sender: UISegmentedControl) {
-        detailView.alpha = sender.selectedSegmentIndex == 0 ? 1 : 0
-        castCollectionView.alpha = sender.selectedSegmentIndex == 1 ? 1 : 0
-        videoTableView.alpha = sender.selectedSegmentIndex == 2 ? 1 : 0
+        detailView.isHidden = sender.selectedSegmentIndex == 0 ? false : true
+        castCollectionView.isHidden = sender.selectedSegmentIndex == 1 ? false : true
+        videoTableView.isHidden = sender.selectedSegmentIndex == 2 ? false : true
         self.view.layoutSubviews()
     }
 }
