@@ -61,20 +61,20 @@
                                     <rect key="frame" x="0.0" y="40" width="414" height="50"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCk-UL-jR9">
-                                            <rect key="frame" x="48" y="16" width="361" height="18"/>
+                                            <rect key="frame" x="50" y="16" width="359" height="18"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="YOk-gn-7HB">
-                                            <rect key="frame" x="3" y="5" width="40" height="40.000000000000057"/>
+                                            <rect key="frame" x="5" y="5" width="40.000000000000057" height="40.000000000000057"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="E1R-Hk-57I"/>
                                                 <constraint firstAttribute="width" constant="40" id="lMc-yi-2AP"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="7.5" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dxp-a1-YmC">
-                                            <rect key="frame" x="2.5" y="7.5" width="40" height="40"/>
+                                            <rect key="frame" x="4.5" y="7.5" width="40" height="40"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -85,7 +85,7 @@
                                         <constraint firstItem="YOk-gn-7HB" firstAttribute="centerY" secondItem="DQS-mD-YQZ" secondAttribute="centerY" id="6TJ-M5-d9V"/>
                                         <constraint firstItem="LCk-UL-jR9" firstAttribute="centerY" secondItem="DQS-mD-YQZ" secondAttribute="centerY" id="6aL-rF-IXj"/>
                                         <constraint firstItem="Dxp-a1-YmC" firstAttribute="height" secondItem="YOk-gn-7HB" secondAttribute="height" id="9SD-oN-CJ7"/>
-                                        <constraint firstItem="YOk-gn-7HB" firstAttribute="leading" secondItem="DQS-mD-YQZ" secondAttribute="leading" constant="3" id="PHc-TF-enk"/>
+                                        <constraint firstItem="YOk-gn-7HB" firstAttribute="leading" secondItem="DQS-mD-YQZ" secondAttribute="leading" constant="5" id="PHc-TF-enk"/>
                                         <constraint firstItem="Dxp-a1-YmC" firstAttribute="width" secondItem="YOk-gn-7HB" secondAttribute="width" id="Pc3-k0-sBC"/>
                                         <constraint firstAttribute="trailing" secondItem="LCk-UL-jR9" secondAttribute="trailing" constant="5" id="bqa-nx-Lym"/>
                                         <constraint firstItem="LCk-UL-jR9" firstAttribute="leading" secondItem="YOk-gn-7HB" secondAttribute="trailing" constant="5" id="oXH-qR-07t"/>
@@ -120,7 +120,7 @@
                                                     <color key="textColor" red="0.077316366139999995" green="0.4186970592" blue="0.76027590040000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genres" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbL-0q-3lH">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genres" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbL-0q-3lH">
                                                     <rect key="frame" x="10" y="37" width="394" height="15.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -206,6 +206,6 @@
     </objects>
     <resources>
         <image name="noImage" width="250" height="250"/>
-        <image name="star" width="256" height="249"/>
+        <image name="star" width="245.5" height="245.5"/>
     </resources>
 </document>
