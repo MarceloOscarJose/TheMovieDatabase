@@ -14,6 +14,12 @@ class ListViewController: BaseViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var scrollTopButton: UIButton!
 
+    lazy var tapGesture: UITapGestureRecognizer = {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        return tapGesture
+    }()
+
     var controllerTitle: String!
     let cellIdentifier = "ListCollectionViewCell"
 
@@ -52,9 +58,9 @@ class ListViewController: BaseViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: cellIdentifier, bundle: .main), forCellWithReuseIdentifier: cellIdentifier)
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-        gesture.cancelsTouchesInView = false
-        collectionView.addGestureRecognizer(gesture)
+        collectionView.addGestureRecognizer(tapGesture)
+
+        // Scroll to top button
         scrollTopButton.isHidden = true
         scrollTopButton.addTarget(self, action: #selector(scrollTopButtonAction), for: .touchUpInside)
     }
