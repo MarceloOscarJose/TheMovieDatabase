@@ -53,9 +53,9 @@ struct DetailModelData {
             self.poster = "\(ConfigManager.shared.config.imageURL)\(posterImage)"
         }
 
-        self.average = "Average: \(average != 0 ? "⭐️\(average)" : "N/R")"
-        self.genres = "Genres: \(genres.joined(separator: " / "))"
+        self.average = average != 0 ? "\(average)" : "-"
         self.releaseDate = "Date: \(date.parseToLongDate())"
+        self.genres = genres.joined(separator: " / ")
 
         self.overview = overview != "" ? overview : "No description"
         self.cast = cast.sorted(by: { $1.order > $0.order })

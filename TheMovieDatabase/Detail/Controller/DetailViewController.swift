@@ -12,7 +12,7 @@ class DetailViewController: BaseViewController {
 
     // UI Main controls
     var rightButton: UIBarButtonItem!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var optionMenu: UISegmentedControl!
 
@@ -56,6 +56,7 @@ class DetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupControls()
+        getdetail()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -64,23 +65,22 @@ class DetailViewController: BaseViewController {
     }
 
     func setupControls() {
-        scrollView.delegate = self
-        hideControls()
-        getdetail()
+        titleLabel.adjustsFontSizeToFitWidth = true
+        toogleControls(show: false)
     }
 
     func getdetail() {
         toggleActivityIndicator(show: true)
 
         self.delegate.getDetail(id: id, responseHandler: { (detailData) in
-            self.showControls()
+            self.toogleControls(show: true)
             self.updateDetail(detailData: detailData)
             self.updateCast(cast: detailData.cast)
             self.updateVideo(video: detailData.video)
             self.toggleActivityIndicator(show: false)
         }) { (error) in
             self.toggleActivityIndicator(show: false)
-            self.showSnackError(title: "Error connecting to service", buttonText: "Retry", view: self.scrollView, completion: {
+            self.showSnackError(title: "Error connecting to service", buttonText: "Retry", view: self.containerView, completion: {
                 self.getdetail()
             })
         }
@@ -119,42 +119,22 @@ class DetailViewController: BaseViewController {
         videoTableView.dataSource = self
     }
 
-    func hideControls() {
-        scrollView.isHidden = true
-        scrollView.isScrollEnabled = false
-    }
-
-    func showControls() {
-        scrollView.isHidden = false
-        scrollView.isScrollEnabled = false
+    func toogleControls(show: Bool) {
+        containerView.isHidden = !show
         selectOption(optionMenu)
     }
 
     @objc func showFullPoster() {
-        if self.posterImage.image != imagePlaceHolder {
-            if !detailContainer.isHidden {
-                detailContainer.isHidden = true
-                posterImage.frame = self.scrollView.bounds
-                self.navigationItem.rightBarButtonItem?.title = self.rightButtonTexts.last!
-            } else {
-                detailContainer.isHidden = false
-                posterImage.frame = self.imageFrame
-                self.navigationItem.rightBarButtonItem?.title = self.rightButtonTexts.first!
-            }
-        }
+        let fullScreen = !detailContainer.isHidden
+        detailContainer.isHidden = fullScreen
+        posterImage.frame = fullScreen ? containerView.bounds : imageFrame
+        navigationItem.rightBarButtonItem?.title = fullScreen ? rightButtonTexts.last! : rightButtonTexts.first!
     }
 
     @IBAction func selectOption(_ sender: UISegmentedControl) {
         detailView.isHidden = sender.selectedSegmentIndex == 0 ? false : true
         castCollectionView.isHidden = sender.selectedSegmentIndex == 1 ? false : true
         videoTableView.isHidden = sender.selectedSegmentIndex == 2 ? false : true
-        self.view.layoutSubviews()
-    }
-}
-
-extension DetailViewController: UIScrollViewDelegate {
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scrollView.bounces = scrollView.contentOffset.y > 100
     }
 }
 
