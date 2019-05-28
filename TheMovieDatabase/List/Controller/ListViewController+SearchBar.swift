@@ -37,7 +37,7 @@ extension ListViewController: UISearchBarDelegate {
     }
 
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        scrollToTop()
+        scrollToTop(animated: false)
         reloadResults(data: [], animated: true)
         getList()
     }

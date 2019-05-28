@@ -56,7 +56,7 @@ class ListViewController: BaseViewController {
         gesture.cancelsTouchesInView = false
         collectionView.addGestureRecognizer(gesture)
         scrollTopButton.isHidden = true
-        scrollTopButton.addTarget(self, action: #selector(scrollToTop), for: .touchUpInside)
+        scrollTopButton.addTarget(self, action: #selector(scrollTopButtonAction), for: .touchUpInside)
     }
 
     func getList(animated: Bool = false, nextPage: Bool = false, query: String = "") {
@@ -117,9 +117,13 @@ class ListViewController: BaseViewController {
         }
     }
 
-    @objc func scrollToTop() {
+    @objc func scrollTopButtonAction() {
+        scrollToTop(animated: true)
+    }
+
+    func scrollToTop(animated: Bool = true) {
         if self.collectionView.numberOfItems(inSection: 0) > 0 {
-            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: animated)
         }
     }
 }
